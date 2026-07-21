@@ -1,0 +1,141 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "../protos/FourWheelRobot.proto"
+
+WorldInfo {
+  basicTimeStep 50
+  gravity 9.81
+}
+Viewpoint {
+  orientation -0.529269 0.819642 0.219230 0.935852
+  position 4 3.25 4
+}
+Background {
+  skyColor [
+    0.75 0.82 0.92
+  ]
+}
+DirectionalLight {
+  ambientIntensity 0.7
+  direction -0.4 -1 -0.3
+  intensity 1
+}
+Solid {
+  translation 0 -0.026 0
+  name "floor"
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.70 0.70 0.70
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 100 0.05 100
+      }
+    }
+  ]
+  boundingObject Box {
+    size 100 0.05 100
+  }
+  locked TRUE
+}
+Solid {
+  translation 0 0.0005 0
+  name "dark track"
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.08 0.08 0.08
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 8 0.001 0.55
+      }
+    }
+  ]
+  locked TRUE
+}
+Solid {
+  translation 0 0.0015 0
+  name "centre line"
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.95 0.95 0.95
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 8 0.001 0.025
+      }
+    }
+  ]
+  locked TRUE
+}
+Solid {
+  translation 0 0.002 0.30
+  name "left track boundary"
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.95 0.70 0.05
+        roughness 0.8
+      }
+      geometry Box { size 8 0.002 0.018 }
+    }
+  ]
+  locked TRUE
+}
+Solid {
+  translation 0 0.002 -0.30
+  name "right track boundary"
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.95 0.70 0.05
+        roughness 0.8
+      }
+      geometry Box { size 8 0.002 0.018 }
+    }
+  ]
+  locked TRUE
+}
+Solid {
+  translation -3.0 0.003 0
+  name "start line"
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.95 0.95 0.95
+        roughness 0.9
+      }
+      geometry Box { size 0.045 0.003 0.55 }
+    }
+  ]
+  locked TRUE
+}
+Solid {
+  translation 2.0 0.075 0
+  name "test obstacle"
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.85 0.18 0.12
+        roughness 0.7
+        metalness 0
+      }
+      geometry Box {
+        size 0.10 0.15 0.10
+      }
+    }
+  ]
+  boundingObject Box {
+    size 0.10 0.15 0.10
+  }
+  locked TRUE
+}
+FourWheelRobot {
+  translation -3.0 0.0325 0
+}

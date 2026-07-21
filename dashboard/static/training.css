@@ -1,0 +1,7 @@
+.training-actions { display:grid; grid-template-columns:repeat(4,1fr); gap:9px; padding:16px; }
+.training-actions .primary { background:#16475d; border-color:#39d7e5; }
+.training-actions small { display:block; margin-top:4px; color:#8ca0bd; font-weight:400; }
+.job-status { display:flex; justify-content:space-between; gap:15px; padding:0 16px 10px; color:#8ca0bd; }
+.job-status b { color:#ecf3ff; }
+#training-log { margin:0 16px; padding:13px; height:150px; overflow:auto; white-space:pre-wrap; background:#050b14; color:#a9bdd7; border:1px solid #243551; border-radius:10px; font:12px/1.5 Consolas,monospace; }
+@media(max-width:900px){.training-actions{grid-template-columns:1fr 1fr}.job-status{display:block}.job-status span{display:block;margin-top:5px}}

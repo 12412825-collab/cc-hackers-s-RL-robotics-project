@@ -1,0 +1,15 @@
+.camera img, .camera canvas {
+  aspect-ratio: 16 / 9;
+  max-height: 470px;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  main { padding: 12px; }
+  .control { order: -2; }
+  .camera { order: -1; }
+  .camera img, .camera canvas { height: 230px; aspect-ratio: auto; }
+  .view-help { display:none; }
+  header { padding: 0 15px; }
+  #joystick { height: 230px; }
+}

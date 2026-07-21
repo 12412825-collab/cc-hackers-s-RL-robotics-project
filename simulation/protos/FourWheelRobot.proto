@@ -1,0 +1,392 @@
+#VRML_SIM R2025a utf8
+
+PROTO FourWheelRobot [
+  field SFVec3f    translation     0 0.0325 0
+  field SFRotation rotation        0 1 0 0
+  field SFString   name            "four_wheel_robot"
+  field SFString   controller      "donkey_webots"
+  field SFBool     supervisor      TRUE
+  field SFColor    bodyColor       0.12 0.35 0.80
+  field SFFloat    wheelRadius     0.0325
+  field SFFloat    wheelWidth      0.026
+  field SFFloat    wheelSeparation 0.130
+  field SFFloat    wheelbase       0.150
+  field SFFloat    maxWheelSpeed   12.0
+  field SFFloat    motorTorque     0.12
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    name IS name
+    controller IS controller
+    supervisor IS supervisor
+    children [
+      Transform {
+        translation 0 0.0275 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor IS bodyColor
+              roughness 0.65
+              metalness 0
+            }
+            geometry Box {
+              size 0.255 0.055 0.170
+            }
+          }
+        ]
+      }
+      Transform {
+        translation 0.075 0.070 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.08 0.08 0.08
+              roughness 0.5
+              metalness 0
+            }
+            geometry Box {
+              size 0.080 0.045 0.100
+            }
+          }
+        ]
+      }
+      # Red front bumper makes the vehicle heading immediately visible.
+      Transform {
+        translation 0.132 0.025 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.90 0.08 0.05
+              roughness 0.55
+            }
+            geometry Box { size 0.012 0.030 0.180 }
+          }
+        ]
+      }
+      # Battery pack and Arduino-style controller board.
+      Transform {
+        translation -0.045 0.064 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.08 0.08 0.09
+              roughness 0.8
+            }
+            geometry Box { size 0.085 0.025 0.075 }
+          }
+        ]
+      }
+      Transform {
+        translation 0.045 0.085 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.02 0.48 0.55
+              roughness 0.65
+              metalness 0.05
+            }
+            geometry Box { size 0.070 0.010 0.055 }
+          }
+          Transform {
+            translation 0 0.007 0
+            children [
+              Shape {
+                appearance PBRAppearance { baseColor 0.75 0.75 0.72 }
+                geometry Box { size 0.025 0.006 0.020 }
+              }
+            ]
+          }
+        ]
+      }
+      # Two visible ultrasonic transducers at the front.
+      Transform {
+        translation 0.139 0.060 0.028
+        rotation 0 0 1 1.5708
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.72 0.74 0.76
+              roughness 0.3
+              metalness 0.65
+            }
+            geometry Cylinder { radius 0.012 height 0.009 subdivision 24 }
+          }
+        ]
+      }
+      Transform {
+        translation 0.139 0.060 -0.028
+        rotation 0 0 1 1.5708
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.72 0.74 0.76
+              roughness 0.3
+              metalness 0.65
+            }
+            geometry Cylinder { radius 0.012 height 0.009 subdivision 24 }
+          }
+        ]
+      }
+      Camera {
+        translation 0.155 0.105 0
+        rotation 0 1 0 0
+        name "camera"
+        fieldOfView 1.0472
+        width 160
+        height 120
+        near 0.01
+      }
+      Accelerometer {
+        name "accelerometer"
+        noise 0.01
+      }
+      Gyro {
+        name "gyro"
+        noise 0.005
+      }
+      DistanceSensor {
+        translation 0.130 0.055 0
+        rotation 0 0 1 0
+        name "front distance sensor"
+        type "sonar"
+        numberOfRays 5
+        aperture 0.10
+        lookupTable [
+          0.02 0.02 0.002
+          2.00 2.00 0.010
+        ]
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor 0.075 0 0.065
+          axis 0 0 1
+        }
+        device [
+          RotationalMotor {
+            name "front left wheel motor"
+            maxVelocity IS maxWheelSpeed
+            maxTorque IS motorTorque
+          }
+          PositionSensor {
+            name "front left wheel sensor"
+            resolution 0.001
+          }
+        ]
+        endPoint Solid {
+          translation 0.075 0 0.065
+          children [
+            Transform {
+              rotation 1 0 0 1.5708
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.04 0.04 0.04
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height IS wheelWidth
+                    radius IS wheelRadius
+                    subdivision 24
+                  }
+                }
+              ]
+            }
+          ]
+          name "front left wheel"
+          boundingObject Transform {
+            rotation 1 0 0 1.5708
+            children [
+              Cylinder {
+                height IS wheelWidth
+                radius IS wheelRadius
+                subdivision 16
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.05
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor 0.075 0 -0.065
+          axis 0 0 1
+        }
+        device [
+          RotationalMotor {
+            name "front right wheel motor"
+            maxVelocity IS maxWheelSpeed
+            maxTorque IS motorTorque
+          }
+          PositionSensor {
+            name "front right wheel sensor"
+            resolution 0.001
+          }
+        ]
+        endPoint Solid {
+          translation 0.075 0 -0.065
+          children [
+            Transform {
+              rotation 1 0 0 1.5708
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.04 0.04 0.04
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height IS wheelWidth
+                    radius IS wheelRadius
+                    subdivision 24
+                  }
+                }
+              ]
+            }
+          ]
+          name "front right wheel"
+          boundingObject Transform {
+            rotation 1 0 0 1.5708
+            children [
+              Cylinder {
+                height IS wheelWidth
+                radius IS wheelRadius
+                subdivision 16
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.05
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor -0.075 0 0.065
+          axis 0 0 1
+        }
+        device [
+          RotationalMotor {
+            name "rear left wheel motor"
+            maxVelocity IS maxWheelSpeed
+            maxTorque IS motorTorque
+          }
+          PositionSensor {
+            name "rear left wheel sensor"
+            resolution 0.001
+          }
+        ]
+        endPoint Solid {
+          translation -0.075 0 0.065
+          children [
+            Transform {
+              rotation 1 0 0 1.5708
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.04 0.04 0.04
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height IS wheelWidth
+                    radius IS wheelRadius
+                    subdivision 24
+                  }
+                }
+              ]
+            }
+          ]
+          name "rear left wheel"
+          boundingObject Transform {
+            rotation 1 0 0 1.5708
+            children [
+              Cylinder {
+                height IS wheelWidth
+                radius IS wheelRadius
+                subdivision 16
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.05
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor -0.075 0 -0.065
+          axis 0 0 1
+        }
+        device [
+          RotationalMotor {
+            name "rear right wheel motor"
+            maxVelocity IS maxWheelSpeed
+            maxTorque IS motorTorque
+          }
+          PositionSensor {
+            name "rear right wheel sensor"
+            resolution 0.001
+          }
+        ]
+        endPoint Solid {
+          translation -0.075 0 -0.065
+          children [
+            Transform {
+              rotation 1 0 0 1.5708
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.04 0.04 0.04
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height IS wheelWidth
+                    radius IS wheelRadius
+                    subdivision 24
+                  }
+                }
+              ]
+            }
+          ]
+          name "rear right wheel"
+          boundingObject Transform {
+            rotation 1 0 0 1.5708
+            children [
+              Cylinder {
+                height IS wheelWidth
+                radius IS wheelRadius
+                subdivision 16
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 0.05
+          }
+        }
+      }
+    ]
+    boundingObject Transform {
+      translation 0 0.0275 0
+      children [
+        Box {
+          size 0.255 0.055 0.170
+        }
+      ]
+    }
+    physics Physics {
+      density -1
+      mass 0.60
+      centerOfMass [ 0 0.025 0 ]
+    }
+  }
+}

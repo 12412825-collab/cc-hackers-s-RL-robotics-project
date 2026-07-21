@@ -1,0 +1,8 @@
+#language-toggle {
+  min-width: 48px;
+  padding: 7px 11px;
+  border-color: #39d7e5;
+  background: #10283b;
+  color: #8ff6ff;
+}
+#language-toggle:hover { background: #17445b; }

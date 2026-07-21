@@ -53,8 +53,17 @@ try:
     import torch.optim as optim
     from torch.distributions import Normal
     TORCH_AVAILABLE = True
-except ImportError:
+except ImportError as exc:
     TORCH_AVAILABLE = False
+    _TORCH_IMPORT_ERROR = exc
+
+# Keep residual learning optional.  Importers such as manage.py can catch this
+# cleanly and continue with the normal DonkeyCar/Webots control loop.
+if not TORCH_AVAILABLE:
+    raise ImportError(
+        "PyTorch is required only when residual RL is enabled. "
+        "Install torch and torchvision before setting RESIDUAL_RL=True."
+    ) from _TORCH_IMPORT_ERROR
 
 try:
     import torchvision
@@ -792,7 +801,7 @@ class ReplayBuffer:
 # ===========================================================================
 
 class ResidualPilot:
-    """DonkeyCar Part: Camera Image + optional Sensor Obs -> Residual Steering.
+    """DonkeyCar Part: Camera Image + optional Sensor Obs -> angular residual.
 
     Vehicle pipeline:
         # Image-only:
@@ -808,7 +817,12 @@ class ResidualPilot:
             raise ImportError("PyTorch is required. pip install torch")
 
         self.cfg = cfg
-        self.residual_scale = getattr(cfg, 'RESIDUAL_SCALE', 0.3)
+        if getattr(cfg, 'USE_VELOCITY_CONTROL', False):
+            self.residual_scale = getattr(
+                cfg, 'RESIDUAL_ANGULAR_SCALE',
+                getattr(cfg, 'RESIDUAL_SCALE', 0.3))
+        else:
+            self.residual_scale = getattr(cfg, 'RESIDUAL_SCALE', 0.3)
         self.model_path = getattr(cfg, 'RESIDUAL_MODEL_PATH', None)
         self.backbone_type = getattr(cfg, 'RESIDUAL_BACKBONE', 'mobilenet_v3_small')
         self.input_shape = (cfg.IMAGE_DEPTH, cfg.IMAGE_H, cfg.IMAGE_W)
@@ -844,7 +858,7 @@ class ResidualPilot:
         self.log_freq = getattr(cfg, 'RESIDUAL_LOG_FREQ', 200)
 
     def run(self, img_arr, sensor_obs=None):
-        """DonkeyCar Part interface. Returns residual_steering in [-scale, +scale].
+        """Return angular residual in rad/s (or legacy normalized steering).
 
         Args:
             img_arr: camera image (H,W,C) uint8
@@ -912,7 +926,16 @@ class ResidualTrainer:
             capacity=getattr(cfg, 'RESIDUAL_BUFFER_SIZE', 100000),
             sensor_dim=effective_sensor_dim)
         self.batch_size = getattr(cfg, 'RESIDUAL_BATCH_SIZE', 256)
-        self.residual_scale = getattr(cfg, 'RESIDUAL_SCALE', 0.3)
+        self.use_velocity_control = getattr(cfg, 'USE_VELOCITY_CONTROL', False)
+        if self.use_velocity_control:
+            self.residual_scale = getattr(
+                cfg, 'RESIDUAL_ANGULAR_SCALE',
+                getattr(cfg, 'RESIDUAL_SCALE', 0.3))
+            self.max_angular_velocity = getattr(
+                cfg, 'MAX_ANGULAR_VELOCITY', 1.0)
+        else:
+            self.residual_scale = getattr(cfg, 'RESIDUAL_SCALE', 0.3)
+            self.max_angular_velocity = 1.0
 
     def load_tub_data(self, tub_paths, base_model_path=None):
         """Load DonkeyCar Tub data into replay buffer.
@@ -961,8 +984,13 @@ class ResidualTrainer:
                     if base_model is not None:
                         base_steering, _ = base_model.run(img_arr)
 
+                    # In velocity-control mode pilot steering is normalized,
+                    # while the residual scale is physical rad/s.
+                    angular_error = (
+                        (human_steering - base_steering)
+                        * self.max_angular_velocity)
                     residual = np.clip(
-                        (human_steering - base_steering) / self.residual_scale, -1.0, 1.0)
+                        angular_error / self.residual_scale, -1.0, 1.0)
 
                     img = img_arr.astype(np.float32) / 255.0
                     img = np.transpose(img, (2, 0, 1))
@@ -998,22 +1026,36 @@ class ResidualTrainer:
         idx = 0
 
         if 'enc/speed' in record:
-            obs[idx] = float(record['enc/speed'])
+            max_speed = float(getattr(self.cfg, 'ENCODER_MAX_SPEED', 5.0))
+            obs[idx] = np.clip(float(record['enc/speed']) / max_speed, -1.0, 1.0)
         idx += 1
         if 'enc/accel' in record:
-            obs[idx] = float(record['enc/accel'])
+            max_speed = float(getattr(self.cfg, 'ENCODER_MAX_SPEED', 5.0))
+            obs[idx] = np.clip(
+                float(record['enc/accel']) / (max_speed * 2.0), -1.0, 1.0)
         idx += 1
 
-        for key in ['imu/acl_x', 'imu/acl_y', 'imu/acl_z',
-                     'imu/gyr_x', 'imu/gyr_y', 'imu/gyr_z']:
+        accel_range = float(getattr(self.cfg, 'IMU_ACCEL_RANGE', 2.0))
+        gyro_range = float(getattr(self.cfg, 'IMU_GYRO_RANGE', 250.0))
+        for key in ['imu/acl_x', 'imu/acl_y', 'imu/acl_z']:
             if key in record:
-                obs[idx] = float(record[key])
+                obs[idx] = np.clip(float(record[key]) / accel_range, -1.0, 1.0)
+            idx += 1
+        for key in ['imu/gyr_x', 'imu/gyr_y', 'imu/gyr_z']:
+            if key in record:
+                obs[idx] = np.clip(float(record[key]) / gyro_range, -1.0, 1.0)
             idx += 1
 
         if 'obs/distance' in record:
-            obs[idx] = float(record['obs/distance'])
+            min_dist = float(getattr(self.cfg, 'OBSTACLE_MIN_DIST', 2.0))
+            max_dist = float(getattr(self.cfg, 'OBSTACLE_MAX_DIST', 400.0))
+            distance = np.clip(float(record['obs/distance']), min_dist, max_dist)
+            obs[idx] = 2.0 * (distance - min_dist) / (max_dist - min_dist) - 1.0
         elif 'lidar/dist' in record:
-            obs[idx] = float(record['lidar/dist'])
+            min_dist = float(getattr(self.cfg, 'OBSTACLE_MIN_DIST', 2.0))
+            max_dist = float(getattr(self.cfg, 'OBSTACLE_MAX_DIST', 400.0))
+            distance = np.clip(float(record['lidar/dist']), min_dist, max_dist)
+            obs[idx] = 2.0 * (distance - min_dist) / (max_dist - min_dist) - 1.0
         # idx + 1 → reaches 9
 
         return obs

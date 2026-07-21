@@ -291,7 +291,7 @@ class ObstacleSensor:
         # Normalize: [min_dist, max_dist] → [0, 1] → [1, -1] (closer = more negative)
         # This way the RL agent sees "danger" as negative values
         dist_01 = (dist_clamped - self.min_dist) / (self.max_dist - self.min_dist)
-        dist_norm = 1.0 - 2.0 * dist_01  # maps to [1, -1]
+        dist_norm = 2.0 * dist_01 - 1.0  # close=-1, far=+1
 
         return np.array([dist_norm], dtype=np.float32)
 
@@ -514,12 +514,27 @@ class SensorFusion:
                           'obs/distance'],
                   outputs=['sensor/observation'])
         """
-        self.update_encoder(speed=enc_speed)
-        self.update_imu(
-            accel_x=imu_acl_x, accel_y=imu_acl_y, accel_z=imu_acl_z,
-            gyro_x=imu_gyr_x, gyro_y=imu_gyr_y, gyro_z=imu_gyr_z)
-        self.update_obstacle(distance=obs_distance)
-        return self.get_observation()
+        obs = np.zeros(self.sensor_dim, dtype=np.float32)
+        if self.encoder and self.encoder.enabled:
+            obs[0:2] = self.encoder.update(raw_speed=enc_speed)
+
+        if self.imu and self.imu.enabled:
+            accel = None
+            gyro = None
+            if all(value is not None for value in
+                   [imu_acl_x, imu_acl_y, imu_acl_z]):
+                accel = (imu_acl_x, imu_acl_y, imu_acl_z)
+            if all(value is not None for value in
+                   [imu_gyr_x, imu_gyr_y, imu_gyr_z]):
+                gyro = (imu_gyr_x, imu_gyr_y, imu_gyr_z)
+            obs[2:8] = self.imu.update(accel=accel, gyro=gyro)
+
+        if self.obstacle and self.obstacle.enabled:
+            obs[8:9] = self.obstacle.update(raw_distance_cm=obs_distance)
+
+        self.last_observation = obs
+        self.update_count += 1
+        return obs.copy()
 
     def reset(self):
         """Reset all sensor internal states."""

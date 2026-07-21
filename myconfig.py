@@ -874,3 +874,74 @@ SENSOR_FUSION_RATE = 20.0     # Hz, sensor fusion output rate
 SENSOR_BUFFER_SIZE = 10       # Rolling buffer for temporal smoothing
 
 # ============================================================================
+# Differential-drive Webots Simulation
+# ============================================================================
+# Webots replaces DonkeySim, while DonkeyCar remains the Vehicle/Part runtime.
+SIMULATOR = 'webots'          # 'none' | 'donkey_gym' | 'webots'
+DONKEY_GYM = False
+USE_TRAINING_CONSOLE = True
+
+# Use physical robot commands internally:
+#   linear/velocity  (m/s)
+#   angular/velocity (rad/s)
+# Legacy steering/throttle channels are generated only at the compatibility
+# boundary for existing DonkeyCar recorders and real drivetrain parts.
+USE_VELOCITY_CONTROL = True
+AUTO_RECORD_ON_THROTTLE = False
+MAX_LINEAR_VELOCITY = 0.20
+MAX_ANGULAR_VELOCITY = 1.50
+WEBOTS_GEOFENCE_M = 45.0
+WEBOTS_MIN_HEIGHT_M = -0.25
+
+# Measure these values on the real robot before Sim-to-Real experiments.
+ROBOT_LENGTH = 0.255          # metres (estimated tolerance +/- 0.005)
+ROBOT_WIDTH = 0.170           # metres (estimated tolerance +/- 0.005)
+ROBOT_MASS = 0.800            # kg, including battery
+WHEEL_RADIUS = 0.0325         # 65 mm tyre diameter
+WHEEL_WIDTH = 0.026           # metres
+WHEELBASE = 0.150             # front-to-rear axle distance, metres
+WHEEL_SEPARATION = 0.130      # left-to-right wheel centre distance, metres
+MAX_WHEEL_SPEED = 12.0        # provisional rad/s; TT 6V 1:48 needs measurement
+
+# Scheme A: the SAC policy changes angular velocity only.
+# raw SAC action [-1, 1] -> residual omega in [-scale, +scale] rad/s.
+RESIDUAL_ANGULAR_SCALE = 0.75
+
+# Webots controller/device mapping. Device names must match the Robot node.
+WEBOTS_TIMESTEP_MS = 50
+WEBOTS_LEFT_MOTOR = 'left wheel motor'
+WEBOTS_RIGHT_MOTOR = 'right wheel motor'
+WEBOTS_LEFT_ENCODER = 'left wheel sensor'
+WEBOTS_RIGHT_ENCODER = 'right wheel sensor'
+WEBOTS_LEFT_MOTORS = [
+    'front left wheel motor', 'rear left wheel motor']
+WEBOTS_RIGHT_MOTORS = [
+    'front right wheel motor', 'rear right wheel motor']
+WEBOTS_LEFT_ENCODERS = [
+    'front left wheel sensor', 'rear left wheel sensor']
+WEBOTS_RIGHT_ENCODERS = [
+    'front right wheel sensor', 'rear right wheel sensor']
+WEBOTS_CAMERA = 'camera'
+WEBOTS_ACCELEROMETER = 'accelerometer'
+WEBOTS_GYRO = 'gyro'
+WEBOTS_DISTANCE_SENSOR = 'front distance sensor'
+
+# Webots DistanceSensor values depend on its lookupTable. The supplied mapping
+# assumes metres and converts them to the centimetres expected by SensorFusion.
+WEBOTS_DISTANCE_TO_CM = 100.0
+
+# Simple ground-truth CTE used for logging. For curved tracks, replace this
+# with a centre-line projection in the future Gymnasium reward environment.
+WEBOTS_CTE_AXIS = 'z'
+WEBOTS_TRACK_CENTER = 0.0
+
+# Enable Webots sensor channels in the existing 9-D fusion vector. This does
+# not enable the residual policy itself; set RESIDUAL_RL=True after a matching
+# model has been trained.
+USE_MULTI_MODAL = True
+ENABLE_ENCODER = True
+ENCODER_TYPE = 'Simulated'
+ENABLE_IMU = True
+ENABLE_OBSTACLE = True
+
+# ============================================================================

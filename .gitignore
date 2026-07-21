@@ -39,3 +39,6 @@ Thumbs.db
 
 # Keep model directory structure
 !models/.gitkeep
+
+# Executables and setups
+*.exe

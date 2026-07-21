@@ -1,0 +1,12 @@
+.camera-title { position: relative; z-index: 2; }
+.view-switch { display: flex; align-items: center; gap: 6px; }
+.view-switch button { padding: 6px 10px; font-size: 11px; }
+.view-switch i { font-style: normal; margin-left: 5px; }
+.view-switch button.active { background: #1e4460; border-color: var(--cyan); color: #b9faff; }
+.view-stage { position: relative; background: #040811; }
+.view-stage > img, .view-stage > canvas { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; background: #040811; margin: 0; border-radius: 0; }
+.view-stage > [hidden] { display: none; }
+.view-help { position: absolute; right: 16px; bottom: 16px; display: flex; flex-direction: column; gap: 3px; text-align: right; background: #07101ddd; padding: 9px 12px; border: 1px solid #ffffff22; border-radius: 9px; color: var(--muted); font-size: 11px; }
+.view-help b { color: var(--text); }
+.camera-overlay { z-index: 2; }
+@media (max-width: 900px) { .view-help { display: none; } }

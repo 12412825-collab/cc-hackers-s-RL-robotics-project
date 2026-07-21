@@ -54,6 +54,22 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
 
+def simulator_backend(cfg):
+    """Return the selected simulator while preserving DonkeyCar defaults."""
+    configured = getattr(cfg, 'SIMULATOR', None)
+    if configured:
+        return str(configured).strip().lower()
+    return 'donkey_gym' if getattr(cfg, 'DONKEY_GYM', False) else 'none'
+
+
+def is_webots(cfg):
+    return simulator_backend(cfg) == 'webots'
+
+
+def is_simulator(cfg):
+    return simulator_backend(cfg) in ('webots', 'donkey_gym')
+
+
 def drive(cfg, model_path=None, use_joystick=False, model_type=None,
           camera_type='single', meta=[]):
     """
@@ -66,7 +82,7 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None,
     requesting the same named input.
     """
     logger.info(f'PID: {os.getpid()}')
-    if cfg.DONKEY_GYM:
+    if simulator_backend(cfg) == 'donkey_gym':
         #the simulator will use cuda and then we usually run out of resources
         #if we also try to use cuda. so disable for donkey_gym.
         os.environ["CUDA_VISIBLE_DEVICES"]="-1"
@@ -208,7 +224,7 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None,
                 return 0.1
             return 0
 
-    if cfg.HAVE_RGB_LED and not cfg.DONKEY_GYM:
+    if cfg.HAVE_RGB_LED and not is_simulator(cfg):
         from donkeycar.parts.led_status import RGB_LED
         led = RGB_LED(cfg.LED_PIN_R, cfg.LED_PIN_G, cfg.LED_PIN_B, cfg.LED_INVERT)
         led.set_rgb(cfg.LED_R, cfg.LED_G, cfg.LED_B)
@@ -274,6 +290,18 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None,
 
     #IMU
     add_imu(V, cfg)
+
+    # Build the normalized sensor vector before the residual pilot consumes it.
+    # Webots publishes the same raw channel names as real sensors.
+    if getattr(cfg, 'USE_MULTI_MODAL', False):
+        from parts.sensors import create_sensor_fusion
+        sensor_fusion = create_sensor_fusion(cfg)
+        V.add(sensor_fusion,
+              inputs=['enc/speed',
+                      'imu/acl_x', 'imu/acl_y', 'imu/acl_z',
+                      'imu/gyr_x', 'imu/gyr_y', 'imu/gyr_z',
+                      'obs/distance'],
+              outputs=['sensor/observation'])
 
 
     # Use the FPV preview, which will show the cropped image output, or the full frame.
@@ -435,9 +463,15 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None,
                 )
             logger.info("Adding Residual RL Pilot")
             rl_pilot = ResidualPilot(cfg)
+            residual_inputs = inputs[:1]
+            if getattr(cfg, 'USE_MULTI_MODAL', False):
+                residual_inputs += ['sensor/observation']
+            residual_output = ('residual/angular_velocity'
+                               if getattr(cfg, 'USE_VELOCITY_CONTROL', False)
+                               else 'residual/steering')
             V.add(rl_pilot,
-                  inputs=inputs[:1],  # same image as base pilot
-                  outputs=['residual/steering'],
+                  inputs=residual_inputs,
+                  outputs=[residual_output],
                   run_condition='run_pilot')
 
     #
@@ -474,7 +508,30 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None,
     # based on the choice of user or autopilot drive mode.
     # When RESIDUAL_RL is enabled, residual steering is added to base pilot steering.
     #
-    if getattr(cfg, 'RESIDUAL_RL', False):
+    if getattr(cfg, 'USE_VELOCITY_CONTROL', False):
+        from parts.differential_drive import (
+            VelocityDriveMode, VelocityToNormalizedControl)
+        velocity_mode = VelocityDriveMode(
+            cfg.MAX_LINEAR_VELOCITY,
+            cfg.MAX_ANGULAR_VELOCITY,
+            cfg.AI_THROTTLE_MULT)
+        velocity_inputs = [
+            'user/mode', 'user/angle', 'user/throttle',
+            'pilot/angle', 'pilot/throttle']
+        if getattr(cfg, 'RESIDUAL_RL', False):
+            velocity_inputs.append('residual/angular_velocity')
+        else:
+            # A literal None input is supported by the Vehicle pipeline and
+            # gives VelocityDriveMode its zero residual default.
+            velocity_inputs.append(None)
+        V.add(velocity_mode,
+              inputs=velocity_inputs,
+              outputs=['linear/velocity', 'angular/velocity'])
+        V.add(VelocityToNormalizedControl(
+                  cfg.MAX_LINEAR_VELOCITY, cfg.MAX_ANGULAR_VELOCITY),
+              inputs=['linear/velocity', 'angular/velocity'],
+              outputs=['steering', 'throttle'])
+    elif getattr(cfg, 'RESIDUAL_RL', False):
         V.add(ResidualDriveMode(cfg.AI_THROTTLE_MULT),
               inputs=['user/mode', 'user/angle', 'user/throttle',
                       'pilot/angle', 'pilot/throttle', 'residual/steering'],
@@ -520,9 +577,25 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None,
         inputs=['cam/image_array','user/angle', 'user/throttle', 'user/mode']
         types=['image_array','float', 'float','str']
 
-    if cfg.HAVE_ODOM:
+    if cfg.HAVE_ODOM and not is_webots(cfg):
         inputs += ['enc/speed']
         types += ['float']
+
+    if is_webots(cfg):
+        inputs += [
+            'linear/velocity', 'angular/velocity',
+            'enc/left_speed', 'enc/right_speed', 'enc/speed',
+            'imu/acl_x', 'imu/acl_y', 'imu/acl_z',
+            'imu/gyr_x', 'imu/gyr_y', 'imu/gyr_z',
+            'obs/distance', 'pos/pos_x', 'pos/pos_y', 'pos/pos_z',
+            'pos/speed', 'pos/cte']
+        types += [
+            'float', 'float',
+            'float', 'float', 'float',
+            'float', 'float', 'float',
+            'float', 'float', 'float',
+            'float', 'float', 'float', 'float',
+            'float', 'float']
 
     if cfg.TRAIN_BEHAVIORS:
         inputs += ['behavior/state', 'behavior/label', "behavior/one_hot_state_array"]
@@ -540,7 +613,7 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None,
            'float', 'float', 'float']
 
     # rbx
-    if cfg.DONKEY_GYM:
+    if simulator_backend(cfg) == 'donkey_gym':
         if cfg.SIM_RECORD_LOCATION:
             inputs += ['pos/pos_x', 'pos/pos_y', 'pos/pos_z', 'pos/speed', 'pos/cte']
             types  += ['float', 'float', 'float', 'float', 'float']
@@ -590,7 +663,7 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None,
         V.add(pub, inputs=['jpg/bin'])
 
 
-    if cfg.DONKEY_GYM:
+    if is_simulator(cfg):
         print("You can now go to http://localhost:%d to drive your car." % cfg.WEB_CONTROL_PORT)
     else:
         print("You can now go to <your hostname.local>:%d to drive your car." % cfg.WEB_CONTROL_PORT)
@@ -755,9 +828,24 @@ def add_user_controller(V, cfg, use_joystick, input_image='ui/image_array'):
     # This web controller will create a web server that is capable
     # of managing steering, throttle, and modes, and more.
     #
-    ctr = LocalWebController(port=cfg.WEB_CONTROL_PORT, mode=cfg.WEB_INIT_MODE)
+    if getattr(cfg, 'USE_TRAINING_CONSOLE', False):
+        from dashboard.server import TrainingConsole
+        ctr = TrainingConsole(cfg)
+        controller_inputs = [
+            input_image, 'tub/num_records', 'user/mode', 'recording',
+            'steering', 'throttle', 'linear/velocity', 'angular/velocity',
+            'enc/left_speed', 'enc/right_speed', 'enc/speed',
+            'obs/distance', 'pos/pos_x', 'pos/pos_y', 'pos/pos_z',
+            'pos/cte', 'imu/acl_x', 'imu/acl_y', 'imu/acl_z',
+            'imu/gyr_x', 'imu/gyr_y', 'imu/gyr_z',
+            'residual/angular_velocity']
+    else:
+        ctr = LocalWebController(
+            port=cfg.WEB_CONTROL_PORT, mode=cfg.WEB_INIT_MODE)
+        controller_inputs = [
+            input_image, 'tub/num_records', 'user/mode', 'recording']
     V.add(ctr,
-          inputs=[input_image, 'tub/num_records', 'user/mode', 'recording'],
+          inputs=controller_inputs,
           outputs=['user/steering', 'user/throttle', 'user/mode', 'recording', 'web/buttons'],
           threaded=True)
 
@@ -818,9 +906,29 @@ def add_user_controller(V, cfg, use_joystick, input_image='ui/image_array'):
 
 
 def add_simulator(V, cfg):
+    backend = simulator_backend(cfg)
+
+    if backend == 'webots':
+        from simulation.webots_adapter import WebotsAdapter
+        webots = WebotsAdapter(cfg)
+        V.add(
+            webots,
+            inputs=['linear/velocity', 'angular/velocity'],
+            outputs=[
+                'cam/image_array',
+                'enc/left_speed', 'enc/right_speed', 'enc/speed',
+                'imu/acl_x', 'imu/acl_y', 'imu/acl_z',
+                'imu/gyr_x', 'imu/gyr_y', 'imu/gyr_z',
+                'obs/distance',
+                'pos/pos_x', 'pos/pos_y', 'pos/pos_z',
+                'pos/speed', 'pos/cte',
+            ],
+            threaded=False)
+        return
+
     # Donkey gym part will output position information if it is configured
     # TODO: the simulation outputs conflict with imu, odometry, kinematics pose estimation and T265 outputs; make them work together.
-    if cfg.DONKEY_GYM:
+    if backend == 'donkey_gym':
         from donkeycar.parts.dgym import DonkeyGymEnv
         # rbx
         gym = DonkeyGymEnv(cfg.DONKEY_SIM_PATH, host=cfg.SIM_HOST, env_name=cfg.DONKEY_GYM_ENV_NAME, conf=cfg.GYM_CONF,
@@ -853,7 +961,7 @@ def get_camera(cfg):
     Get the configured camera part
     """
     cam = None
-    if not cfg.DONKEY_GYM:
+    if not is_simulator(cfg):
         if cfg.CAMERA_TYPE == "PICAM":
             from donkeycar.parts.camera import PiCamera
             cam = PiCamera(image_w=cfg.IMAGE_W, image_h=cfg.IMAGE_H, image_d=cfg.IMAGE_DEPTH,
@@ -895,6 +1003,8 @@ def add_camera(V, cfg, camera_type):
     :param cfg: the configuration (from myconfig.py)
     """
     logger.info("cfg.CAMERA_TYPE %s"%cfg.CAMERA_TYPE)
+    if is_simulator(cfg):
+        return
     if camera_type == "stereo":
         if cfg.CAMERA_TYPE == "WEBCAM":
             from donkeycar.parts.camera import Webcam
@@ -956,7 +1066,7 @@ def add_odometry(V, cfg, threaded=True):
     """
     from donkeycar.parts.pose import BicyclePose, UnicyclePose
 
-    if cfg.HAVE_ODOM:
+    if cfg.HAVE_ODOM and not is_webots(cfg):
         poll_delay_secs = 0.01  # pose estimation runs at 100hz
         kinematics = UnicyclePose(cfg, poll_delay_secs) if cfg.HAVE_ODOM_2 else BicyclePose(cfg, poll_delay_secs)
         V.add(kinematics,
@@ -972,7 +1082,7 @@ def add_odometry(V, cfg, threaded=True):
 #
 def add_imu(V, cfg):
     imu = None
-    if cfg.HAVE_IMU:
+    if cfg.HAVE_IMU and not is_webots(cfg):
         from donkeycar.parts.imu import IMU
 
         imu = IMU(sensor=cfg.IMU_SENSOR, addr=cfg.IMU_ADDRESS,
@@ -987,7 +1097,7 @@ def add_imu(V, cfg):
 #
 def add_drivetrain(V, cfg):
 
-    if (not cfg.DONKEY_GYM) and cfg.DRIVE_TRAIN_TYPE != "MOCK":
+    if (not is_simulator(cfg)) and cfg.DRIVE_TRAIN_TYPE != "MOCK":
         from donkeycar.parts import actuator, pins
         from donkeycar.parts.actuator import TwoWheelSteeringThrottle
 
