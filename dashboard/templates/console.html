@@ -13,77 +13,58 @@
 <body>
   <header>
     <div><span class="mark">D</span><b>仿真模拟训练</b><small>DiffDrive Lab</small></div>
-    <div class="status"><i id="socket-dot"></i><span id="socket-text">正在连接</span><span class="pill">{{ config['simulator'] }}</span><button id="language-toggle" type="button" aria-label="Switch language">EN</button></div>
+    <div class="status"><i id="socket-dot"></i><span id="socket-text">正在连接</span><span class="pill">{{ config['simulator'] }}</span><button id="language-toggle" type="button">EN</button></div>
   </header>
   <main>
     <section class="camera card">
-      <div class="title camera-title"><span id="view-title">上帝视角</span><span class="view-switch"><button data-view="god" class="active">上帝视角</button><button data-view="camera">车载视角</button><i id="fps">LIVE · 10 Hz</i></span></div>
+      <div class="title camera-title"><span id="view-title">上帝视角</span><span class="view-switch"><button data-view="god" class="active">上帝视角</button><button data-view="camera">车载视角</button><button id="reset-simulation" class="reset-button">↺ 重置车辆</button><button id="refresh-console">⟳ 刷新控制台</button><i>LIVE · 10 Hz</i></span></div>
+      <div id="simulation-message" class="simulation-message" hidden></div>
       <div class="view-stage">
         <canvas id="god-view" width="960" height="540" aria-label="仿真场景俯视图"></canvas>
         <img id="camera-view" src="/video" alt="机器人摄像头" hidden>
-        <div class="view-help"><b>方向键 / WASD</b><span>↑ 前进　↓ 后退　← → 转向　空格急停</span></div>
+        <div id="view-state" class="view-state warning"><b>等待仿真数据</b><span>请启动 Webots 世界和 donkey_webots 控制器</span></div>
+        <div class="view-legend"><span><i class="robot-key"></i>车辆</span><span><i class="trail-key"></i>轨迹</span><span><i class="obstacle-key"></i>障碍物</span><span><i class="lane-key"></i>目标线</span></div>
+        <div class="view-help"><b>方向键 / WASD</b><span>↑ 前进 · ↓ 后退 · ← → 转向 · 空格急停</span></div>
       </div>
       <div class="camera-overlay"><span id="mode-badge">手动</span><span id="record-badge">未录制</span></div>
     </section>
 
     <section class="control card">
       <div class="title"><span>车辆控制</span><span>方向键 / WASD · 空格急停</span></div>
-      <div class="mode-row">
-        <button data-mode="user" class="mode active">手动</button>
-        <button data-mode="local_angle" class="mode">自动转向</button>
-        <button data-mode="local" class="mode">全自动</button>
-      </div>
+      <div class="mode-row"><button data-mode="user" class="mode active">手动</button><button data-mode="local_angle" class="mode">自动转向</button><button data-mode="local" class="mode">全自动</button></div>
       <div id="joystick"><div class="cross x"></div><div class="cross y"></div><div id="stick"></div><span>向上前进 · 左右转向 · 松手停车</span></div>
-      <div class="command-grid">
-        <label>线速度指令 <b id="v-command">0.000 m/s</b><meter id="v-meter" min="-0.2" max="0.2" value="0"></meter></label>
-        <label>角速度指令 <b id="w-command">0.000 rad/s</b><meter id="w-meter" min="-1.5" max="1.5" value="0"></meter></label>
-      </div>
+      <div class="command-grid"><label>线速度指令 <b id="v-command">0.000 m/s</b><meter id="v-meter" min="-0.35" max="0.35" value="0"></meter></label><label>角速度指令 <b id="w-command">0.000 rad/s</b><meter id="w-meter" min="-2.5" max="2.5" value="0"></meter></label></div>
       <div class="actions"><button id="brake" class="danger">急停</button><button id="record">开始录制</button></div>
     </section>
 
     <section class="metrics card">
-      <div class="title"><span>实时遥测</span><span id="sample-count">0 samples</span></div>
-      <div class="metric-grid">
-        <article><small>实际速度</small><strong id="speed">0.000</strong><em>m/s</em></article>
-        <article><small>横向误差 CTE</small><strong id="cte">0.000</strong><em>m</em></article>
-        <article><small>障碍距离</small><strong id="distance">—</strong><em>cm</em></article>
-        <article><small>ω 残差</small><strong id="residual">0.000</strong><em>rad/s</em></article>
-      </div>
+      <div class="title"><span>实时遥测</span><span id="sample-count">0 条记录</span></div>
+      <div class="metric-grid"><article><small>实际速度</small><strong id="speed">0.000</strong><em>m/s</em></article><article id="cte-card"><small>横向误差 CTE</small><strong id="cte">0.000</strong><em>m</em></article><article id="distance-card"><small>障碍距离</small><strong id="distance">—</strong><em>cm</em></article><article><small>ω 残差</small><strong id="residual">0.000</strong><em>rad/s</em></article></div>
       <canvas id="chart" width="760" height="190"></canvas>
     </section>
 
     <section class="sensors card">
-      <div class="title"><span>底盘与传感器</span><span>Webots Ground Truth</span></div>
+      <div class="title"><span>底盘与传感器</span><span id="sensor-health">等待数据</span></div>
       <div class="sensor-row"><span>左轮</span><b id="left-speed">0.00 rad/s</b><span>右轮</span><b id="right-speed">0.00 rad/s</b></div>
-      <div class="sensor-row"><span>位置 X / Z</span><b id="position">0.00 / 0.00 m</b></div>
+      <div class="sensor-row"><span>位置 X / Z</span><b id="position">0.00 / 0.00 m</b><span>连接</span><b id="telemetry-age">—</b></div>
       <div class="sensor-row"><span>加速度 XYZ</span><b id="acl">0.00 / 0.00 / 0.00 g</b></div>
       <div class="sensor-row"><span>角速度 XYZ</span><b id="gyr">0.00 / 0.00 / 0.00 °/s</b></div>
-      <div class="specs">
-        <span>轮径 {{ '%.1f' % (config['wheelRadius'] * 2000) }} mm</span>
-        <span>轮距 {{ '%.0f' % (config['wheelSeparation'] * 1000) }} mm</span>
-        <span>v ≤ {{ config['maxLinear'] }} m/s</span>
-        <span>ω ≤ {{ config['maxAngular'] }} rad/s</span>
-      </div>
+      <div class="specs"><span>轮径 {{ '%.1f' % (config['wheelRadius'] * 2000) }} mm</span><span>轮距 {{ '%.0f' % (config['wheelSeparation'] * 1000) }} mm</span><span>v ≤ {{ config['maxLinear'] }} m/s</span><span>ω ≤ {{ config['maxAngular'] }} rad/s</span></div>
     </section>
 
     <section class="training card">
       <div class="title"><span>训练状态</span><span>方案 A · 仅修正 ω</span></div>
       <div class="pipeline"><span>图像</span><i>→</i><span>DonkeyCar Pilot</span><i>→</i><span>基础 ω</span><i>+</i><span class="accent">残差 ω</span><i>→</i><span>差速轮速</span></div>
       <div class="training-state"><div><small>数据集</small><b id="dataset">0 条记录</b></div><div><small>残差策略</small><b>{{ '已启用' if config['residualEnabled'] else '待训练 / 未启用' }}</b></div><div><small>安全状态</small><b id="safety">正常</b></div></div>
-      <div class="training-actions">
-        <button data-task="inspect">检查数据 <small>Ctrl+1</small></button>
-        <button data-task="pilot" class="primary">训练 Pilot <small>Ctrl+2</small></button>
-        <button data-task="residual">训练 ω 残差 <small>Ctrl+3</small></button>
-        <button data-task="stop" class="danger">停止任务 <small>Esc</small></button>
-      </div>
-      <div class="job-status"><b id="job-title">训练任务：空闲</b><span id="job-message">所有操作均在后台运行，不需要终端。</span></div>
+      <div class="training-actions"><button data-task="auto" class="primary">一键自动训练 <small>Ctrl+0</small></button><button data-task="inspect">检查数据 <small>Ctrl+1</small></button><button data-task="pilot">仅训练 Pilot <small>Ctrl+2</small></button><button data-task="residual">仅训练 ω 残差 <small>Ctrl+3</small></button><button data-task="stop" class="danger">停止任务 <small>Esc</small></button></div>
+      <div class="job-status"><b id="job-title">训练任务：空闲</b><span id="job-message">所有操作均在后台运行，无需终端。</span></div>
       <pre id="training-log">等待训练任务…</pre>
-      <p>建议顺序：检查数据 → 训练基础 Pilot → Webots 验证 → 训练角速度残差。</p>
+      <p>一键自动训练会先执行质量检查，通过后依次训练基础 Pilot 和角速度残差；任何一步失败都会停止。</p>
     </section>
   </main>
   <script>window.CONSOLE_CONFIG = {% raw json_encode(config) %};</script>
-  <script src="/static/console.js"></script>
-  <script src="/static/training.js"></script>
-  <script src="/static/i18n.js"></script>
+  <script src="/static/console.js?v=20260721-3"></script>
+  <script src="/static/training.js?v=20260721-3"></script>
+  <script src="/static/i18n.js?v=20260721-3"></script>
 </body>
 </html>

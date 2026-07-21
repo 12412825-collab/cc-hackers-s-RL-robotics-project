@@ -14,6 +14,8 @@ from tornado.ioloop import IOLoop
 from tornado.web import Application, RequestHandler, StaticFileHandler
 
 from donkeycar.parts.web_controller.web import VideoAPI, WebSocketDriveAPI
+from parts.dataset_quality import inspect_dataset
+from parts.simulation_control import request_reset, wait_for_reset
 
 
 class ConsoleHandler(RequestHandler):
@@ -31,7 +33,7 @@ class TrainingAPI(RequestHandler):
             action = body.get("action")
             if action == "inspect":
                 result = self.application.inspect_dataset()
-            elif action in ("pilot", "residual"):
+            elif action in ("pilot", "residual", "auto"):
                 result = self.application.start_training(action)
             elif action == "stop":
                 result = self.application.stop_training()
@@ -39,6 +41,31 @@ class TrainingAPI(RequestHandler):
                 self.set_status(400)
                 result = {"ok": False, "message": "未知任务"}
             self.write(result)
+        except Exception as exc:
+            self.set_status(500)
+            self.write({"ok": False, "message": str(exc)})
+
+
+class SimulationAPI(RequestHandler):
+    def post(self):
+        try:
+            body = json.loads(self.request.body or b"{}")
+            if body.get("action") != "reset":
+                self.set_status(400)
+                self.write({"ok": False, "message": "未知仿真操作"})
+                return
+            self.application.angle = 0.0
+            self.application.throttle = 0.0
+            self.application.recording_latch = False
+            request_reset()
+            confirmed = wait_for_reset(2.0)
+            if confirmed:
+                self.write({"ok": True, "confirmed": True,
+                            "message": "Webots 已确认车辆重置"})
+            else:
+                self.set_status(504)
+                self.write({"ok": False, "confirmed": False,
+                            "message": "Webots 未在 2 秒内确认重置，请确认仿真正在运行"})
         except Exception as exc:
             self.set_status(500)
             self.write({"ok": False, "message": str(exc)})
@@ -64,11 +91,15 @@ class TrainingConsole(Application):
         self.port = int(getattr(cfg, "WEB_CONTROL_PORT", 8887))
         self.last_publish = 0.0
         self.project_root = Path(root).parent
+        self.data_dir = Path(cfg.DATA_PATH).resolve()
         self.training_process = None
         self.training_kind = None
         self.training_started = None
         self.training_exit_code = None
         self.training_log = deque(maxlen=120)
+        self.training_pipeline = []
+        self.stop_requested = False
+        self.cfg = cfg
         self.console_config = {
             "maxLinear": float(cfg.MAX_LINEAR_VELOCITY),
             "maxAngular": float(cfg.MAX_ANGULAR_VELOCITY),
@@ -83,6 +114,7 @@ class TrainingConsole(Application):
             (r"/wsDrive", WebSocketDriveAPI),
             (r"/video", VideoAPI),
             (r"/api/training", TrainingAPI),
+            (r"/api/simulation", SimulationAPI),
             (r"/static/(.*)", StaticFileHandler,
              {"path": self.static_file_path}),
         ]
@@ -162,6 +194,123 @@ class TrainingConsole(Application):
         return {"running": running, "kind": self.training_kind,
                 "started": self.training_started,
                 "exitCode": self.training_exit_code,
+                "log": list(self.training_log),
+                "dataset": self.inspect_dataset(add_log=False)}
+
+    # The definitions below intentionally replace the legacy lightweight
+    # training handlers above. Keeping them here makes upgrades from the
+    # original console non-destructive while applying strict quality gates.
+    def _legacy_inspect_dataset(self, add_log=True):
+        result = inspect_dataset(
+            self.data_dir,
+            min_records=int(getattr(self.cfg, "DATASET_MIN_RECORDS", 100)),
+            max_duplicate_ratio=float(getattr(
+                self.cfg, "DATASET_MAX_DUPLICATE_RATIO", 0.20)),
+            min_label_range=float(getattr(
+                self.cfg, "DATASET_MIN_LABEL_RANGE", 0.05)),
+            max_position=float(getattr(self.cfg, "WEBOTS_GEOFENCE_M", 45.0)),
+            max_speed=float(getattr(self.cfg, "RECORD_MAX_SPEED_MPS", 2.0)))
+        if add_log:
+            verdict = "可训练" if result["trainable"] else "未通过"
+            self.training_log.append(
+                f"数据检查：{result['records']} 条记录，"
+                f"{result['uniqueImages']}/{result['images']} 张唯一图像，{verdict}")
+            for issue in result["issues"]:
+                self.training_log.append("阻止训练：" + issue)
+        return result
+
+    def _command_for(self, kind):
+        if kind == "pilot":
+            return [sys.executable, "manage.py", "train",
+                    f"--tubs={self.data_dir}",
+                    "--model=models/pilot_latest.h5", "--type=linear"]
+        base = self.project_root / "models" / "pilot_latest.h5"
+        if not base.exists():
+            raise FileNotFoundError("请先训练基础 Pilot 模型")
+        try:
+            import torch  # noqa: F401
+        except ImportError as exc:
+            raise RuntimeError("残差训练需要安装 PyTorch") from exc
+        return [sys.executable, "train_residual.py", f"--tubs={self.data_dir}",
+                "--base=models/pilot_latest.h5",
+                "--output=models/residual_latest.pth"]
+
+    def _launch_training(self, kind, clear_log=True):
+        command = self._command_for(kind)
+        if clear_log:
+            self.training_log.clear()
+        self.training_log.append("启动：" + " ".join(command[1:]))
+        self.training_process = subprocess.Popen(
+            command, cwd=self.project_root, stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT, text=True, encoding="utf-8",
+            errors="replace", bufsize=1,
+            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+        self.training_kind = kind
+        self.training_started = time.time()
+        self.training_exit_code = None
+        threading.Thread(target=self._pipeline_reader,
+                         args=(self.training_process,), daemon=True).start()
+
+    def _pipeline_reader(self, process):
+        for line in iter(process.stdout.readline, ""):
+            line = line.rstrip()
+            if line:
+                self.training_log.append(line)
+        self.training_exit_code = process.wait()
+        if self.training_exit_code != 0:
+            self.training_log.append(
+                f"任务失败，退出代码 {self.training_exit_code}")
+            self.training_pipeline.clear()
+            return
+        self.training_log.append(f"{self.training_kind} 训练完成")
+        if self.training_pipeline and not self.stop_requested:
+            next_kind = self.training_pipeline.pop(0)
+            self.training_log.append(f"自动继续：{next_kind}")
+            try:
+                self._launch_training(next_kind, clear_log=False)
+            except (FileNotFoundError, RuntimeError) as exc:
+                self.training_exit_code = 1
+                self.training_log.append("自动流水线停止：" + str(exc))
+        else:
+            self.training_log.append("全部训练任务完成")
+
+    def _legacy_start_training(self, kind):
+        if self.training_process and self.training_process.poll() is None:
+            return {"ok": False, "message": "已有训练任务正在运行"}
+        quality = self.inspect_dataset(add_log=False)
+        if not quality["trainable"]:
+            self.training_log.clear()
+            self.inspect_dataset(add_log=True)
+            return {"ok": False, "message": "数据质量未通过，已阻止训练",
+                    "dataset": quality}
+        (self.project_root / "models").mkdir(exist_ok=True)
+        self.stop_requested = False
+        self.training_pipeline = ["residual"] if kind == "auto" else []
+        first_kind = "pilot" if kind == "auto" else kind
+        try:
+            self._launch_training(first_kind)
+        except (FileNotFoundError, RuntimeError) as exc:
+            self.training_pipeline.clear()
+            return {"ok": False, "message": str(exc)}
+        return {"ok": True, "message": (
+            "自动训练流水线已启动" if kind == "auto" else "训练任务已启动")}
+
+    def _legacy_stop_training(self):
+        if not self.training_process or self.training_process.poll() is not None:
+            return {"ok": False, "message": "当前没有运行中的训练任务"}
+        self.stop_requested = True
+        self.training_pipeline.clear()
+        self.training_process.terminate()
+        self.training_log.append("用户请求停止训练")
+        return {"ok": True, "message": "正在停止训练"}
+
+    def _legacy_training_status(self):
+        running = bool(self.training_process and
+                       self.training_process.poll() is None)
+        return {"running": running, "kind": self.training_kind,
+                "started": self.training_started,
+                "exitCode": self.training_exit_code,
+                "pipeline": list(self.training_pipeline),
                 "log": list(self.training_log),
                 "dataset": self.inspect_dataset(add_log=False)}
 

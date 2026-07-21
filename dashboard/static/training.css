@@ -1,4 +1,4 @@
-.training-actions { display:grid; grid-template-columns:repeat(4,1fr); gap:9px; padding:16px; }
+.training-actions { display:grid; grid-template-columns:repeat(5,1fr); gap:9px; padding:16px; }
 .training-actions .primary { background:#16475d; border-color:#39d7e5; }
 .training-actions small { display:block; margin-top:4px; color:#8ca0bd; font-weight:400; }
 .job-status { display:flex; justify-content:space-between; gap:15px; padding:0 16px 10px; color:#8ca0bd; }

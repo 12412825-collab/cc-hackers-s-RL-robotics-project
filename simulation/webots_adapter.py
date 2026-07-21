@@ -11,6 +11,7 @@ import math
 import numpy as np
 
 from parts.differential_drive import DifferentialDriveKinematics
+from parts.simulation_control import acknowledge_reset, consume_reset
 
 
 logger = logging.getLogger(__name__)
@@ -79,6 +80,11 @@ class WebotsAdapter:
 
         self.self_node = self.robot.getSelf()
         self.initial_translation = list(self.self_node.getPosition())
+        self.initial_rotation = [0.0, 1.0, 0.0, 0.0]
+        if hasattr(self.self_node, 'getField'):
+            rotation_field = self.self_node.getField('rotation')
+            if rotation_field is not None and hasattr(rotation_field, 'getSFRotation'):
+                self.initial_rotation = list(rotation_field.getSFRotation())
         self.max_position_m = float(getattr(cfg, 'WEBOTS_GEOFENCE_M', 45.0))
         self.min_height_m = float(getattr(cfg, 'WEBOTS_MIN_HEIGHT_M', -0.25))
         self.previous_left_positions = None
@@ -86,6 +92,7 @@ class WebotsAdapter:
         self.last_image = np.zeros(
             (cfg.IMAGE_H, cfg.IMAGE_W, cfg.IMAGE_DEPTH), dtype=np.uint8)
         self.terminated = False
+        self.state_was_reset = False
 
         # Prime sensors once before the DonkeyCar pipeline consumes them.
         if self.robot.step(self.timestep) == -1:
@@ -186,6 +193,11 @@ class WebotsAdapter:
     def run(self, linear_velocity=0.0, angular_velocity=0.0):
         if self.terminated:
             return self._outputs()
+        if consume_reset():
+            self._reset_robot("dashboard request")
+            self.state_was_reset = True
+            acknowledge_reset()
+            return self._outputs()
         left, right = self.kinematics.run(linear_velocity, angular_velocity)
         for motor in self.left_motors:
             motor.setVelocity(left)
@@ -193,36 +205,52 @@ class WebotsAdapter:
             motor.setVelocity(right)
         if self.robot.step(self.timestep) == -1:
             self.terminated = True
-        self._enforce_geofence()
+        self.state_was_reset = self._enforce_geofence()
         return self._outputs()
 
     def _enforce_geofence(self):
         """Recover from a fall or runaway command without corrupting a run."""
         if self.self_node is None:
-            return
+            return False
         position = self.self_node.getPosition()
         invalid = (not all(math.isfinite(value) for value in position) or
                    abs(position[0]) > self.max_position_m or
                    abs(position[2]) > self.max_position_m or
                    position[1] < self.min_height_m)
         if not invalid:
-            return
+            return False
         logger.warning("Webots geofence reset at position %s", position)
+        self._reset_robot("geofence")
+        return True
+
+    def _reset_robot(self, reason):
+        logger.warning("Resetting Webots robot: %s", reason)
         for motor in self.left_motors + self.right_motors:
             motor.setVelocity(0.0)
-        if hasattr(self.self_node, 'getField'):
+        if self.self_node is not None and hasattr(self.self_node, 'getField'):
             self.self_node.getField('translation').setSFVec3f(
                 self.initial_translation)
-            self.self_node.getField('rotation').setSFRotation([0, 1, 0, 0])
-        if hasattr(self.self_node, 'resetPhysics'):
+            self.self_node.getField('rotation').setSFRotation(
+                self.initial_rotation)
+        if self.self_node is not None and hasattr(self.self_node, 'resetPhysics'):
             self.self_node.resetPhysics()
+        self.previous_left_positions = None
+        self.previous_right_positions = None
 
     def _outputs(self):
         image = self._camera_image()
         left_rate, right_rate, speed = self._wheel_speeds()
         imu = self._imu()
         distance = self._distance_cm()
-        pos_x, pos_y, pos_z, true_speed, cte = self._ground_truth()
+        if self.state_was_reset:
+            pos_x, pos_y, pos_z = self.initial_translation
+            true_speed = 0.0
+            axis = getattr(self.cfg, 'WEBOTS_CTE_AXIS', 'x').lower()
+            center = float(getattr(self.cfg, 'WEBOTS_TRACK_CENTER', 0.0))
+            cte = (pos_x if axis == 'x' else pos_z) - center
+            self.state_was_reset = False
+        else:
+            pos_x, pos_y, pos_z, true_speed, cte = self._ground_truth()
         return (image, left_rate, right_rate, speed,
                 imu[0], imu[1], imu[2], imu[3], imu[4], imu[5],
                 distance, pos_x, pos_y, pos_z, true_speed, cte)

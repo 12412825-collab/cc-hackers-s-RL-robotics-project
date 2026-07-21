@@ -8,7 +8,7 @@
 # The update operation will not touch this file.
 # """
 
-# import os
+import os
 # 
 # #PATHS
 # CAR_PATH = PACKAGE_PATH = os.path.dirname(os.path.realpath(__file__))
@@ -881,6 +881,11 @@ SIMULATOR = 'webots'          # 'none' | 'donkey_gym' | 'webots'
 DONKEY_GYM = False
 USE_TRAINING_CONSOLE = True
 
+# Keep newly validated recordings separate from the legacy data/ root. This
+# avoids mixing the known-bad 2026-07-20 capture into future training runs.
+DATA_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), 'data', 'current')
+
 # Use physical robot commands internally:
 #   linear/velocity  (m/s)
 #   angular/velocity (rad/s)
@@ -892,6 +897,16 @@ MAX_LINEAR_VELOCITY = 0.20
 MAX_ANGULAR_VELOCITY = 1.50
 WEBOTS_GEOFENCE_M = 45.0
 WEBOTS_MIN_HEIGHT_M = -0.25
+
+# Reject unusable samples before they reach the Tub. The UI recording switch
+# remains explicit, but stationary, frozen-camera and implausible-state frames
+# are no longer written continuously.
+RECORD_MIN_COMMAND = 0.02
+RECORD_MAX_DUPLICATE_FRAMES = 3
+RECORD_MAX_SPEED_MPS = 2.0
+DATASET_MIN_RECORDS = 100
+DATASET_MAX_DUPLICATE_RATIO = 0.20
+DATASET_MIN_LABEL_RANGE = 0.05
 
 # Measure these values on the real robot before Sim-to-Real experiments.
 ROBOT_LENGTH = 0.255          # metres (estimated tolerance +/- 0.005)

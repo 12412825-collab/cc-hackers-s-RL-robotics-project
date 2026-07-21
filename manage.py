@@ -658,11 +658,25 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None,
     #
     # Create data storage part
     #
+    record_condition = 'recording'
+    if is_webots(cfg):
+        from parts.dataset_quality import RecordingQualityGate
+        quality_gate = RecordingQualityGate(cfg)
+        V.add(
+            quality_gate,
+            inputs=[
+                'recording', 'cam/image_array', 'user/angle',
+                'user/throttle', 'linear/velocity', 'angular/velocity',
+                'pos/speed', 'pos/pos_x', 'pos/pos_y', 'pos/pos_z'],
+            outputs=['recording/valid'])
+        record_condition = 'recording/valid'
+
     tub_path = TubHandler(path=cfg.DATA_PATH).create_tub_path() if \
         cfg.AUTO_CREATE_NEW_TUB else cfg.DATA_PATH
     meta += getattr(cfg, 'METADATA', [])
     tub_writer = TubWriter(tub_path, inputs=inputs, types=types, metadata=meta)
-    V.add(tub_writer, inputs=inputs, outputs=["tub/num_records"], run_condition='recording')
+    V.add(tub_writer, inputs=inputs, outputs=["tub/num_records"],
+          run_condition=record_condition)
 
     # Telemetry (we add the same metrics added to the TubHandler
     if cfg.HAVE_MQTT_TELEMETRY:
