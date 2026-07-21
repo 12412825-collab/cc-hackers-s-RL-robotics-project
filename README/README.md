@@ -330,6 +330,21 @@ steering = base_pilot.angle + residual
 通信协议: UART 115200 baud
   Pi → Arduino: steering (float), throttle (float)
   Arduino → Pi: encoder ticks, raw sensor values
+
+实体测试实现使用 USB 串口（默认 `/dev/ttyACM0`）和换行分隔 ASCII：
+
+```text
+Pi -> Arduino: C,<seq>,<steering>,<throttle>
+Arduino -> Pi: T,<seq>,<left_ticks>,<right_ticks>,<speed_mps>,OK
+```
+
+Arduino 超过 500ms 未收到合法命令会停止电机并回中舵机。首次测试必须
+架空车轮；上传 `arduino/cc_hacker_vehicle/cc_hacker_vehicle.ino` 后，在树莓派运行：
+
+```bash
+pip install pyserial
+python manage.py drive --myconfig=myconfig.pi.py
+```
 ```
 
 ---

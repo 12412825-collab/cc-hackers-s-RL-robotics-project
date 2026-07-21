@@ -542,6 +542,22 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None,
                       'pilot/angle', 'pilot/throttle'],
               outputs=['steering', 'throttle'])
 
+    # The Arduino is the sole actuator owner on the physical robot. It also
+    # publishes encoder telemetry into DonkeyCar's standard memory channels.
+    if getattr(cfg, 'HAVE_ARDUINO_SERIAL', False) and not is_simulator(cfg):
+        from parts.arduino_serial import ArduinoSerialBridge
+        arduino = ArduinoSerialBridge(
+            port=cfg.ARDUINO_SERIAL_PORT,
+            baudrate=cfg.ARDUINO_SERIAL_BAUD,
+            timeout=cfg.ARDUINO_SERIAL_TIMEOUT,
+            command_hz=cfg.ARDUINO_COMMAND_HZ,
+            stale_after=cfg.ARDUINO_TELEMETRY_STALE_SEC)
+        V.add(arduino,
+              inputs=['steering', 'throttle'],
+              outputs=['enc/speed', 'enc/left_ticks', 'enc/right_ticks',
+                       'arduino/connected'],
+              threaded=True)
+
 
     if (cfg.CONTROLLER_TYPE != "pigpio_rc") and (cfg.CONTROLLER_TYPE != "MM1"):
         if isinstance(ctr, JoystickController):
