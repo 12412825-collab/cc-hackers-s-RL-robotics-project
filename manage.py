@@ -120,6 +120,15 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None,
     #
     add_odometry(V, cfg)
 
+    #
+    # setup library assistant features
+    #
+    from parts.library_assistant import BookDatabase, NoiseDetector
+    book_db = BookDatabase()
+    noise_det = NoiseDetector()
+    V.add(book_db, inputs=[], outputs=['target_book'])
+    V.add(noise_det, inputs=['sound_level'], outputs=['noise_alert'])
+
 
     #
     # setup primary camera
@@ -1301,6 +1310,12 @@ def add_drivetrain(V, cfg):
                           cfg.VESC_STEERING_OFFSET
                         )
             V.add(vesc, inputs=['steering', 'throttle'])
+
+        elif cfg.DRIVE_TRAIN_TYPE == "ARDUINO_SERIAL":
+            from parts.arduino_serial import ArduinoSerial
+            logger.info(f"Creating ArduinoSerial at port {cfg.ARDUINO_SERIAL_PORT}")
+            arduino = ArduinoSerial(port=cfg.ARDUINO_SERIAL_PORT, baudrate=cfg.ARDUINO_BAUD_RATE)
+            V.add(arduino, inputs=['steering', 'throttle'], outputs=['us_left', 'us_center', 'us_right'])
 
 
 if __name__ == '__main__':

@@ -66,7 +66,7 @@
 # # (deprecated) "PIGPIO_PWM" uses Raspberrys internal PWM
 # # (deprecated) "I2C_SERVO" uses PCA9685 servo controller to control a steering servo and an ESC, as in a standard RC car
 # #
-# DRIVE_TRAIN_TYPE = "PWM_STEERING_THROTTLE"
+DRIVE_TRAIN_TYPE = "ARDUINO_SERIAL"
 # 
 # #
 # # PWM_STEERING_THROTTLE
@@ -877,7 +877,7 @@ SENSOR_BUFFER_SIZE = 10       # Rolling buffer for temporal smoothing
 # Differential-drive Webots Simulation
 # ============================================================================
 # Webots replaces DonkeySim, while DonkeyCar remains the Vehicle/Part runtime.
-SIMULATOR = 'webots'          # 'none' | 'donkey_gym' | 'webots'
+SIMULATOR = 'none'          # 'none' | 'donkey_gym' | 'webots'
 DONKEY_GYM = False
 USE_TRAINING_CONSOLE = True
 
@@ -943,5 +943,11 @@ ENABLE_ENCODER = True
 ENCODER_TYPE = 'Simulated'
 ENABLE_IMU = True
 ENABLE_OBSTACLE = True
+
+# ============================================================================
+# Physical Arduino Hardware Configuration
+# ============================================================================
+ARDUINO_SERIAL_PORT = 'COM3'  # Change to /dev/ttyACM0 on Raspberry Pi
+ARDUINO_BAUD_RATE = 115200
 
 # ============================================================================
