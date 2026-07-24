@@ -693,10 +693,15 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None,
         V.add(pub, inputs=['jpg/bin'])
 
 
-    if is_simulator(cfg):
-        print("You can now go to http://localhost:%d to drive your car." % cfg.WEB_CONTROL_PORT)
+    web_host = getattr(cfg, 'WEB_CONTROL_HOST', '0.0.0.0')
+    if web_host in ('0.0.0.0', '::'):
+        print("Web controller is listening on all network interfaces.")
+        print("This computer: http://localhost:%d" % cfg.WEB_CONTROL_PORT)
+        print("Other devices: http://<this-computer-LAN-IP>:%d" %
+              cfg.WEB_CONTROL_PORT)
     else:
-        print("You can now go to <your hostname.local>:%d to drive your car." % cfg.WEB_CONTROL_PORT)
+        print("Web controller: http://%s:%d" %
+              (web_host, cfg.WEB_CONTROL_PORT))
     if has_input_controller:
         print("You can now move your controller to drive your car.")
         if isinstance(ctr, JoystickController):

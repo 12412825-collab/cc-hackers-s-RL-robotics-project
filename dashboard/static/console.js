@@ -1,6 +1,7 @@
 const cfg = window.CONSOLE_CONFIG;
 const state = {angle: 0, throttle: 0, mode: 'user', recording: false, telemetry: {}, lastTelemetry: 0};
 const $ = id => document.getElementById(id);
+const ui = (zh, en) => (localStorage.getItem('diffdrive-language') || 'zh') === 'en' ? en : zh;
 const history = {speed: [], cte: [], angular: []};
 const trail = [], keys = new Set(), MAX = 140;
 let heading = 0, lastPosition = null;
@@ -125,10 +126,10 @@ function drawGodView(){
   x.fillStyle='#292d35';x.fillRect(wx(-4),wz(.3),wx(4)-wx(-4),wz(-.3)-wz(.3));
   x.strokeStyle='#ffd05b';x.lineWidth=4;[.3,-.3].forEach(z=>{x.beginPath();x.moveTo(wx(-4),wz(z));x.lineTo(wx(4),wz(z));x.stroke()});
   x.setLineDash([18,14]);x.strokeStyle='#eef4fa';x.lineWidth=3;x.beginPath();x.moveTo(wx(-4),wz(0));x.lineTo(wx(4),wz(0));x.stroke();x.setLineDash([]);
-  [{x:2,z:0,w:.10,d:.10},{x:-.3,z:.20,w:.16,d:.10},{x:.75,z:-.20,w:.16,d:.10}].forEach((o,i)=>{const px=wx(o.x),pz=wz(o.z),ow=o.w/8*(w-140),od=o.d/.9*(h-100);x.fillStyle='#ff654f';x.shadowColor='#ff654f';x.shadowBlur=14;x.fillRect(px-ow/2,pz-od/2,ow,od);x.shadowBlur=0;x.fillStyle='#ffd9d4';x.font='bold 13px Segoe UI';x.fillText(`障碍 ${i+1}`,px-24,pz-od/2-10)});
+  [{x:2,z:0,w:.10,d:.10},{x:-.3,z:.20,w:.16,d:.10},{x:.75,z:-.20,w:.16,d:.10}].forEach((o,i)=>{const px=wx(o.x),pz=wz(o.z),ow=o.w/8*(w-140),od=o.d/.9*(h-100);x.fillStyle='#ff654f';x.shadowColor='#ff654f';x.shadowBlur=14;x.fillRect(px-ow/2,pz-od/2,ow,od);x.shadowBlur=0;x.fillStyle='#ffd9d4';x.font='bold 13px Segoe UI';x.fillText(`${ui('障碍','Obstacle')} ${i+1}`,px-24,pz-od/2-10)});
   if(trail.length>1){x.strokeStyle='#39d7e5aa';x.lineWidth=4;x.beginPath();trail.forEach((p,i)=>i?x.lineTo(wx(p.x),wz(p.z)):x.moveTo(wx(p.x),wz(p.z)));x.stroke()}
   const t=state.telemetry||{},px=wx(Number.isFinite(+t.x)?+t.x:-3),pz=wz(Number.isFinite(+t.z)?+t.z:0);x.save();x.translate(px,pz);x.rotate(-heading);x.fillStyle='#4d83ff';x.shadowColor='#39d7e5';x.shadowBlur=18;x.fillRect(-19,-13,38,26);x.shadowBlur=0;x.fillStyle='#ff5f6d';x.fillRect(11,-13,8,26);x.fillStyle='#fff';x.beginPath();x.moveTo(27,0);x.lineTo(15,-8);x.lineTo(15,8);x.fill();x.restore();
-  x.fillStyle='#a9bdd7';x.font='14px Segoe UI';x.fillText('起点',wx(-3)-18,wz(-.38));x.fillText(`车辆 X ${n(t.x,2)} m · Z ${n(t.z,2)} m`,24,30);
+  x.fillStyle='#a9bdd7';x.font='14px Segoe UI';x.fillText(ui('起点','Start'),wx(-3)-18,wz(-.38));x.fillText(`${ui('车辆','Robot')} X ${n(t.x,2)} m · Z ${n(t.z,2)} m`,24,30);
 }
 function updatePose(t){const x=Number(t.x),z=Number(t.z);if(!Number.isFinite(x)||!Number.isFinite(z))return;if(lastPosition){const dx=x-lastPosition.x,dz=z-lastPosition.z;if(Math.hypot(dx,dz)>.002)heading=Math.atan2(dz,dx)}lastPosition={x,z};const p=trail.at(-1);if(!p||Math.hypot(x-p.x,z-p.z)>.015){trail.push({x,z});if(trail.length>240)trail.shift()}}
 function n(value,digits=3){const number=Number(value);return (Number.isFinite(number)?number:0).toFixed(digits)}

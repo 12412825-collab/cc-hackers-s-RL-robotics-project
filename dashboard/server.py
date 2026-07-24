@@ -89,6 +89,7 @@ class TrainingConsole(Application):
         self.wsclients = []
         self.loop = None
         self.port = int(getattr(cfg, "WEB_CONTROL_PORT", 8887))
+        self.host = str(getattr(cfg, "WEB_CONTROL_HOST", "0.0.0.0"))
         self.last_publish = 0.0
         self.project_root = Path(root).parent
         self.data_dir = Path(cfg.DATA_PATH).resolve()
@@ -316,7 +317,7 @@ class TrainingConsole(Application):
 
     def update(self):
         asyncio.set_event_loop(asyncio.new_event_loop())
-        self.listen(self.port)
+        self.listen(self.port, address=self.host)
         self.loop = IOLoop.instance()
         self.loop.start()
 

@@ -552,6 +552,7 @@ import os
 # 
 # #WEB CONTROL
 # WEB_CONTROL_PORT = int(os.getenv("WEB_CONTROL_PORT", 8887))  # which port to listen on when making a web controller
+WEB_CONTROL_HOST = os.getenv("WEB_CONTROL_HOST", "0.0.0.0")  # allow other devices on the LAN
 # WEB_INIT_MODE = "user"              # which control mode to start in. one of user|local_angle|local. Setting local will start in ai mode.
 # 
 # #JOYSTICK
