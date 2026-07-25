@@ -87,3 +87,70 @@ class ArduinoSerialBridge:
             self.serial.flush()
         finally:
             self.serial.close()
+
+
+class ArduinoSerial:
+    """Library Assistant differential-drive bridge from the main branch."""
+
+    def __init__(self, port="/dev/ttyACM0", baudrate=115200):
+        self.port = port
+        self.baudrate = baudrate
+        self.serial = None
+        self.angle = 0.0
+        self.throttle = 0.0
+        self.us_left = 999.0
+        self.us_center = 999.0
+        self.us_right = 999.0
+        self.connect()
+
+    def connect(self):
+        try:
+            import serial
+
+            self.serial = serial.Serial(
+                self.port, self.baudrate, timeout=0.1)
+            time.sleep(2)
+            logger.info(
+                "Connected to Arduino on %s at %s",
+                self.port, self.baudrate)
+            self.serial.write(b"ODOM_RESET\n")
+        except Exception as exc:
+            logger.error("Failed to connect to Arduino: %s", exc)
+            self.serial = None
+
+    def run(self, angle, throttle):
+        angle = 0.0 if angle is None else float(angle)
+        throttle = 0.0 if throttle is None else float(throttle)
+
+        left_throttle = throttle + angle
+        right_throttle = throttle - angle
+        max_throttle = max(abs(left_throttle), abs(right_throttle))
+        if max_throttle > 1.0:
+            left_throttle /= max_throttle
+            right_throttle /= max_throttle
+
+        if self.serial and self.serial.is_open:
+            left_pwm = int(left_throttle * 255)
+            right_pwm = int(right_throttle * 255)
+            self.serial.write(
+                f"DRIVE_{left_pwm}_{right_pwm}\n".encode("ascii"))
+            self.serial.write(b"CHECK\n")
+            line = self.serial.readline().decode("ascii").strip()
+            if line.startswith("ODOM:") and "|US:" in line:
+                try:
+                    for part in line.split("|"):
+                        if part.startswith("US:"):
+                            values = part[3:].split(",")
+                            self.us_left = float(values[0])
+                            self.us_center = float(values[1])
+                            self.us_right = float(values[2])
+                except (ValueError, IndexError):
+                    logger.debug("Ignoring malformed Arduino response: %s", line)
+
+        return self.us_left, self.us_center, self.us_right
+
+    def shutdown(self):
+        if self.serial and self.serial.is_open:
+            self.serial.write(b"STOP\n")
+            self.serial.close()
+            logger.info("Arduino Serial connection closed.")
