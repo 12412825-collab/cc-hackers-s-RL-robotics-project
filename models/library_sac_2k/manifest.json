@@ -1,0 +1,48 @@
+{
+  "model_version": "1.0.0",
+  "schema_version": "library-observation-v1",
+  "feature_names": [
+    "motion_direction",
+    "segment_progress",
+    "fused_heading_error",
+    "left_right_encoder_error",
+    "front_ultrasonic_distance"
+  ],
+  "feature_units": {
+    "motion_direction": "unitless (+1 forward, -1 backward)",
+    "segment_progress": "ratio [0, 1]",
+    "fused_heading_error": "degrees (wrapped to [-180, 180])",
+    "left_right_encoder_error": "centimetres (left - right)",
+    "front_ultrasonic_distance": "centimetres (clipped to max)"
+  },
+  "feature_clip": {
+    "motion_direction": [
+      -1.0,
+      1.0
+    ],
+    "segment_progress": [
+      0.0,
+      1.0
+    ],
+    "fused_heading_error": [
+      -180.0,
+      180.0
+    ],
+    "left_right_encoder_error": [
+      -50.0,
+      50.0
+    ],
+    "front_ultrasonic_distance": [
+      0.0,
+      400.0
+    ]
+  },
+  "input_dimension": 5,
+  "action_dimension": 1,
+  "action_type": "normalized_residual_heading_correction",
+  "max_residual_pwm": 10,
+  "training_control_frequency_hz": 10.0,
+  "expected_inference_frequency_hz": 5.0,
+  "pytorch_version": "2.13.0+cpu",
+  "creation_timestamp": "2026-07-25T07:40:24Z"
+}

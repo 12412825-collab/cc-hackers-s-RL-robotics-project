@@ -1,0 +1,26 @@
+[
+  {
+    "step": 2500,
+    "elapsed_s": 13.4,
+    "train_mean_return": -0.51,
+    "eval_mean_return": -1.19,
+    "eval_success_rate": 1.0,
+    "eval_mean_heading": 2.56,
+    "eval_mean_residual": 0.0209,
+    "eval_mean_oscillation": 0.0,
+    "buffer_size": 2500,
+    "alpha": 0.6375
+  },
+  {
+    "step": 5000,
+    "elapsed_s": 40.8,
+    "train_mean_return": -1.59,
+    "eval_mean_return": -1.18,
+    "eval_success_rate": 1.0,
+    "eval_mean_heading": 3.4,
+    "eval_mean_residual": 0.0164,
+    "eval_mean_oscillation": 0.0,
+    "buffer_size": 5000,
+    "alpha": 0.3014
+  }
+]

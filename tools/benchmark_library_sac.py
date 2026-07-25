@@ -53,7 +53,7 @@ def main():
 
         latencies.append((t1 - t0) * 1000.0)  # ms
 
-        action = float(output.squeeze())
+        action = float(output.detach().squeeze())
         if not (-1.0 <= action <= 1.0) or not np.isfinite(action):
             invalid_count += 1
 

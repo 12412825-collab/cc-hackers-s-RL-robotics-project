@@ -1,0 +1,25 @@
+{
+  "schema_version": "library-observation-v1",
+  "normalization": {
+    "motion_direction": {
+      "min": -1.0,
+      "max": 1.0
+    },
+    "segment_progress": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "fused_heading_error": {
+      "min": -45.0,
+      "max": 45.0
+    },
+    "left_right_encoder_error": {
+      "min": -10.0,
+      "max": 10.0
+    },
+    "front_ultrasonic_distance": {
+      "min": 0.0,
+      "max": 400.0
+    }
+  }
+}
