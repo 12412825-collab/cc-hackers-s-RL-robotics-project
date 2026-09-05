@@ -138,13 +138,14 @@ PROTO FourWheelRobot [
         height 120
         near 0.01
       }
+      # NOTE (Phase-1A-R Step 1 correctness): R2025a no longer accepts SFFloat
+      # `noise` on Accelerometer/Gyro here; field was skipped with ERROR at load.
+      # Historical intent was noise 0.01 (accel) / 0.005 (gyro). Not re-tuned.
       Accelerometer {
         name "accelerometer"
-        noise 0.01
       }
       Gyro {
         name "gyro"
-        noise 0.005
       }
       DistanceSensor {
         translation 0.130 0.055 0

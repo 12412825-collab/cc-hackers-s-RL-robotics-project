@@ -1,0 +1,53 @@
+{
+  "probe": "phase1ar_physics_probe",
+  "timestamp_utc": "2026-09-05T15:58:27.688083+00:00",
+  "webots_basic_time_step_ms": 50,
+  "n_steps": 80,
+  "motor_command_rad_s": {
+    "left": 4.0,
+    "right": 2.0,
+    "motors": [
+      "front left wheel motor",
+      "front right wheel motor",
+      "rear left wheel motor",
+      "rear right wheel motor"
+    ]
+  },
+  "pose_source": "Supervisor.getSelf().getPosition() + rotation field",
+  "python_pose_integration": false,
+  "initial_position_m": [
+    -3.0,
+    0.0325,
+    -0.024525000000000005
+  ],
+  "initial_rotation_axis_angle": [
+    0.0,
+    0.0,
+    1.0,
+    0.0
+  ],
+  "initial_yaw_rad": 0.0,
+  "final_position_m": [
+    -3.2095869730813145,
+    0.29452679312535907,
+    -81.22873693434
+  ],
+  "final_rotation_axis_angle": [
+    -0.5261251383973589,
+    -0.8278094999535438,
+    0.19474026428302915,
+    1.3329707188748543
+  ],
+  "final_yaw_rad": 1.0188427741416013,
+  "delta_position_m": [
+    -0.20958697308131446,
+    0.26202679312535904,
+    -81.20421193434001
+  ],
+  "distance_m": 81.20490515120875,
+  "delta_yaw_rad": 1.0188427741416013,
+  "gyro_present": true,
+  "accelerometer_present": true,
+  "live_webots_physics_confirmed": true,
+  "robot_name": "four_wheel_robot"
+}
