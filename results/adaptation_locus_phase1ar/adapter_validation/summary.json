@@ -1,0 +1,257 @@
+{
+  "probe": "phase1ar_live_adapter_validation",
+  "timestamp_utc": "2026-09-05T16:16:36.809611+00:00",
+  "plant": {
+    "plant": "live_webots_ode",
+    "python_pose_integration": false,
+    "timestep_ms": 50,
+    "uses_webots_faithful_env": false,
+    "uses_phase0_env": false,
+    "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+    "device_names": {
+      "left_motors": [
+        "front left wheel motor",
+        "rear left wheel motor"
+      ],
+      "right_motors": [
+        "front right wheel motor",
+        "rear right wheel motor"
+      ]
+    }
+  },
+  "adaptation_enabled": false,
+  "residual_default": 0.0,
+  "mismatch_nominal": true,
+  "repeated_reset": {
+    "poses": [
+      {
+        "episode": 1,
+        "seed": 0,
+        "position_m": [
+          -3.0,
+          0.02218597847508824,
+          1.1795538664234837e-11
+        ],
+        "yaw_rad": 6.922626610355454e-16,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "residual_omega": 0.0
+      },
+      {
+        "episode": 2,
+        "seed": 1,
+        "position_m": [
+          -2.9960147972004574,
+          0.021182133198503855,
+          -8.110126973310877e-09
+        ],
+        "yaw_rad": 2.8263196719138833e-08,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "residual_omega": 0.0
+      },
+      {
+        "episode": 3,
+        "seed": 2,
+        "position_m": [
+          -3.0006209911789985,
+          0.024284800128032424,
+          4.52224722533912e-09
+        ],
+        "yaw_rad": 4.639811785824878e-08,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "residual_omega": 0.0
+      }
+    ],
+    "spawn_spread_m": 0.0041096893669557415,
+    "pass": true
+  },
+  "nominal_closed_loop": {
+    "episodes": [
+      {
+        "seed": 0,
+        "metrics": {
+          "n_steps": 80,
+          "mean_abs_true_yaw_rad": 5.563942095774515e-08,
+          "final_true_yaw_rad": -9.695282891932033e-08,
+          "mean_residual_abs": 0.0,
+          "final_position_m": [
+            -3.3082453766719455,
+            0.016807291562977972,
+            3.5792767183814504e-08
+          ],
+          "estimator_params_final": {
+            "imu_bias_hat_rad_s": 0.0,
+            "fusion_weight": 0.85
+          },
+          "plant": {
+            "plant": "live_webots_ode",
+            "python_pose_integration": false,
+            "timestep_ms": 50,
+            "uses_webots_faithful_env": false,
+            "uses_phase0_env": false,
+            "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+            "device_names": {
+              "left_motors": [
+                "front left wheel motor",
+                "rear left wheel motor"
+              ],
+              "right_motors": [
+                "front right wheel motor",
+                "rear right wheel motor"
+              ]
+            }
+          }
+        },
+        "n_log": 80
+      },
+      {
+        "seed": 1,
+        "metrics": {
+          "n_steps": 80,
+          "mean_abs_true_yaw_rad": 1.2250421255777572e-07,
+          "final_true_yaw_rad": -3.125541239521524e-07,
+          "mean_residual_abs": 0.0,
+          "final_position_m": [
+            -3.37514851258115,
+            0.027648404293429216,
+            7.066691355507653e-08
+          ],
+          "estimator_params_final": {
+            "imu_bias_hat_rad_s": 0.0,
+            "fusion_weight": 0.85
+          },
+          "plant": {
+            "plant": "live_webots_ode",
+            "python_pose_integration": false,
+            "timestep_ms": 50,
+            "uses_webots_faithful_env": false,
+            "uses_phase0_env": false,
+            "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+            "device_names": {
+              "left_motors": [
+                "front left wheel motor",
+                "rear left wheel motor"
+              ],
+              "right_motors": [
+                "front right wheel motor",
+                "rear right wheel motor"
+              ]
+            }
+          }
+        },
+        "n_log": 80
+      },
+      {
+        "seed": 2,
+        "metrics": {
+          "n_steps": 80,
+          "mean_abs_true_yaw_rad": 9.126044223913577e-07,
+          "final_true_yaw_rad": -1.4496978950594045e-06,
+          "mean_residual_abs": 0.0,
+          "final_position_m": [
+            -3.328779178668117,
+            0.020673265670455226,
+            1.2459023719886665e-07
+          ],
+          "estimator_params_final": {
+            "imu_bias_hat_rad_s": 0.0,
+            "fusion_weight": 0.85
+          },
+          "plant": {
+            "plant": "live_webots_ode",
+            "python_pose_integration": false,
+            "timestep_ms": 50,
+            "uses_webots_faithful_env": false,
+            "uses_phase0_env": false,
+            "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+            "device_names": {
+              "left_motors": [
+                "front left wheel motor",
+                "rear left wheel motor"
+              ],
+              "right_motors": [
+                "front right wheel motor",
+                "rear right wheel motor"
+              ]
+            }
+          }
+        },
+        "n_log": 80
+      }
+    ],
+    "pass": true
+  },
+  "zero_mismatch_hooks": {
+    "metrics": {
+      "n_steps": 40,
+      "mean_abs_true_yaw_rad": 2.715571549545399e-06,
+      "final_true_yaw_rad": -6.666224620101837e-06,
+      "mean_residual_abs": 0.0,
+      "final_position_m": [
+        -3.1696869969141828,
+        0.03314766176607741,
+        8.07851768452555e-07
+      ],
+      "estimator_params_final": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "plant": {
+        "plant": "live_webots_ode",
+        "python_pose_integration": false,
+        "timestep_ms": 50,
+        "uses_webots_faithful_env": false,
+        "uses_phase0_env": false,
+        "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+        "device_names": {
+          "left_motors": [
+            "front left wheel motor",
+            "rear left wheel motor"
+          ],
+          "right_motors": [
+            "front right wheel motor",
+            "rear right wheel motor"
+          ]
+        }
+      }
+    },
+    "pass": true
+  },
+  "zero_intervention_equivalence": {
+    "historical_distance_m": 0.3236593258400535,
+    "research_distance_m": 0.33951121129868983,
+    "historical_mean_abs_yaw_rad": 1.6792226482377968e-05,
+    "research_mean_abs_yaw_rad": 1.0230276024369887e-05,
+    "historical_mean_wheel_cmd": 3.6923076923076854,
+    "research_mean_wheel_cmd": 3.692307692307691,
+    "pass": true,
+    "note": "Historical mode: VelocityDriveMode cruise, residual=0, steering=0. Research mode: heading-P + residual=0 + mismatch=0 on same live ODE."
+  },
+  "estimator_frozen": {
+    "params": {
+      "imu_bias_hat_rad_s": 0.0,
+      "fusion_weight": 0.85
+    },
+    "adaptation_enabled": false,
+    "pass": true
+  },
+  "gates": {
+    "live_ode_plant": true,
+    "no_python_pose_integration": true,
+    "nominal_closed_loop": true,
+    "repeated_reset": true,
+    "zero_mismatch_hooks": true,
+    "zero_intervention_equivalence": true,
+    "estimator_frozen": true,
+    "residual_zero": true
+  },
+  "pass": true
+}
