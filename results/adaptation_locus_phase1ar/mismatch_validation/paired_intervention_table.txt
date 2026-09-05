@@ -1,0 +1,18 @@
+M1 first-step (open-loop)
+{
+  "within_step_observed_equals_raw_plus_bias": true,
+  "motor_gains_same": true,
+  "requested_cmds_same_open_loop": true,
+  "spawn_restored": true
+}
+
+M2 first-step (open-loop)
+{
+  "within_step_no_imu_bias": true,
+  "requested_same": true,
+  "applied_changed": true,
+  "yaw_sign_reverses": true
+}
+
+M2 yaw pos/rev: -0.004943 / 0.028677
+clip_fraction pos/rev: 0.0000 / 0.0000

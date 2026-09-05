@@ -1,0 +1,1352 @@
+{
+  "probe": "phase1ar_mismatch_causal_validation",
+  "timestamp_utc": "2026-09-05T16:26:25.575808+00:00",
+  "diagnostic_imu_bias_rad_s": 0.1,
+  "diagnostic_motor_delta": 0.05,
+  "adaptation_off": true,
+  "residual_zero": true,
+  "note_units": "M1 bias is on Gyro yaw-rate [rad/s] (historical stack has Gyro, not InertialUnit heading). Internals are radians / rad/s only.",
+  "plant": {
+    "plant": "live_webots_ode",
+    "python_pose_integration": false,
+    "timestep_ms": 50,
+    "uses_webots_faithful_env": false,
+    "uses_phase0_env": false,
+    "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+    "device_names": {
+      "left_motors": [
+        "front left wheel motor",
+        "rear left wheel motor"
+      ],
+      "right_motors": [
+        "front right wheel motor",
+        "rear right wheel motor"
+      ]
+    }
+  },
+  "episodes": {
+    "D0_nominal_seed0": {
+      "name": "D0_nominal",
+      "seed": 0,
+      "mismatch": {
+        "type": "none",
+        "severity": "0",
+        "imu_bias_rad_s": 0.0,
+        "motor_delta": 0.0,
+        "seed": 0,
+        "active": false,
+        "note": ""
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": -1.905200779240319e-15,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -1.905200779240319e-15,
+        "requested_left_rad_s": 3.6923076923076916,
+        "requested_right_rad_s": 3.6923076923076925,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6923076923076916,
+        "applied_right_rad_s": 3.6923076923076925,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0,
+          0.02218597847508824,
+          1.1795538664234837e-11
+        ],
+        "pre_physics_true_yaw_rad": 6.922626610355454e-16,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 3.537173596823689e-08,
+        "final_true_yaw_rad": -9.245667082071439e-08,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.224664116280775,
+          0.020941208136274637,
+          1.9536155127143156e-08
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "none",
+          "severity": "0",
+          "imu_bias_rad_s": 0.0,
+          "motor_delta": 0.0,
+          "seed": 0,
+          "active": false,
+          "note": ""
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": -9.245667082071439e-08,
+      "mean_abs_true_yaw_rad": 3.537173596823689e-08
+    },
+    "D1_imu_bias_pos_seed0": {
+      "name": "D1_imu_bias_pos",
+      "seed": 0,
+      "mismatch": {
+        "type": "imu_bias",
+        "severity": "diagnostic_pos",
+        "imu_bias_rad_s": 0.1,
+        "motor_delta": 0.0,
+        "seed": 0,
+        "active": true,
+        "note": "M1 observation-path IMU yaw-rate bias [rad/s]"
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": 7.522968613992979e-07,
+        "mismatch_imu_bias_rad_s": 0.1,
+        "observed_imu_yaw_rate_rad_s": 0.10000075229686141,
+        "requested_left_rad_s": 3.7093078201981586,
+        "requested_right_rad_s": 3.6753075644172255,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.7093078201981586,
+        "applied_right_rad_s": 3.6753075644172255,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -2.997552143893891,
+          0.01971484518534235,
+          -1.971926162946091e-08
+        ],
+        "pre_physics_true_yaw_rad": -6.400730730548893e-07,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 0.021814010837206063,
+        "final_true_yaw_rad": -0.010256167167603275,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.2417669154619304,
+          0.02750958278409167,
+          -0.005008538266952805
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "imu_bias",
+          "severity": "diagnostic_pos",
+          "imu_bias_rad_s": 0.1,
+          "motor_delta": 0.0,
+          "seed": 0,
+          "active": true,
+          "note": "M1 observation-path IMU yaw-rate bias [rad/s]"
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": -0.010256167167603275,
+      "mean_abs_true_yaw_rad": 0.021814010837206063
+    },
+    "D2_imu_bias_neg_seed0": {
+      "name": "D2_imu_bias_neg",
+      "seed": 0,
+      "mismatch": {
+        "type": "imu_bias",
+        "severity": "diagnostic_neg",
+        "imu_bias_rad_s": -0.1,
+        "motor_delta": 0.0,
+        "seed": 0,
+        "active": true,
+        "note": "M1 observation-path IMU yaw-rate bias [rad/s]"
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.01944947685172522,
+        "mismatch_imu_bias_rad_s": -0.1,
+        "observed_imu_yaw_rate_rad_s": -0.11944947685172522,
+        "requested_left_rad_s": 3.672001281242899,
+        "requested_right_rad_s": 3.712614103372485,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.672001281242899,
+        "applied_right_rad_s": 3.712614103372485,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0007354866563607,
+          0.023787154891932522,
+          -6.162322294185304e-06
+        ],
+        "pre_physics_true_yaw_rad": -0.0019985024962268314,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 0.027884043069502575,
+        "final_true_yaw_rad": -0.08606073222698683,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.2752391144573925,
+          0.02796300414135799,
+          0.0006443000263129408
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "imu_bias",
+          "severity": "diagnostic_neg",
+          "imu_bias_rad_s": -0.1,
+          "motor_delta": 0.0,
+          "seed": 0,
+          "active": true,
+          "note": "M1 observation-path IMU yaw-rate bias [rad/s]"
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": -0.08606073222698683,
+      "mean_abs_true_yaw_rad": 0.027884043069502575
+    },
+    "D3_motor_pos_seed0": {
+      "name": "D3_motor_pos",
+      "seed": 0,
+      "mismatch": {
+        "type": "motor_asymmetry",
+        "severity": "diagnostic_pos",
+        "imu_bias_rad_s": 0.0,
+        "motor_delta": 0.05,
+        "seed": 0,
+        "active": true,
+        "note": "M2 actuator-path motor gain asymmetry"
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.002846316684987556,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.002846316684987556,
+        "requested_left_rad_s": 3.69279156614414,
+        "requested_right_rad_s": 3.691823818471244,
+        "motor_gain_left": 1.05,
+        "motor_gain_right": 0.95,
+        "applied_left_rad_s": 3.8774311444513474,
+        "applied_right_rad_s": 3.5072326275476815,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.00020875413327,
+          0.030144948653414272,
+          0.0018018145409193997
+        ],
+        "pre_physics_true_yaw_rad": 0.00020707779859164104,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 0.029353437171803515,
+        "final_true_yaw_rad": 0.027356437288940248,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.27013879011336,
+          0.02835510052347572,
+          -0.005162175440545743
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "motor_asymmetry",
+          "severity": "diagnostic_pos",
+          "imu_bias_rad_s": 0.0,
+          "motor_delta": 0.05,
+          "seed": 0,
+          "active": true,
+          "note": "M2 actuator-path motor gain asymmetry"
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": 0.027356437288940248,
+      "mean_abs_true_yaw_rad": 0.029353437171803515
+    },
+    "D4_motor_rev_seed0": {
+      "name": "D4_motor_rev",
+      "seed": 0,
+      "mismatch": {
+        "type": "motor_asymmetry",
+        "severity": "diagnostic_rev",
+        "imu_bias_rad_s": 0.0,
+        "motor_delta": -0.05,
+        "seed": 0,
+        "active": true,
+        "note": "M2 actuator-path motor gain asymmetry"
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.017876631748042663,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.017876631748042663,
+        "requested_left_rad_s": 3.6953467197048595,
+        "requested_right_rad_s": 3.6892686649105246,
+        "motor_gain_left": 0.95,
+        "motor_gain_right": 1.05,
+        "applied_left_rad_s": 3.5105793837196164,
+        "applied_right_rad_s": 3.8737320981560512,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.000435442790322,
+          0.028623744547195438,
+          -0.0019030693991964442
+        ],
+        "pre_physics_true_yaw_rad": 0.0008571568728057263,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 0.022042501502657522,
+        "final_true_yaw_rad": -0.0016774755558132642,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.2656981500730597,
+          0.03410934053314407,
+          -0.009681760886567444
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "motor_asymmetry",
+          "severity": "diagnostic_rev",
+          "imu_bias_rad_s": 0.0,
+          "motor_delta": -0.05,
+          "seed": 0,
+          "active": true,
+          "note": "M2 actuator-path motor gain asymmetry"
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": -0.0016774755558132642,
+      "mean_abs_true_yaw_rad": 0.022042501502657522
+    },
+    "D0_nominal_seed1": {
+      "name": "D0_nominal",
+      "seed": 1,
+      "mismatch": {
+        "type": "none",
+        "severity": "0",
+        "imu_bias_rad_s": 0.0,
+        "motor_delta": 0.0,
+        "seed": 1,
+        "active": false,
+        "note": ""
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": 4.719468492417258e-05,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 4.719468492417258e-05,
+        "requested_left_rad_s": 3.692315715404129,
+        "requested_right_rad_s": 3.6922996692112546,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.692315715404129,
+        "applied_right_rad_s": 3.6922996692112546,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.000209515479271,
+          0.03271872495428237,
+          0.0001360109470555091
+        ],
+        "pre_physics_true_yaw_rad": 3.596655121608321e-05,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 0.008468202168002242,
+        "final_true_yaw_rad": 0.008479088809517317,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.2565954021030237,
+          0.029235467401238658,
+          0.002612582828870022
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "none",
+          "severity": "0",
+          "imu_bias_rad_s": 0.0,
+          "motor_delta": 0.0,
+          "seed": 1,
+          "active": false,
+          "note": ""
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": 0.008479088809517317,
+      "mean_abs_true_yaw_rad": 0.008468202168002242
+    },
+    "D1_imu_bias_pos_seed1": {
+      "name": "D1_imu_bias_pos",
+      "seed": 1,
+      "mismatch": {
+        "type": "imu_bias",
+        "severity": "diagnostic_pos",
+        "imu_bias_rad_s": 0.1,
+        "motor_delta": 0.0,
+        "seed": 1,
+        "active": true,
+        "note": "M1 observation-path IMU yaw-rate bias [rad/s]"
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.0013135553790173107,
+        "mismatch_imu_bias_rad_s": 0.1,
+        "observed_imu_yaw_rate_rad_s": 0.0986864446209827,
+        "requested_left_rad_s": 3.709084387893259,
+        "requested_right_rad_s": 3.675530996722125,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.709084387893259,
+        "applied_right_rad_s": 3.675530996722125,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.000841036441968,
+          0.03167022764720022,
+          -0.0005142773611554961
+        ],
+        "pre_physics_true_yaw_rad": -0.00025404634257652266,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 0.0470419876784997,
+        "final_true_yaw_rad": 0.15768032534884985,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.267244976641325,
+          0.028072894328706487,
+          -0.015210535259451171
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "imu_bias",
+          "severity": "diagnostic_pos",
+          "imu_bias_rad_s": 0.1,
+          "motor_delta": 0.0,
+          "seed": 1,
+          "active": true,
+          "note": "M1 observation-path IMU yaw-rate bias [rad/s]"
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": 0.15768032534884985,
+      "mean_abs_true_yaw_rad": 0.0470419876784997
+    },
+    "D2_imu_bias_neg_seed1": {
+      "name": "D2_imu_bias_neg",
+      "seed": 1,
+      "mismatch": {
+        "type": "imu_bias",
+        "severity": "diagnostic_neg",
+        "imu_bias_rad_s": -0.1,
+        "motor_delta": 0.0,
+        "seed": 1,
+        "active": true,
+        "note": "M1 observation-path IMU yaw-rate bias [rad/s]"
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.005565505678863422,
+        "mismatch_imu_bias_rad_s": -0.1,
+        "observed_imu_yaw_rate_rad_s": -0.09443449432113658,
+        "requested_left_rad_s": 3.676253828273099,
+        "requested_right_rad_s": 3.708361556342285,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.676253828273099,
+        "applied_right_rad_s": 3.708361556342285,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -2.997638764267974,
+          0.032354052934856325,
+          0.002638594695968774
+        ],
+        "pre_physics_true_yaw_rad": -0.003019976191327608,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 0.05462606469307921,
+        "final_true_yaw_rad": -0.05949778058873671,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.2769346791136913,
+          0.02904771840332075,
+          0.013568922687337885
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "imu_bias",
+          "severity": "diagnostic_neg",
+          "imu_bias_rad_s": -0.1,
+          "motor_delta": 0.0,
+          "seed": 1,
+          "active": true,
+          "note": "M1 observation-path IMU yaw-rate bias [rad/s]"
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": -0.05949778058873671,
+      "mean_abs_true_yaw_rad": 0.05462606469307921
+    },
+    "D3_motor_pos_seed1": {
+      "name": "D3_motor_pos",
+      "seed": 1,
+      "mismatch": {
+        "type": "motor_asymmetry",
+        "severity": "diagnostic_pos",
+        "imu_bias_rad_s": 0.0,
+        "motor_delta": 0.05,
+        "seed": 1,
+        "active": true,
+        "note": "M2 actuator-path motor gain asymmetry"
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.00402284747053048,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.00402284747053048,
+        "requested_left_rad_s": 3.692991576377682,
+        "requested_right_rad_s": 3.6916238082377015,
+        "motor_gain_left": 1.05,
+        "motor_gain_right": 0.95,
+        "applied_left_rad_s": 3.8776411551965664,
+        "applied_right_rad_s": 3.5070426178258165,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -2.997107850317961,
+          0.026828919983102564,
+          -0.0015200473506310536
+        ],
+        "pre_physics_true_yaw_rad": 0.008036771812670412,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 0.025654552528259898,
+        "final_true_yaw_rad": -0.04596112427487129,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.2606012239883317,
+          0.022619907671242813,
+          0.0067803801609907285
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "motor_asymmetry",
+          "severity": "diagnostic_pos",
+          "imu_bias_rad_s": 0.0,
+          "motor_delta": 0.05,
+          "seed": 1,
+          "active": true,
+          "note": "M2 actuator-path motor gain asymmetry"
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": -0.04596112427487129,
+      "mean_abs_true_yaw_rad": 0.025654552528259898
+    },
+    "D4_motor_rev_seed1": {
+      "name": "D4_motor_rev",
+      "seed": 1,
+      "mismatch": {
+        "type": "motor_asymmetry",
+        "severity": "diagnostic_rev",
+        "imu_bias_rad_s": 0.0,
+        "motor_delta": -0.05,
+        "seed": 1,
+        "active": true,
+        "note": "M2 actuator-path motor gain asymmetry"
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.06619261041892803,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.06619261041892803,
+        "requested_left_rad_s": 3.6810549485364743,
+        "requested_right_rad_s": 3.70356043607891,
+        "motor_gain_left": 0.95,
+        "motor_gain_right": 1.05,
+        "applied_left_rad_s": 3.4970022011096504,
+        "applied_right_rad_s": 3.8887384578828557,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -2.998315642944665,
+          0.018706869934010845,
+          0.0011959920208588415
+        ],
+        "pre_physics_true_yaw_rad": -0.007370295141913117,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 0.08936662187653503,
+        "final_true_yaw_rad": -0.11882666527292256,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.2645681536988893,
+          0.03185505014370402,
+          0.023129425059775766
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "motor_asymmetry",
+          "severity": "diagnostic_rev",
+          "imu_bias_rad_s": 0.0,
+          "motor_delta": -0.05,
+          "seed": 1,
+          "active": true,
+          "note": "M2 actuator-path motor gain asymmetry"
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": -0.11882666527292256,
+      "mean_abs_true_yaw_rad": 0.08936662187653503
+    },
+    "D0_nominal_seed2": {
+      "name": "D0_nominal",
+      "seed": 2,
+      "mismatch": {
+        "type": "none",
+        "severity": "0",
+        "imu_bias_rad_s": 0.0,
+        "motor_delta": 0.0,
+        "seed": 2,
+        "active": false,
+        "note": ""
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.0015968903597654903,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.0015968903597654903,
+        "requested_left_rad_s": 3.6920362209465316,
+        "requested_right_rad_s": 3.6925791636688525,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6920362209465316,
+        "applied_right_rad_s": 3.6925791636688525,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -2.9974348988211297,
+          0.029140379392329198,
+          0.0001737957124521722
+        ],
+        "pre_physics_true_yaw_rad": -0.00013777454469325715,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 0.009343820005788754,
+        "final_true_yaw_rad": 0.006056751965034361,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.2408180262464277,
+          0.03022479518575385,
+          -5.548137437153482e-05
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "none",
+          "severity": "0",
+          "imu_bias_rad_s": 0.0,
+          "motor_delta": 0.0,
+          "seed": 2,
+          "active": false,
+          "note": ""
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": 0.006056751965034361,
+      "mean_abs_true_yaw_rad": 0.009343820005788754
+    },
+    "D1_imu_bias_pos_seed2": {
+      "name": "D1_imu_bias_pos",
+      "seed": 2,
+      "mismatch": {
+        "type": "imu_bias",
+        "severity": "diagnostic_pos",
+        "imu_bias_rad_s": 0.1,
+        "motor_delta": 0.0,
+        "seed": 2,
+        "active": true,
+        "note": "M1 observation-path IMU yaw-rate bias [rad/s]"
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.013089143132707797,
+        "mismatch_imu_bias_rad_s": 0.1,
+        "observed_imu_yaw_rate_rad_s": 0.0869108568672922,
+        "requested_left_rad_s": 3.7070825379751318,
+        "requested_right_rad_s": 3.6775328466402524,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.7070825379751318,
+        "applied_right_rad_s": 3.6775328466402524,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -2.9979965998165037,
+          0.027912766612611693,
+          -0.0015478651157206059
+        ],
+        "pre_physics_true_yaw_rad": 0.0013542929369529287,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 0.014299287472600501,
+        "final_true_yaw_rad": 0.01827681483718836,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.2656185810499436,
+          0.025524886342531385,
+          0.004883713479572882
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "imu_bias",
+          "severity": "diagnostic_pos",
+          "imu_bias_rad_s": 0.1,
+          "motor_delta": 0.0,
+          "seed": 2,
+          "active": true,
+          "note": "M1 observation-path IMU yaw-rate bias [rad/s]"
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": 0.01827681483718836,
+      "mean_abs_true_yaw_rad": 0.014299287472600501
+    },
+    "D2_imu_bias_neg_seed2": {
+      "name": "D2_imu_bias_neg",
+      "seed": 2,
+      "mismatch": {
+        "type": "imu_bias",
+        "severity": "diagnostic_neg",
+        "imu_bias_rad_s": -0.1,
+        "motor_delta": 0.0,
+        "seed": 2,
+        "active": true,
+        "note": "M1 observation-path IMU yaw-rate bias [rad/s]"
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.0021199503184960184,
+        "mismatch_imu_bias_rad_s": -0.1,
+        "observed_imu_yaw_rate_rad_s": -0.10211995031849602,
+        "requested_left_rad_s": 3.674947300753548,
+        "requested_right_rad_s": 3.7096680838618363,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.674947300753548,
+        "applied_right_rad_s": 3.7096680838618363,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0001214904207605,
+          0.025644289135941016,
+          -0.004883004695371421
+        ],
+        "pre_physics_true_yaw_rad": -0.0010313577572743534,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 0.07889370405588925,
+        "final_true_yaw_rad": -0.14739218940506724,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.257292134287925,
+          0.024194346325610502,
+          0.023147655075213467
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "imu_bias",
+          "severity": "diagnostic_neg",
+          "imu_bias_rad_s": -0.1,
+          "motor_delta": 0.0,
+          "seed": 2,
+          "active": true,
+          "note": "M1 observation-path IMU yaw-rate bias [rad/s]"
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": -0.14739218940506724,
+      "mean_abs_true_yaw_rad": 0.07889370405588925
+    },
+    "D3_motor_pos_seed2": {
+      "name": "D3_motor_pos",
+      "seed": 2,
+      "mismatch": {
+        "type": "motor_asymmetry",
+        "severity": "diagnostic_pos",
+        "imu_bias_rad_s": 0.0,
+        "motor_delta": 0.05,
+        "seed": 2,
+        "active": true,
+        "note": "M2 actuator-path motor gain asymmetry"
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": -1.0291613889115333e-05,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -1.0291613889115333e-05,
+        "requested_left_rad_s": 3.692305942733331,
+        "requested_right_rad_s": 3.692309441882053,
+        "motor_gain_left": 1.05,
+        "motor_gain_right": 0.95,
+        "applied_left_rad_s": 3.876921239869998,
+        "applied_right_rad_s": 3.50769396978795,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.000149458928317,
+          0.03273920927087253,
+          2.2685194245709118e-06
+        ],
+        "pre_physics_true_yaw_rad": -7.2750607679662e-06,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 0.01841780302673065,
+        "final_true_yaw_rad": 0.041699064354508965,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.2809036054506646,
+          0.023806278494490747,
+          -0.004823764267732947
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "motor_asymmetry",
+          "severity": "diagnostic_pos",
+          "imu_bias_rad_s": 0.0,
+          "motor_delta": 0.05,
+          "seed": 2,
+          "active": true,
+          "note": "M2 actuator-path motor gain asymmetry"
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": 0.041699064354508965,
+      "mean_abs_true_yaw_rad": 0.01841780302673065
+    },
+    "D4_motor_rev_seed2": {
+      "name": "D4_motor_rev",
+      "seed": 2,
+      "mismatch": {
+        "type": "motor_asymmetry",
+        "severity": "diagnostic_rev",
+        "imu_bias_rad_s": 0.0,
+        "motor_delta": -0.05,
+        "seed": 2,
+        "active": true,
+        "note": "M2 actuator-path motor gain asymmetry"
+      },
+      "first_intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.00305750571031165,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.00305750571031165,
+        "requested_left_rad_s": 3.691787916336939,
+        "requested_right_rad_s": 3.692827468278445,
+        "motor_gain_left": 0.95,
+        "motor_gain_right": 1.05,
+        "applied_left_rad_s": 3.5071985205200917,
+        "applied_right_rad_s": 3.8774688416923677,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0015095587579883,
+          0.03112145343345902,
+          0.0010690629682064165
+        ],
+        "pre_physics_true_yaw_rad": 0.0004360506469345796,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      },
+      "metrics": {
+        "n_steps": 60,
+        "mean_abs_true_yaw_rad": 0.03556011371290677,
+        "final_true_yaw_rad": -0.07300312373966715,
+        "mean_residual_abs": 0.0,
+        "final_position_m": [
+          -3.259777435940853,
+          0.01927583722955121,
+          0.009000492303931146
+        ],
+        "estimator_params_final": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "clip_fraction": 0.0,
+        "mismatch": {
+          "type": "motor_asymmetry",
+          "severity": "diagnostic_rev",
+          "imu_bias_rad_s": 0.0,
+          "motor_delta": -0.05,
+          "seed": 2,
+          "active": true,
+          "note": "M2 actuator-path motor gain asymmetry"
+        },
+        "plant": {
+          "plant": "live_webots_ode",
+          "python_pose_integration": false,
+          "timestep_ms": 50,
+          "uses_webots_faithful_env": false,
+          "uses_phase0_env": false,
+          "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+          "device_names": {
+            "left_motors": [
+              "front left wheel motor",
+              "rear left wheel motor"
+            ],
+            "right_motors": [
+              "front right wheel motor",
+              "rear right wheel motor"
+            ]
+          }
+        }
+      },
+      "clip_fraction": 0.0,
+      "final_true_yaw_rad": -0.07300312373966715,
+      "mean_abs_true_yaw_rad": 0.03556011371290677
+    }
+  },
+  "paired_checks": {
+    "M1_imu": {
+      "within_step_bias_pos_exact": true,
+      "within_step_bias_neg_exact": true,
+      "observed_minus_raw_pos": 0.09999999999999999,
+      "observed_minus_raw_neg": -0.1,
+      "motor_gains_unchanged_under_imu": true,
+      "requested_cmds_identical_open_loop_first_step": true,
+      "spawn_pose_restored": true,
+      "cross_run_raw_imu_delta": 0.04610556957882821,
+      "phi_frozen": true,
+      "distinction": "Direct intervention = observed IMU only (observed=raw+bias). Cross-run raw gyro micro-differences after independent resets are not M1 contamination. Later closed-loop trajectory changes are downstream controller reactions.",
+      "pass": true
+    },
+    "M2_motor": {
+      "within_step_no_imu_bias": true,
+      "imu_bias_zero_under_motor": true,
+      "requested_identical_first_step": true,
+      "gains_pos_ok": true,
+      "gains_rev_ok": true,
+      "yaw_drift_sign_reverses": true,
+      "final_yaw_pos": -0.004942877976652511,
+      "final_yaw_rev": 0.028676615858414335,
+      "clip_fraction_pos": 0.0,
+      "clip_fraction_rev": 0.0,
+      "phi_frozen": true,
+      "cross_run_raw_imu_delta": 0.021937735950234866,
+      "distinction": "Direct intervention = applied motor gains only. Later IMU changes are downstream of changed ODE motion, not sensor-side contamination.",
+      "applied_differs_from_requested_when_delta": true,
+      "yaw_product_negative_or_tiny": true,
+      "pass": true
+    },
+    "M1_closed_loop_downstream": {
+      "nominal_final_yaw": 0.03464714824101357,
+      "biased_final_yaw": 0.03621963725047372,
+      "diverged": true,
+      "note": "Expected: physical yaw diverges because controller reacts to biased obs."
+    }
+  },
+  "gates": {
+    "m1_causal": true,
+    "m2_causal": true,
+    "m1_closed_loop_downstream": true,
+    "adaptation_off": true,
+    "residual_zero": true,
+    "clip_negligible": true,
+    "live_ode": true
+  },
+  "pass": true,
+  "intervention_table": {
+    "M1_first_step": {
+      "within_step_observed_equals_raw_plus_bias": true,
+      "motor_gains_same": true,
+      "requested_cmds_same_open_loop": true,
+      "spawn_restored": true
+    },
+    "M2_first_step": {
+      "within_step_no_imu_bias": true,
+      "requested_same": true,
+      "applied_changed": true,
+      "yaw_sign_reverses": true
+    }
+  }
+}

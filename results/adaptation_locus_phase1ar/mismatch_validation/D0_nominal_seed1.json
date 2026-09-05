@@ -1,0 +1,4706 @@
+{
+  "name": "D0_nominal",
+  "seed": 1,
+  "mismatch": {
+    "type": "none",
+    "severity": "0",
+    "imu_bias_rad_s": 0.0,
+    "motor_delta": 0.0,
+    "seed": 1,
+    "active": false,
+    "note": ""
+  },
+  "first_intervention": {
+    "raw_imu_yaw_rate_rad_s": 4.719468492417258e-05,
+    "mismatch_imu_bias_rad_s": 0.0,
+    "observed_imu_yaw_rate_rad_s": 4.719468492417258e-05,
+    "requested_left_rad_s": 3.692315715404129,
+    "requested_right_rad_s": 3.6922996692112546,
+    "motor_gain_left": 1.0,
+    "motor_gain_right": 1.0,
+    "applied_left_rad_s": 3.692315715404129,
+    "applied_right_rad_s": 3.6922996692112546,
+    "clipped_left": false,
+    "clipped_right": false,
+    "pre_physics_true_position_m": [
+      -3.000209515479271,
+      0.03271872495428237,
+      0.0001360109470555091
+    ],
+    "pre_physics_true_yaw_rad": 3.596655121608321e-05,
+    "estimator_params": {
+      "imu_bias_hat_rad_s": 0.0,
+      "fusion_weight": 0.85
+    },
+    "heading_kp": 2.0,
+    "residual_omega_rad_s": 0.0
+  },
+  "metrics": {
+    "n_steps": 60,
+    "mean_abs_true_yaw_rad": 0.008468202168002242,
+    "final_true_yaw_rad": 0.008479088809517317,
+    "mean_residual_abs": 0.0,
+    "final_position_m": [
+      -3.2565954021030237,
+      0.029235467401238658,
+      0.002612582828870022
+    ],
+    "estimator_params_final": {
+      "imu_bias_hat_rad_s": 0.0,
+      "fusion_weight": 0.85
+    },
+    "clip_fraction": 0.0,
+    "mismatch": {
+      "type": "none",
+      "severity": "0",
+      "imu_bias_rad_s": 0.0,
+      "motor_delta": 0.0,
+      "seed": 1,
+      "active": false,
+      "note": ""
+    },
+    "plant": {
+      "plant": "live_webots_ode",
+      "python_pose_integration": false,
+      "timestep_ms": 50,
+      "uses_webots_faithful_env": false,
+      "uses_phase0_env": false,
+      "kinematics": "parts.differential_drive.DifferentialDriveKinematics",
+      "device_names": {
+        "left_motors": [
+          "front left wheel motor",
+          "rear left wheel motor"
+        ],
+        "right_motors": [
+          "front right wheel motor",
+          "rear right wheel motor"
+        ]
+      }
+    }
+  },
+  "log": [
+    {
+      "simulation_time": 16.6,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.23863404417463502,
+        1.0501913493637234,
+        -0.00240449061051184
+      ],
+      "raw_imu_gyro_deg_s": [
+        4.82966466579958,
+        -0.016457097846318387,
+        -12.914600067151865
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.0002872305427411236,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.0002872305427411236,
+      "encoder_left_rad_s": 3.67999999999995,
+      "encoder_right_rad_s": 3.6200000000000188,
+      "encoder_speed_m_s": 0.1186249999999995,
+      "distance_cm": 203.34562022563586,
+      "estimator_heading_rad": 2.0057741092773346e-06,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": -4.011548218554669e-06,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": -4.011548218554669e-06,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.692315715404129,
+      "requested_right_rad_s": 3.6922996692112546,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.692315715404129,
+      "applied_right_rad_s": 3.6922996692112546,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -1.7477926112429768e-05,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.005939554824447,
+        0.03398635944472309,
+        0.0002839164252777939
+      ],
+      "true_yaw_rad": -1.7477926112429768e-05,
+      "true_linear_speed_m_s": 0.10908353326418034,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 4.719468492417258e-05,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 4.719468492417258e-05,
+        "requested_left_rad_s": 3.692315715404129,
+        "requested_right_rad_s": 3.6922996692112546,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.692315715404129,
+        "applied_right_rad_s": 3.6922996692112546,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.000209515479271,
+          0.03271872495428237,
+          0.0001360109470555091
+        ],
+        "pre_physics_true_yaw_rad": 3.596655121608321e-05,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 16.65,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.11954579297560362,
+        0.4121058692496181,
+        -0.08592547033455344
+      ],
+      "raw_imu_gyro_deg_s": [
+        -113.57456411470909,
+        9.453385052241572,
+        82.99605167408276
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.1649926946204316,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.1649926946204316,
+      "encoder_left_rad_s": 3.6599999999999966,
+      "encoder_right_rad_s": 3.6599999999999966,
+      "encoder_speed_m_s": 0.11894999999999989,
+      "distance_cm": 199.38067489333696,
+      "estimator_heading_rad": -1.020152395722042e-05,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 2.040304791444084e-05,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 2.040304791444084e-05,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.692266886211863,
+      "requested_right_rad_s": 3.692348498403521,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.692266886211863,
+      "applied_right_rad_s": 3.692348498403521,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.011253689119104394,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.015289699309349,
+        0.020195235107423184,
+        -0.0025309406749422616
+      ],
+      "true_yaw_rad": -0.011253689119104394,
+      "true_linear_speed_m_s": 0.24698909182957474,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.0002872305427411236,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.0002872305427411236,
+        "requested_left_rad_s": 3.692266886211863,
+        "requested_right_rad_s": 3.692348498403521,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.692266886211863,
+        "applied_right_rad_s": 3.692348498403521,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.005939554824447,
+          0.03398635944472309,
+          0.0002839164252777939
+        ],
+        "pre_physics_true_yaw_rad": -1.7477926112429768e-05,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 16.7,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.26704938241577986,
+        1.894361406982369,
+        0.25179278009746475
+      ],
+      "raw_imu_gyro_deg_s": [
+        75.40183272222379,
+        6.717323713826434,
+        -13.966764038175365
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.11723941572856461,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.11723941572856461,
+      "encoder_left_rad_s": 3.3500000000000085,
+      "encoder_right_rad_s": 3.649999999999949,
+      "encoder_speed_m_s": 0.11374999999999931,
+      "distance_cm": 198.35449718099125,
+      "estimator_heading_rad": 0.007001987997411123,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": -0.014003975994822246,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": -0.014003975994822247,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.720315644297336,
+      "requested_right_rad_s": 3.6642997403180475,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.720315644297336,
+      "applied_right_rad_s": 3.6642997403180475,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.016399274611325013,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.0205317939520913,
+        0.028884648317779534,
+        -0.00045173938999991164
+      ],
+      "true_yaw_rad": -0.016399274611325013,
+      "true_linear_speed_m_s": 0.12333810554964404,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.1649926946204316,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.1649926946204316,
+        "requested_left_rad_s": 3.720315644297336,
+        "requested_right_rad_s": 3.6642997403180475,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.720315644297336,
+        "applied_right_rad_s": 3.6642997403180475,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.015289699309349,
+          0.020195235107423184,
+          -0.0025309406749422616
+        ],
+        "pre_physics_true_yaw_rad": -0.011253689119104394,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 16.75,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.013755330299278544,
+        0.6731596883979828,
+        -0.02632531917244873
+      ],
+      "raw_imu_gyro_deg_s": [
+        52.84511887330459,
+        -1.182004489186943,
+        -29.97691129025956
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.020629870109665868,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.020629870109665868,
+      "encoder_left_rad_s": 3.7299999999999756,
+      "encoder_right_rad_s": 3.6299999999999955,
+      "encoder_speed_m_s": 0.11959999999999953,
+      "distance_cm": 201.70292273446577,
+      "estimator_heading_rad": 0.011984663165875119,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": -0.023969326331750238,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": -0.023969326331750238,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.7402463449711925,
+      "requested_right_rad_s": 3.6443690396441917,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.7402463449711925,
+      "applied_right_rad_s": 3.6443690396441917,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.01529633288849815,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.025911767909906,
+        0.02958574135108648,
+        0.0013183884215364145
+      ],
+      "true_yaw_rad": -0.01529633288849815,
+      "true_linear_speed_m_s": 0.11073323398603307,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.11723941572856461,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.11723941572856461,
+        "requested_left_rad_s": 3.7402463449711925,
+        "requested_right_rad_s": 3.6443690396441917,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.7402463449711925,
+        "applied_right_rad_s": 3.6443690396441917,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0205317939520913,
+          0.028884648317779534,
+          -0.00045173938999991164
+        ],
+        "pre_physics_true_yaw_rad": -0.016399274611325013,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 16.8,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.018648257659376475,
+        0.9905049595947998,
+        -0.08748433162517384
+      ],
+      "raw_imu_gyro_deg_s": [
+        5.669171937057285,
+        -1.8235583755583913,
+        22.895869512517198
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.031827097755813216,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.031827097755813216,
+      "encoder_left_rad_s": 3.719999999999999,
+      "encoder_right_rad_s": 3.6299999999999955,
+      "encoder_speed_m_s": 0.1194374999999999,
+      "distance_cm": 199.58769338641042,
+      "estimator_heading_rad": 0.011107893686214319,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": -0.022215787372428637,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": -0.022215787372428637,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.736739267052549,
+      "requested_right_rad_s": 3.6478761175628347,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.736739267052549,
+      "applied_right_rad_s": 3.6478761175628347,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.013246938539846539,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.032936046389046,
+        0.03007221499092695,
+        0.0015816175062553699
+      ],
+      "true_yaw_rad": -0.013246938539846539,
+      "true_linear_speed_m_s": 0.15063577704422315,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.020629870109665868,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.020629870109665868,
+        "requested_left_rad_s": 3.736739267052549,
+        "requested_right_rad_s": 3.6478761175628347,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.736739267052549,
+        "applied_right_rad_s": 3.6478761175628347,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.025911767909906,
+          0.02958574135108648,
+          0.0013183884215364145
+        ],
+        "pre_physics_true_yaw_rad": -0.01529633288849815,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 16.85,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.07101013272241735,
+        0.8990785962432606,
+        -0.027573525957492715
+      ],
+      "raw_imu_gyro_deg_s": [
+        11.97150596191115,
+        -1.855063742396138,
+        16.872254642588747
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.03237697013918053,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.03237697013918053,
+      "encoder_left_rad_s": 3.719999999999999,
+      "encoder_right_rad_s": 3.680000000000021,
+      "encoder_speed_m_s": 0.12025000000000033,
+      "distance_cm": 201.8850571167005,
+      "estimator_heading_rad": 0.009755242031592257,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": -0.019510484063184515,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": -0.019510484063184515,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.731328660434061,
+      "requested_right_rad_s": 3.653286724181323,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.731328660434061,
+      "applied_right_rad_s": 3.653286724181323,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.01117422843656995,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.039602094785722,
+        0.02815306364754449,
+        0.0019576883333717863
+      ],
+      "true_yaw_rad": -0.01117422843656995,
+      "true_linear_speed_m_s": 0.14118239294059848,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.031827097755813216,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.031827097755813216,
+        "requested_left_rad_s": 3.731328660434061,
+        "requested_right_rad_s": 3.653286724181323,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.731328660434061,
+        "applied_right_rad_s": 3.653286724181323,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.032936046389046,
+          0.03007221499092695,
+          0.0015816175062553699
+        ],
+        "pre_physics_true_yaw_rad": -0.013246938539846539,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 16.9,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.09398908236790382,
+        0.9383914864572583,
+        -0.05203518242788719
+      ],
+      "raw_imu_gyro_deg_s": [
+        -1.7953608049483512,
+        -1.34586224595873,
+        5.777051681985077
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.023489727470265585,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.023489727470265585,
+      "encoder_left_rad_s": 3.710000000000022,
+      "encoder_right_rad_s": 3.780000000000001,
+      "encoder_speed_m_s": 0.12171250000000038,
+      "distance_cm": 200.98410207740488,
+      "estimator_heading_rad": 0.008379220800677085,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": -0.01675844160135417,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": -0.01675844160135417,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.7258245755104005,
+      "requested_right_rad_s": 3.6587908091049837,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.7258245755104005,
+      "applied_right_rad_s": 3.6587908091049837,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.009820113484855333,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.0455307997957144,
+        0.024852195010959317,
+        0.0018448253995674573
+      ],
+      "true_yaw_rad": -0.009820113484855333,
+      "true_linear_speed_m_s": 0.12113682664025996,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.03237697013918053,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.03237697013918053,
+        "requested_left_rad_s": 3.7258245755104005,
+        "requested_right_rad_s": 3.6587908091049837,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.7258245755104005,
+        "applied_right_rad_s": 3.6587908091049837,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.039602094785722,
+          0.02815306364754449,
+          0.0019576883333717863
+        ],
+        "pre_physics_true_yaw_rad": -0.01117422843656995,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 16.95,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.11906147784176146,
+        0.5663290059684511,
+        0.02020596808155045
+      ],
+      "raw_imu_gyro_deg_s": [
+        139.78999476705278,
+        -2.1840414019384777,
+        -90.47576348205752
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.0381187134636993,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.0381187134636993,
+      "encoder_left_rad_s": 3.710000000000022,
+      "encoder_right_rad_s": 4.179999999999993,
+      "encoder_speed_m_s": 0.12821250000000026,
+      "distance_cm": 201.66742664835908,
+      "estimator_heading_rad": 0.007380907383190798,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": -0.014761814766381595,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": -0.014761814766381595,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.721831321840455,
+      "requested_right_rad_s": 3.6627840627749286,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.721831321840455,
+      "applied_right_rad_s": 3.6627840627749286,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.015424456753095565,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.0483466172088898,
+        0.010370166278156664,
+        0.004309852450824998
+      ],
+      "true_yaw_rad": -0.015424456753095565,
+      "true_linear_speed_m_s": 0.11058256363162848,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.023489727470265585,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.023489727470265585,
+        "requested_left_rad_s": 3.721831321840455,
+        "requested_right_rad_s": 3.6627840627749286,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.721831321840455,
+        "applied_right_rad_s": 3.6627840627749286,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0455307997957144,
+          0.024852195010959317,
+          0.0018448253995674573
+        ],
+        "pre_physics_true_yaw_rad": -0.009820113484855333,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.0,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.09727592564641585,
+        1.8283480093790385,
+        -0.27904282386587104
+      ],
+      "raw_imu_gyro_deg_s": [
+        -111.62606180172766,
+        11.715163102300881,
+        22.434861068199936
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.20446816854330366,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.20446816854330366,
+      "encoder_left_rad_s": 1.8500000000000227,
+      "encoder_right_rad_s": 3.639999999999972,
+      "encoder_speed_m_s": 0.08921249999999992,
+      "distance_cm": 200.09609132575946,
+      "estimator_heading_rad": 0.005760862060983578,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": -0.011521724121967156,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": -0.011521724121967156,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.7153511405516264,
+      "requested_right_rad_s": 3.6692642440637577,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.7153511405516264,
+      "applied_right_rad_s": 3.6692642440637577,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.023478460866256125,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.0493262939705654,
+        0.016672915449133782,
+        0.0025488633459127327
+      ],
+      "true_yaw_rad": -0.023478460866256125,
+      "true_linear_speed_m_s": 0.08872010357822079,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.0381187134636993,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.0381187134636993,
+        "requested_left_rad_s": 3.7153511405516264,
+        "requested_right_rad_s": 3.6692642440637577,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.7153511405516264,
+        "applied_right_rad_s": 3.6692642440637577,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0483466172088898,
+          0.010370166278156664,
+          0.004309852450824998
+        ],
+        "pre_physics_true_yaw_rad": -0.015424456753095565,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.05,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.053796846901785225,
+        0.815493363064309,
+        0.03490895191355589
+      ],
+      "raw_imu_gyro_deg_s": [
+        -70.03189631750772,
+        5.263512517410871,
+        7.58950165759843
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.09186562364875506,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.09186562364875506,
+      "encoder_left_rad_s": 3.7299999999999756,
+      "encoder_right_rad_s": 3.62000000000009,
+      "encoder_speed_m_s": 0.11943750000000107,
+      "distance_cm": 200.05882310658762,
+      "estimator_heading_rad": 0.014450759224073984,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": -0.028901518448147968,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": -0.028901518448147964,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.750110729203988,
+      "requested_right_rad_s": 3.634504655411396,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.750110729203988,
+      "applied_right_rad_s": 3.634504655411396,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.027881126418868273,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.0519182294391163,
+        0.018497098912466023,
+        0.0016523487147450972
+      ],
+      "true_yaw_rad": -0.027881126418868273,
+      "true_linear_speed_m_s": 0.07395010458281136,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.20446816854330366,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.20446816854330366,
+        "requested_left_rad_s": 3.750110729203988,
+        "requested_right_rad_s": 3.634504655411396,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.750110729203988,
+        "applied_right_rad_s": 3.634504655411396,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0493262939705654,
+          0.016672915449133782,
+          0.0025488633459127327
+        ],
+        "pre_physics_true_yaw_rad": -0.023478460866256125,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.1,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.016903638152195134,
+        0.7197110352022369,
+        0.04657632025852682
+      ],
+      "raw_imu_gyro_deg_s": [
+        159.66040416772418,
+        -3.7611337697447893,
+        -76.24374750746153
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.06564416788999286,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.06564416788999286,
+      "encoder_left_rad_s": 3.750000000000071,
+      "encoder_right_rad_s": 3.5999999999999943,
+      "encoder_speed_m_s": 0.11943750000000107,
+      "distance_cm": 201.54748469509917,
+      "estimator_heading_rad": 0.018355048229146072,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": -0.036710096458292145,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": -0.036710096458292145,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.765727885224276,
+      "requested_right_rad_s": 3.618887499391108,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.765727885224276,
+      "applied_right_rad_s": 3.618887499391108,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.029073063252652496,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.0539622799509805,
+        0.012870385908287183,
+        0.004262577170909247
+      ],
+      "true_yaw_rad": -0.029073063252652496,
+      "true_linear_speed_m_s": 0.1207213095895277,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.09186562364875506,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.09186562364875506,
+        "requested_left_rad_s": 3.765727885224276,
+        "requested_right_rad_s": 3.618887499391108,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.765727885224276,
+        "applied_right_rad_s": 3.618887499391108,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0519182294391163,
+          0.018497098912466023,
+          0.0016523487147450972
+        ],
+        "pre_physics_true_yaw_rad": -0.027881126418868273,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.150000000000002,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.06659299270990639,
+        1.4231705501063334,
+        -0.18085852374687378
+      ],
+      "raw_imu_gyro_deg_s": [
+        -124.78505651785579,
+        -2.0676467759287758,
+        -11.528415297779302
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.036087244008202575,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.036087244008202575,
+      "encoder_left_rad_s": 1.5699999999999648,
+      "encoder_right_rad_s": 3.609999999999971,
+      "encoder_speed_m_s": 0.08417499999999896,
+      "distance_cm": 199.91951848721047,
+      "estimator_heading_rad": 0.015565171093821375,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": -0.03113034218764275,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": -0.03113034218764275,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.7545683766829776,
+      "requested_right_rad_s": 3.6300470079324065,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.7545683766829776,
+      "applied_right_rad_s": 3.6300470079324065,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.028102598962507094,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.0556207028509297,
+        0.0179029115013473,
+        0.003408773454102616
+      ],
+      "true_yaw_rad": -0.028102598962507094,
+      "true_linear_speed_m_s": 0.07722880487556337,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.06564416788999286,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.06564416788999286,
+        "requested_left_rad_s": 3.7545683766829776,
+        "requested_right_rad_s": 3.6300470079324065,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.7545683766829776,
+        "applied_right_rad_s": 3.6300470079324065,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0539622799509805,
+          0.012870385908287183,
+          0.004262577170909247
+        ],
+        "pre_physics_true_yaw_rad": -0.029073063252652496,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.2,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.08608550882529573,
+        0.9749369697700779,
+        0.033167166498975005
+      ],
+      "raw_imu_gyro_deg_s": [
+        -74.04002012297026,
+        -12.913766559492961,
+        -54.125200582691726
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.22538774529709235,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.22538774529709235,
+      "encoder_left_rad_s": 3.7399999999999523,
+      "encoder_right_rad_s": 2.390000000000043,
+      "encoder_speed_m_s": 0.09961249999999992,
+      "distance_cm": 200.84476217981745,
+      "estimator_heading_rad": 0.014031463223472766,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": -0.02806292644694553,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": -0.02806292644694553,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.748433545201583,
+      "requested_right_rad_s": 3.6361818394138012,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.748433545201583,
+      "applied_right_rad_s": 3.6361818394138012,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.016574435235582673,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.056806871185537,
+        0.022482949559247185,
+        0.0024802101957967114
+      ],
+      "true_yaw_rad": -0.016574435235582673,
+      "true_linear_speed_m_s": 0.05138545901998979,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.036087244008202575,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.036087244008202575,
+        "requested_left_rad_s": 3.748433545201583,
+        "requested_right_rad_s": 3.6361818394138012,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.748433545201583,
+        "applied_right_rad_s": 3.6361818394138012,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0556207028509297,
+          0.0179029115013473,
+          0.003408773454102616
+        ],
+        "pre_physics_true_yaw_rad": -0.028102598962507094,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.25,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.1064587038439502,
+        0.8692675062496549,
+        0.02400182462676626
+      ],
+      "raw_imu_gyro_deg_s": [
+        -18.284353273421818,
+        -32.40564755078677,
+        83.17013419616994
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.5655852460020655,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.5655852460020655,
+      "encoder_left_rad_s": 3.5900000000000176,
+      "encoder_right_rad_s": 1.6899999999998983,
+      "encoder_speed_m_s": 0.08579999999999864,
+      "distance_cm": 198.7603079356363,
+      "estimator_heading_rad": 0.00445248404834634,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": -0.00890496809669268,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": -0.00890496809669268,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.7101176285010773,
+      "requested_right_rad_s": 3.6744977561143064,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.7101176285010773,
+      "applied_right_rad_s": 3.6744977561143064,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.008346718852033322,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.05988224380975,
+        0.023935247287268473,
+        0.0009158759599833255
+      ],
+      "true_yaw_rad": 0.008346718852033322,
+      "true_linear_speed_m_s": 0.10526938315756543,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.22538774529709235,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.22538774529709235,
+        "requested_left_rad_s": 3.7101176285010773,
+        "requested_right_rad_s": 3.6744977561143064,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.7101176285010773,
+        "applied_right_rad_s": 3.6744977561143064,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.056806871185537,
+          0.022482949559247185,
+          0.0024802101957967114
+        ],
+        "pre_physics_true_yaw_rad": -0.016574435235582673,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.3,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.06336374725439683,
+        1.1319734288272325,
+        0.0998320937542517
+      ],
+      "raw_imu_gyro_deg_s": [
+        42.04174833549889,
+        2.4513692642032456,
+        -28.806829502920852
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.04278446484253741,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.04278446484253741,
+      "encoder_left_rad_s": 2.9999999999999716,
+      "encoder_right_rad_s": 3.7600000000000477,
+      "encoder_speed_m_s": 0.10985000000000032,
+      "distance_cm": 199.6737349446226,
+      "estimator_heading_rad": -0.019584888906741444,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03916977781348289,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03916977781348289,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.613968136680726,
+      "requested_right_rad_s": 3.7706472479346576,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.613968136680726,
+      "applied_right_rad_s": 3.7706472479346576,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.0071364223335081516,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.062889372031039,
+        0.02874421235645018,
+        0.001306459845229778
+      ],
+      "true_yaw_rad": 0.0071364223335081516,
+      "true_linear_speed_m_s": 0.054442136998532085,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.5655852460020655,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.5655852460020655,
+        "requested_left_rad_s": 3.613968136680726,
+        "requested_right_rad_s": 3.7706472479346576,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.613968136680726,
+        "applied_right_rad_s": 3.7706472479346576,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.05988224380975,
+          0.023935247287268473,
+          0.0009158759599833255
+        ],
+        "pre_physics_true_yaw_rad": 0.008346718852033322,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.35,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.12331394233529887,
+        0.96198240915678,
+        0.004878905429572973
+      ],
+      "raw_imu_gyro_deg_s": [
+        3.634508224615509,
+        -1.8520359525977845,
+        27.83408617874849
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.03232412523814097,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.03232412523814097,
+      "encoder_left_rad_s": 3.5999999999999943,
+      "encoder_right_rad_s": 3.75,
+      "encoder_speed_m_s": 0.1194374999999999,
+      "distance_cm": 199.756515761264,
+      "estimator_heading_rad": -0.017766549150933605,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03553309830186721,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03553309830186721,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6212414957039574,
+      "requested_right_rad_s": 3.7633738889114268,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6212414957039574,
+      "applied_right_rad_s": 3.7633738889114268,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.00834036617841313,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.0681026470900163,
+        0.03271926316233363,
+        0.0014331156686215342
+      ],
+      "true_yaw_rad": 0.00834036617841313,
+      "true_linear_speed_m_s": 0.11647647680257954,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.04278446484253741,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.04278446484253741,
+        "requested_left_rad_s": 3.6212414957039574,
+        "requested_right_rad_s": 3.7633738889114268,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6212414957039574,
+        "applied_right_rad_s": 3.7633738889114268,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.062889372031039,
+          0.02874421235645018,
+          0.001306459845229778
+        ],
+        "pre_physics_true_yaw_rad": 0.0071364223335081516,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.400000000000002,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.12371292757831902,
+        0.466738672717228,
+        -0.0869873298906555
+      ],
+      "raw_imu_gyro_deg_s": [
+        -129.28077235949172,
+        -0.961521080527437,
+        100.5351227824904
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.01678170868253731,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.01678170868253731,
+      "encoder_left_rad_s": 3.580000000000041,
+      "encoder_right_rad_s": 3.7300000000000466,
+      "encoder_speed_m_s": 0.11878750000000142,
+      "distance_cm": 200.45842832055337,
+      "estimator_heading_rad": -0.019140324473554595,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03828064894710919,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03828064894710919,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6157463944134736,
+      "requested_right_rad_s": 3.7688689902019106,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6157463944134736,
+      "applied_right_rad_s": 3.7688689902019106,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.002894377708216822,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.0769158925877607,
+        0.022823256702300704,
+        -0.0020110971890071527
+      ],
+      "true_yaw_rad": 0.002894377708216822,
+      "true_linear_speed_m_s": 0.2528301452607277,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.03232412523814097,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.03232412523814097,
+        "requested_left_rad_s": 3.6157463944134736,
+        "requested_right_rad_s": 3.7688689902019106,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6157463944134736,
+        "applied_right_rad_s": 3.7688689902019106,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0681026470900163,
+          0.03271926316233363,
+          0.0014331156686215342
+        ],
+        "pre_physics_true_yaw_rad": 0.00834036617841313,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.45,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.2179693779744093,
+        1.8238896871568122,
+        0.3155750681932741
+      ],
+      "raw_imu_gyro_deg_s": [
+        71.47181121516994,
+        -1.3156655389113794,
+        -37.87994285675739
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.022962695509029143,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.022962695509029143,
+      "encoder_left_rad_s": 3.5999999999999943,
+      "encoder_right_rad_s": 3.5499999999998977,
+      "encoder_speed_m_s": 0.11618749999999825,
+      "distance_cm": 196.90113901540315,
+      "estimator_heading_rad": -0.01985354709256243,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03970709418512486,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03970709418512486,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6128935039374426,
+      "requested_right_rad_s": 3.7717218806779416,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6128935039374426,
+      "applied_right_rad_s": 3.7717218806779416,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.007237155919153745,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.0813303284908105,
+        0.03381978435692593,
+        -0.00064960065538231
+      ],
+      "true_yaw_rad": 0.007237155919153745,
+      "true_linear_speed_m_s": 0.09271137362054263,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.01678170868253731,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.01678170868253731,
+        "requested_left_rad_s": 3.6128935039374426,
+        "requested_right_rad_s": 3.7717218806779416,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6128935039374426,
+        "applied_right_rad_s": 3.7717218806779416,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0769158925877607,
+          0.022823256702300704,
+          -0.0020110971890071527
+        ],
+        "pre_physics_true_yaw_rad": 0.002894377708216822,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.5,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.041808353110474546,
+        0.32060181007342614,
+        0.10171467514113344
+      ],
+      "raw_imu_gyro_deg_s": [
+        152.95717727179712,
+        -0.9383362451089369,
+        -11.253168507661234
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.016377056967951487,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.016377056967951487,
+      "encoder_left_rad_s": 3.580000000000041,
+      "encoder_right_rad_s": 3.750000000000071,
+      "encoder_speed_m_s": 0.11911250000000183,
+      "distance_cm": 201.67188541372218,
+      "estimator_heading_rad": -0.020829461651696166,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.04165892330339233,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.04165892330339233,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6089898457009073,
+      "requested_right_rad_s": 3.7756255389144764,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6089898457009073,
+      "applied_right_rad_s": 3.7756255389144764,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.008044956416772745,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.086872327549336,
+        0.027792510774761872,
+        0.0037152459548695583
+      ],
+      "true_yaw_rad": 0.008044956416772745,
+      "true_linear_speed_m_s": 0.18715364173652424,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.022962695509029143,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.022962695509029143,
+        "requested_left_rad_s": 3.6089898457009073,
+        "requested_right_rad_s": 3.7756255389144764,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6089898457009073,
+        "applied_right_rad_s": 3.7756255389144764,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0813303284908105,
+          0.03381978435692593,
+          -0.00064960065538231
+        ],
+        "pre_physics_true_yaw_rad": 0.007237155919153745,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.55,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.05417021750605412,
+        1.5334932570835667,
+        -0.2574293066016084
+      ],
+      "raw_imu_gyro_deg_s": [
+        -67.70204286489076,
+        -3.4854910873933624,
+        29.987046000043005
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.060833295523931595,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.060833295523931595,
+      "encoder_left_rad_s": 3.57999999999997,
+      "encoder_right_rad_s": 3.130000000000024,
+      "encoder_speed_m_s": 0.1090374999999999,
+      "distance_cm": 201.87230147927434,
+      "estimator_heading_rad": -0.021525486572834103,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.043050973145668206,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.043050973145668206,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.606205746016356,
+      "requested_right_rad_s": 3.7784096385990282,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.606205746016356,
+      "applied_right_rad_s": 3.7784096385990282,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.012080538283836555,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.0923806783841363,
+        0.035084158638451435,
+        0.0020905282430131356
+      ],
+      "true_yaw_rad": 0.012080538283836555,
+      "true_linear_speed_m_s": 0.1377692519539322,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.016377056967951487,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.016377056967951487,
+        "requested_left_rad_s": 3.606205746016356,
+        "requested_right_rad_s": 3.7784096385990282,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.606205746016356,
+        "applied_right_rad_s": 3.7784096385990282,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.086872327549336,
+          0.027792510774761872,
+          0.0037152459548695583
+        ],
+        "pre_physics_true_yaw_rad": 0.008044956416772745,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.6,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.06621680984502441,
+        0.47339585473112916,
+        0.03401800996789897
+      ],
+      "raw_imu_gyro_deg_s": [
+        0.07831862227395542,
+        4.05822085493086,
+        -96.27090732685147
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.07082931569164266,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.07082931569164266,
+      "encoder_left_rad_s": 3.5999999999999943,
+      "encoder_right_rad_s": 3.780000000000001,
+      "encoder_speed_m_s": 0.11992499999999993,
+      "distance_cm": 202.20689506687162,
+      "estimator_heading_rad": -0.024110901632601198,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.048221803265202395,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.048221803265202395,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.5958640857772872,
+      "requested_right_rad_s": 3.788751298838097,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.5958640857772872,
+      "applied_right_rad_s": 3.788751298838097,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.007814128857425683,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.095726851592226,
+        0.029322682149780822,
+        0.0014164197872099274
+      ],
+      "true_yaw_rad": 0.007814128857425683,
+      "true_linear_speed_m_s": 0.02815443092433685,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.060833295523931595,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.060833295523931595,
+        "requested_left_rad_s": 3.5958640857772872,
+        "requested_right_rad_s": 3.788751298838097,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.5958640857772872,
+        "applied_right_rad_s": 3.788751298838097,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.0923806783841363,
+          0.035084158638451435,
+          0.0020905282430131356
+        ],
+        "pre_physics_true_yaw_rad": 0.012080538283836555,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.650000000000002,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.17434371240196647,
+        1.4366209340560294,
+        0.007951678874827455
+      ],
+      "raw_imu_gyro_deg_s": [
+        12.332015334742282,
+        0.13137367258905439,
+        70.34667459287347
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.0022929031371160223,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.0022929031371160223,
+      "encoder_left_rad_s": 3.57999999999997,
+      "encoder_right_rad_s": 3.7599999999999056,
+      "encoder_speed_m_s": 0.11927499999999798,
+      "distance_cm": 200.702191797183,
+      "estimator_heading_rad": -0.021100655715706386,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.04220131143141277,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.04220131143141277,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6079050694448664,
+      "requested_right_rad_s": 3.7767103151705177,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6079050694448664,
+      "applied_right_rad_s": 3.7767103151705177,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.008564513231846283,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1038391700471046,
+        0.0342242710838077,
+        0.0015860223594823775
+      ],
+      "true_yaw_rad": 0.008564513231846283,
+      "true_linear_speed_m_s": 0.19315352174997652,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.07082931569164266,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.07082931569164266,
+        "requested_left_rad_s": 3.6079050694448664,
+        "requested_right_rad_s": 3.7767103151705177,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6079050694448664,
+        "applied_right_rad_s": 3.7767103151705177,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.095726851592226,
+          0.029322682149780822,
+          0.0014164197872099274
+        ],
+        "pre_physics_true_yaw_rad": 0.007814128857425683,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.7,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.07648085838044803,
+        0.48912669205481324,
+        -0.12073847726060147
+      ],
+      "raw_imu_gyro_deg_s": [
+        -127.31935082364785,
+        0.489342756401032,
+        19.997647361779368
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.008540642269982565,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.008540642269982565,
+      "encoder_left_rad_s": 3.5900000000000176,
+      "encoder_right_rad_s": 3.7400000000000944,
+      "encoder_speed_m_s": 0.11911250000000183,
+      "distance_cm": 200.89528724599575,
+      "estimator_heading_rad": -0.021003207332378954,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.04200641466475791,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.04200641466475791,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6082948629781764,
+      "requested_right_rad_s": 3.7763205216372078,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6082948629781764,
+      "applied_right_rad_s": 3.7763205216372078,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.007510377497002829,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.110406895299989,
+        0.026215306600132625,
+        -0.0022704868970172807
+      ],
+      "true_yaw_rad": 0.007510377497002829,
+      "true_linear_speed_m_s": 0.1925297651699123,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.0022929031371160223,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.0022929031371160223,
+        "requested_left_rad_s": 3.6082948629781764,
+        "requested_right_rad_s": 3.7763205216372078,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6082948629781764,
+        "applied_right_rad_s": 3.7763205216372078,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1038391700471046,
+          0.0342242710838077,
+          0.0015860223594823775
+        ],
+        "pre_physics_true_yaw_rad": 0.008564513231846283,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.75,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.06008926224382941,
+        1.3624598797142644,
+        0.28516083326642455
+      ],
+      "raw_imu_gyro_deg_s": [
+        65.77292769612168,
+        -4.531216347621892,
+        24.27414984289349
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.07908464438619395,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.07908464438619395,
+      "encoder_left_rad_s": 3.860000000000028,
+      "encoder_right_rad_s": 3.6299999999999244,
+      "encoder_speed_m_s": 0.12171249999999922,
+      "distance_cm": 194.8721502502587,
+      "estimator_heading_rad": -0.020640230035904695,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.04128046007180939,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.04128046007180939,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.609746772164073,
+      "requested_right_rad_s": 3.774868612451311,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.609746772164073,
+      "applied_right_rad_s": 3.774868612451311,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.01012842574406582,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.117332099428656,
+        0.02744481992821608,
+        -0.0002843988188830546
+      ],
+      "true_yaw_rad": 0.01012842574406582,
+      "true_linear_speed_m_s": 0.164258146910339,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.008540642269982565,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.008540642269982565,
+        "requested_left_rad_s": 3.609746772164073,
+        "requested_right_rad_s": 3.774868612451311,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.609746772164073,
+        "applied_right_rad_s": 3.774868612451311,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.110406895299989,
+          0.026215306600132625,
+          -0.0022704868970172807
+        ],
+        "pre_physics_true_yaw_rad": 0.007510377497002829,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.8,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.07386040194598831,
+        0.4485599575978863,
+        0.08363183286682634
+      ],
+      "raw_imu_gyro_deg_s": [
+        193.94605252395152,
+        -8.753607143191521,
+        22.290432615677204
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.15277926607478678,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.15277926607478678,
+      "encoder_left_rad_s": 3.5599999999999454,
+      "encoder_right_rad_s": 3.7400000000000944,
+      "encoder_speed_m_s": 0.11862500000000065,
+      "distance_cm": 197.61289875244825,
+      "estimator_heading_rad": -0.024001327422317937,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.048002654844635874,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.04800265484463587,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.5963023826184206,
+      "requested_right_rad_s": 3.7883130019969635,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.5963023826184206,
+      "applied_right_rad_s": 3.7883130019969635,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.0187275506527633,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1232683873586637,
+        0.014557171277993396,
+        0.005214048928504219
+      ],
+      "true_yaw_rad": 0.0187275506527633,
+      "true_linear_speed_m_s": 0.2331807632984184,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.07908464438619395,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.07908464438619395,
+        "requested_left_rad_s": 3.5963023826184206,
+        "requested_right_rad_s": 3.7883130019969635,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.5963023826184206,
+        "applied_right_rad_s": 3.7883130019969635,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.117332099428656,
+          0.02744481992821608,
+          -0.0002843988188830546
+        ],
+        "pre_physics_true_yaw_rad": 0.01012842574406582,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.85,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.16014540133304445,
+        1.717173014193269,
+        -0.38993964153426386
+      ],
+      "raw_imu_gyro_deg_s": [
+        -80.34316475667475,
+        8.997962696380638,
+        -46.600453051958326
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.15704407502346898,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.15704407502346898,
+      "encoder_left_rad_s": 1.2800000000000722,
+      "encoder_right_rad_s": 3.7999999999999545,
+      "encoder_speed_m_s": 0.08255000000000044,
+      "distance_cm": 198.8676418560365,
+      "estimator_heading_rad": -0.030494446230496377,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.060988892460992754,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.06098889246099276,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.5703299073857067,
+      "requested_right_rad_s": 3.8142854772296775,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.5703299073857067,
+      "applied_right_rad_s": 3.8142854772296775,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.0068495256060676045,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.126600861585535,
+        0.020156508331602478,
+        0.003916922229961874
+      ],
+      "true_yaw_rad": 0.0068495256060676045,
+      "true_linear_speed_m_s": 0.07610162913461763,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.15277926607478678,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.15277926607478678,
+        "requested_left_rad_s": 3.5703299073857067,
+        "requested_right_rad_s": 3.8142854772296775,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.5703299073857067,
+        "applied_right_rad_s": 3.8142854772296775,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1232683873586637,
+          0.014557171277993396,
+          0.005214048928504219
+        ],
+        "pre_physics_true_yaw_rad": 0.0187275506527633,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.900000000000002,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.029282220884448523,
+        0.7380763843200147,
+        -0.0021708618678605253
+      ],
+      "raw_imu_gyro_deg_s": [
+        -34.81983729120005,
+        7.455139749203122,
+        -7.573075077930084
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.13011673481989877,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.13011673481989877,
+      "encoder_left_rad_s": 3.57999999999997,
+      "encoder_right_rad_s": 3.780000000000001,
+      "encoder_speed_m_s": 0.11959999999999953,
+      "distance_cm": 193.2525817272077,
+      "estimator_heading_rad": -0.023820073041998943,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.047640146083997886,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.047640146083997886,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.5970274001396962,
+      "requested_right_rad_s": 3.787587984475688,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.5970274001396962,
+      "applied_right_rad_s": 3.787587984475688,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 2.3709539215892202e-05,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1296779093617295,
+        0.01939913769499628,
+        0.003193635641834137
+      ],
+      "true_yaw_rad": 2.3709539215892202e-05,
+      "true_linear_speed_m_s": 0.06531424169953691,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.15704407502346898,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.15704407502346898,
+        "requested_left_rad_s": 3.5970274001396962,
+        "requested_right_rad_s": 3.787587984475688,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.5970274001396962,
+        "applied_right_rad_s": 3.787587984475688,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.126600861585535,
+          0.020156508331602478,
+          0.003916922229961874
+        ],
+        "pre_physics_true_yaw_rad": 0.0068495256060676045,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 17.95,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.018414801574175688,
+        0.8995929298775007,
+        0.0003340724705908623
+      ],
+      "raw_imu_gyro_deg_s": [
+        -42.539675654213625,
+        6.160655091500049,
+        26.821420269234178
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.10752371542642837,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.10752371542642837,
+      "encoder_left_rad_s": 3.610000000000042,
+      "encoder_right_rad_s": 3.7599999999999767,
+      "encoder_speed_m_s": 0.11976250000000031,
+      "distance_cm": 201.8395783758139,
+      "estimator_heading_rad": -0.018290111812153245,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03658022362430649,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03658022362430649,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.619147245059079,
+      "requested_right_rad_s": 3.765468139556305,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.619147245059079,
+      "applied_right_rad_s": 3.765468139556305,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.004993792247172233,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1333854310927047,
+        0.01615520619298626,
+        0.0024121800200673374
+      ],
+      "true_yaw_rad": -0.004993792247172233,
+      "true_linear_speed_m_s": 0.09243892996782538,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.13011673481989877,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.13011673481989877,
+        "requested_left_rad_s": 3.619147245059079,
+        "requested_right_rad_s": 3.765468139556305,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.619147245059079,
+        "applied_right_rad_s": 3.765468139556305,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1296779093617295,
+          0.01939913769499628,
+          0.003193635641834137
+        ],
+        "pre_physics_true_yaw_rad": 2.3709539215892202e-05,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.0,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.08218025270534536,
+        0.7257028105175923,
+        0.025624023840320746
+      ],
+      "raw_imu_gyro_deg_s": [
+        22.662220632868774,
+        -0.4908537758910264,
+        -250.08964300109207
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.008567014535144774,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.008567014535144774,
+      "encoder_left_rad_s": 3.6199999999999477,
+      "encoder_right_rad_s": 3.719999999999999,
+      "encoder_speed_m_s": 0.11927499999999913,
+      "distance_cm": 199.91614625319437,
+      "estimator_heading_rad": -0.01372035390653004,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.02744070781306008,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.02744070781306008,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.637426276681572,
+      "requested_right_rad_s": 3.747189107933812,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.637426276681572,
+      "applied_right_rad_s": 3.747189107933812,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.006014782216615835,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1321570029764922,
+        0.00500499838250839,
+        0.0025201281823257317
+      ],
+      "true_yaw_rad": -0.006014782216615835,
+      "true_linear_speed_m_s": 0.1333847860029381,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.10752371542642837,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.10752371542642837,
+        "requested_left_rad_s": 3.637426276681572,
+        "requested_right_rad_s": 3.747189107933812,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.637426276681572,
+        "applied_right_rad_s": 3.747189107933812,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1333854310927047,
+          0.01615520619298626,
+          0.0024121800200673374
+        ],
+        "pre_physics_true_yaw_rad": -0.004993792247172233,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.05,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.21543075600809997,
+        1.7658108593106525,
+        -0.026992179674820486
+      ],
+      "raw_imu_gyro_deg_s": [
+        -10.311116996094748,
+        -0.4452618731032819,
+        95.81323821410243
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.007771285719249451,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.007771285719249451,
+      "encoder_left_rad_s": 1.3799999999999812,
+      "encoder_right_rad_s": -0.6899999999999551,
+      "encoder_speed_m_s": 0.011212500000000425,
+      "distance_cm": 200.87743529813574,
+      "estimator_heading_rad": -0.014084452024273693,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.028168904048547386,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.028168904048547386,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6359698842105974,
+      "requested_right_rad_s": 3.7486455004047867,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6359698842105974,
+      "applied_right_rad_s": 3.7486455004047867,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.004613648482139309,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1325030290189524,
+        0.01342494497310789,
+        0.002295436613934974
+      ],
+      "true_yaw_rad": -0.004613648482139309,
+      "true_linear_speed_m_s": 0.049161197925654376,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.008567014535144774,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.008567014535144774,
+        "requested_left_rad_s": 3.6359698842105974,
+        "requested_right_rad_s": 3.7486455004047867,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6359698842105974,
+        "applied_right_rad_s": 3.7486455004047867,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1321570029764922,
+          0.00500499838250839,
+          0.0025201281823257317
+        ],
+        "pre_physics_true_yaw_rad": -0.006014782216615835,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.1,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.1105619913212638,
+        0.9470931277638129,
+        0.01462081786641159
+      ],
+      "raw_imu_gyro_deg_s": [
+        -13.217027381799634,
+        -1.3468654789030887,
+        10.281197563341248
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.023507237188309122,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.023507237188309122,
+      "encoder_left_rad_s": 3.3200000000000784,
+      "encoder_right_rad_s": 3.7399999999999523,
+      "encoder_speed_m_s": 0.11472500000000051,
+      "distance_cm": 199.76389733046068,
+      "estimator_heading_rad": -0.014414731667341795,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.02882946333468359,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.028829463334683593,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.634648765638325,
+      "requested_right_rad_s": 3.749966618977059,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.634648765638325,
+      "applied_right_rad_s": 3.749966618977059,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.003420218453051486,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.133781761281843,
+        0.020764241255867028,
+        0.002335577478708108
+      ],
+      "true_yaw_rad": -0.003420218453051486,
+      "true_linear_speed_m_s": 0.030472504404462645,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.007771285719249451,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.007771285719249451,
+        "requested_left_rad_s": 3.634648765638325,
+        "requested_right_rad_s": 3.749966618977059,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.634648765638325,
+        "applied_right_rad_s": 3.749966618977059,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1325030290189524,
+          0.01342494497310789,
+          0.002295436613934974
+        ],
+        "pre_physics_true_yaw_rad": -0.004613648482139309,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.150000000000002,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.00011350808485508201,
+        0.0005153492086048729,
+        1.7485399066256538e-05
+      ],
+      "raw_imu_gyro_deg_s": [
+        -13.21335863623623,
+        -1.4187349187275151,
+        10.138526314842238
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.0247615955448093,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.0247615955448093,
+      "encoder_left_rad_s": 3.6199999999999477,
+      "encoder_right_rad_s": 3.7399999999999523,
+      "encoder_speed_m_s": 0.11959999999999837,
+      "distance_cm": 200.37031686453918,
+      "estimator_heading_rad": -0.015413789247844933,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.030827578495689865,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.030827578495689865,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.630652535316312,
+      "requested_right_rad_s": 3.753962849299072,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.630652535316312,
+      "applied_right_rad_s": 3.753962849299072,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.0022680563302320935,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1350623893200846,
+        0.0035913613731568504,
+        0.0023759767254611292
+      ],
+      "true_yaw_rad": -0.0022680563302320935,
+      "true_linear_speed_m_s": 0.030449508015987465,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.023507237188309122,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.023507237188309122,
+        "requested_left_rad_s": 3.630652535316312,
+        "requested_right_rad_s": 3.753962849299072,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.630652535316312,
+        "applied_right_rad_s": 3.753962849299072,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.133781761281843,
+          0.020764241255867028,
+          0.002335577478708108
+        ],
+        "pre_physics_true_yaw_rad": -0.003420218453051486,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.2,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.10751054290695147,
+        2.084432765140329,
+        0.02192990936308479
+      ],
+      "raw_imu_gyro_deg_s": [
+        6.41642957741353,
+        0.6305409250108133,
+        -13.662890894703095
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.011005015210009354,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.011005015210009354,
+      "encoder_left_rad_s": -0.9199999999999875,
+      "encoder_right_rad_s": -1.039999999999921,
+      "encoder_speed_m_s": -0.03184999999999851,
+      "distance_cm": 200.03485728585068,
+      "estimator_heading_rad": -0.01646615705849933,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03293231411699866,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03293231411699866,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6264430640736944,
+      "requested_right_rad_s": 3.7581723205416893,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6264430640736944,
+      "applied_right_rad_s": 3.7581723205416893,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.0026640171781240566,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1349447913490716,
+        0.013048862539729339,
+        0.002428561150653214
+      ],
+      "true_yaw_rad": -0.0026640171781240566,
+      "true_linear_speed_m_s": 0.009150188808342204,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.0247615955448093,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.0247615955448093,
+        "requested_left_rad_s": 3.6264430640736944,
+        "requested_right_rad_s": 3.7581723205416893,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6264430640736944,
+        "applied_right_rad_s": 3.7581723205416893,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1350623893200846,
+          0.0035913613731568504,
+          0.0023759767254611292
+        ],
+        "pre_physics_true_yaw_rad": -0.0022680563302320935,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.25,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.11892855803143534,
+        0.9012620460993434,
+        0.0053305390185733915
+      ],
+      "raw_imu_gyro_deg_s": [
+        2.9495413278762674,
+        -0.8118462323340194,
+        21.120881665114172
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.014169389774139488,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.014169389774139488,
+      "encoder_left_rad_s": 3.539999999999992,
+      "encoder_right_rad_s": 3.749999999999929,
+      "encoder_speed_m_s": 0.11846249999999872,
+      "distance_cm": 199.99126995497073,
+      "estimator_heading_rad": -0.01599844391207393,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03199688782414786,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03199688782414786,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6283139166593963,
+      "requested_right_rad_s": 3.756301467955988,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6283139166593963,
+      "applied_right_rad_s": 3.756301467955988,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.0021190940992587594,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1364036262359063,
+        0.020211210306577382,
+        0.0024455323133386105
+      ],
+      "true_yaw_rad": -0.0021190940992587594,
+      "true_linear_speed_m_s": 0.03840116573291962,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.011005015210009354,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.011005015210009354,
+        "requested_left_rad_s": 3.6283139166593963,
+        "requested_right_rad_s": 3.756301467955988,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6283139166593963,
+        "applied_right_rad_s": 3.756301467955988,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1349447913490716,
+          0.013048862539729339,
+          0.002428561150653214
+        ],
+        "pre_physics_true_yaw_rad": -0.0026640171781240566,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.3,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.11195707404959442,
+        0.9462197514092828,
+        0.004743129752158304
+      ],
+      "raw_imu_gyro_deg_s": [
+        2.2371889501571935,
+        -0.539103279696909,
+        26.677599530065287
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.00940912723901096,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.00940912723901096,
+      "encoder_left_rad_s": 3.6199999999999477,
+      "encoder_right_rad_s": 3.7400000000000944,
+      "encoder_speed_m_s": 0.11960000000000069,
+      "distance_cm": 199.70690905263103,
+      "estimator_heading_rad": -0.01660064297747486,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03320128595494972,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03320128595494972,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6259051203977926,
+      "requested_right_rad_s": 3.7587102642175916,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6259051203977926,
+      "applied_right_rad_s": 3.7587102642175916,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.001804406648473445,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1397440709752393,
+        0.02613038045621075,
+        0.002449123966710413
+      ],
+      "true_yaw_rad": -0.001804406648473445,
+      "true_linear_speed_m_s": 0.07843960102068295,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.014169389774139488,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.014169389774139488,
+        "requested_left_rad_s": 3.6259051203977926,
+        "requested_right_rad_s": 3.7587102642175916,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6259051203977926,
+        "applied_right_rad_s": 3.7587102642175916,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1364036262359063,
+          0.020211210306577382,
+          0.0024455323133386105
+        ],
+        "pre_physics_true_yaw_rad": -0.0021190940992587594,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.35,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.10616587212540109,
+        0.9092662386225677,
+        0.003911785564317592
+      ],
+      "raw_imu_gyro_deg_s": [
+        2.831037714061367,
+        -0.33564770308112674,
+        16.25063837280339
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.0058581575455219775,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.0058581575455219775,
+      "encoder_left_rad_s": 3.610000000000042,
+      "encoder_right_rad_s": 3.749999999999929,
+      "encoder_speed_m_s": 0.11959999999999953,
+      "distance_cm": 202.71536979116124,
+      "estimator_heading_rad": -0.017000530885132824,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03400106177026565,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03400106177026565,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.624305568767161,
+      "requested_right_rad_s": 3.760309815848223,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.624305568767161,
+      "applied_right_rad_s": 3.760309815848223,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.001575296303558118,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1451746614068643,
+        0.029874981805880836,
+        0.0024789882293478937
+      ],
+      "true_yaw_rad": -0.001575296303558118,
+      "true_linear_speed_m_s": 0.11571153525547305,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.00940912723901096,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.00940912723901096,
+        "requested_left_rad_s": 3.624305568767161,
+        "requested_right_rad_s": 3.760309815848223,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.624305568767161,
+        "applied_right_rad_s": 3.760309815848223,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1397440709752393,
+          0.02613038045621075,
+          0.002449123966710413
+        ],
+        "pre_physics_true_yaw_rad": -0.001804406648473445,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.400000000000002,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.03887604335405922,
+        0.9423449336320934,
+        0.0023618955811945193
+      ],
+      "raw_imu_gyro_deg_s": [
+        2.4226131465121425,
+        0.512019422478536,
+        17.219201196881585
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.00893642475641032,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.00893642475641032,
+      "encoder_left_rad_s": 3.610000000000042,
+      "encoder_right_rad_s": 3.7400000000000233,
+      "encoder_speed_m_s": 0.11943750000000107,
+      "distance_cm": 199.72307717798375,
+      "estimator_heading_rad": -0.01724950258081751,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03449900516163502,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03449900516163502,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.623309681984422,
+      "requested_right_rad_s": 3.761305702630962,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.623309681984422,
+      "applied_right_rad_s": 3.761305702630962,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.0020554101949826816,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.151374984268744,
+        0.03220429520030703,
+        0.002541856211777076
+      ],
+      "true_yaw_rad": -0.0020554101949826816,
+      "true_linear_speed_m_s": 0.13153727065580664,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.0058581575455219775,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.0058581575455219775,
+        "requested_left_rad_s": 3.623309681984422,
+        "requested_right_rad_s": 3.761305702630962,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.623309681984422,
+        "applied_right_rad_s": 3.761305702630962,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1451746614068643,
+          0.029874981805880836,
+          0.0024789882293478937
+        ],
+        "pre_physics_true_yaw_rad": -0.001575296303558118,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.45,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.015207440250676208,
+        0.9360583454943134,
+        -0.0006075506117708888
+      ],
+      "raw_imu_gyro_deg_s": [
+        1.4424715539311095,
+        0.413271361983885,
+        20.479331981426867
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.007212945970820117,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.007212945970820117,
+      "encoder_left_rad_s": 3.6199999999999477,
+      "encoder_right_rad_s": 3.75,
+      "encoder_speed_m_s": 0.11976249999999915,
+      "distance_cm": 198.75182673110262,
+      "estimator_heading_rad": -0.01686970452867007,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03373940905734014,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03373940905734014,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6248288741930117,
+      "requested_right_rad_s": 3.759786510422372,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6248288741930117,
+      "applied_right_rad_s": 3.759786510422372,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.0024253857862286126,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1581762199686083,
+        0.032951627725701316,
+        0.002593721266941433
+      ],
+      "true_yaw_rad": -0.0024253857862286126,
+      "true_linear_speed_m_s": 0.1449685240056309,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.00893642475641032,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.00893642475641032,
+        "requested_left_rad_s": 3.6248288741930117,
+        "requested_right_rad_s": 3.759786510422372,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6248288741930117,
+        "applied_right_rad_s": 3.759786510422372,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.151374984268744,
+          0.03220429520030703,
+          0.002541856211777076
+        ],
+        "pre_physics_true_yaw_rad": -0.0020554101949826816,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.5,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.08017572588217138,
+        0.619731460696073,
+        0.0047666497510362085
+      ],
+      "raw_imu_gyro_deg_s": [
+        3.237776473447554,
+        2.111172660265704,
+        156.85067678859335
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.0368469139997242,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.0368469139997242,
+      "encoder_left_rad_s": 3.5700000000000642,
+      "encoder_right_rad_s": 3.710000000000022,
+      "encoder_speed_m_s": 0.1183000000000014,
+      "distance_cm": 200.54682193751526,
+      "estimator_heading_rad": -0.016563154324910213,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03312630864982043,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03312630864982043,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6260550750080514,
+      "requested_right_rad_s": 3.758560309607333,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6260550750080514,
+      "applied_right_rad_s": 3.758560309607333,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.004069807050267287,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1691224661064776,
+        0.023688143401656783,
+        0.002824637960329915
+      ],
+      "true_yaw_rad": -0.004069807050267287,
+      "true_linear_speed_m_s": 0.2870579852413251,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.007212945970820117,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.007212945970820117,
+        "requested_left_rad_s": 3.6260550750080514,
+        "requested_right_rad_s": 3.758560309607333,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6260550750080514,
+        "applied_right_rad_s": 3.758560309607333,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1581762199686083,
+          0.032951627725701316,
+          0.002593721266941433
+        ],
+        "pre_physics_true_yaw_rad": -0.0024253857862286126,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.55,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.4409501456732947,
+        1.3887420490150975,
+        -0.017999364231889168
+      ],
+      "raw_imu_gyro_deg_s": [
+        -4.908960456947593,
+        2.639434580197736,
+        -147.5809748045739
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.04606682381544482,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.04606682381544482,
+      "encoder_left_rad_s": 3.6299999999999244,
+      "encoder_right_rad_s": 3.7399999999999523,
+      "encoder_speed_m_s": 0.119762499999998,
+      "distance_cm": 199.99952210652216,
+      "estimator_heading_rad": -0.014997160479921934,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.02999432095984387,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.02999432095984387,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6323190503880043,
+      "requested_right_rad_s": 3.75229633422738,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6323190503880043,
+      "applied_right_rad_s": 3.75229633422738,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.006448805368087399,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.169877476004982,
+        0.024161775141517496,
+        0.002484801866260095
+      ],
+      "true_yaw_rad": -0.006448805368087399,
+      "true_linear_speed_m_s": 0.04980238451672219,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.0368469139997242,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.0368469139997242,
+        "requested_left_rad_s": 3.6323190503880043,
+        "requested_right_rad_s": 3.75229633422738,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6323190503880043,
+        "applied_right_rad_s": 3.75229633422738,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1691224661064776,
+          0.023688143401656783,
+          0.002824637960329915
+        ],
+        "pre_physics_true_yaw_rad": -0.004069807050267287,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.6,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.17499859313165728,
+        1.2025789904786839,
+        0.01648869383801823
+      ],
+      "raw_imu_gyro_deg_s": [
+        5.156355840484339,
+        0.4880679744117213,
+        41.475180755677776
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.00851839312702397,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.00851839312702397,
+      "encoder_left_rad_s": 3.6200000000000188,
+      "encoder_right_rad_s": 3.7299999999999756,
+      "encoder_speed_m_s": 0.1194374999999999,
+      "distance_cm": 196.98705075766608,
+      "estimator_heading_rad": -0.01303932046776553,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.02607864093553106,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.02607864093553106,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.64015041043663,
+      "requested_right_rad_s": 3.744464974178754,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.64015041043663,
+      "applied_right_rad_s": 3.744464974178754,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.0068544453158555394,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1765261302828764,
+        0.029506511516220038,
+        0.0026763842066127117
+      ],
+      "true_yaw_rad": -0.0068544453158555394,
+      "true_linear_speed_m_s": 0.15116706680796477,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.04606682381544482,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.04606682381544482,
+        "requested_left_rad_s": 3.64015041043663,
+        "requested_right_rad_s": 3.744464974178754,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.64015041043663,
+        "applied_right_rad_s": 3.744464974178754,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.169877476004982,
+          0.024161775141517496,
+          0.002484801866260095
+        ],
+        "pre_physics_true_yaw_rad": -0.006448805368087399,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.650000000000002,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.04406849237471549,
+        0.7948429207729036,
+        -0.013344138229497732
+      ],
+      "raw_imu_gyro_deg_s": [
+        -6.915182354524396,
+        0.8440086699360543,
+        7.1766463979415045
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.014730730205762226,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.014730730205762226,
+      "encoder_left_rad_s": 3.639999999999972,
+      "encoder_right_rad_s": 3.7300000000000466,
+      "encoder_speed_m_s": 0.11976250000000031,
+      "distance_cm": 201.215331131639,
+      "estimator_heading_rad": -0.012677288759867011,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.025354577519734023,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.025354577519734023,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.641598537268224,
+      "requested_right_rad_s": 3.7430168473471603,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.641598537268224,
+      "applied_right_rad_s": 3.7430168473471603,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.007593630323253241,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.18327714162952,
+        0.029857286421994325,
+        0.00247775929202287
+      ],
+      "true_yaw_rad": -0.007593630323253241,
+      "true_linear_speed_m_s": 0.138343666131889,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.00851839312702397,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.00851839312702397,
+        "requested_left_rad_s": 3.641598537268224,
+        "requested_right_rad_s": 3.7430168473471603,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.641598537268224,
+        "applied_right_rad_s": 3.7430168473471603,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1765261302828764,
+          0.029506511516220038,
+          0.0026763842066127117
+        ],
+        "pre_physics_true_yaw_rad": -0.0068544453158555394,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.7,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.0705925761378547,
+        0.9523800579070397,
+        0.012054810334803816
+      ],
+      "raw_imu_gyro_deg_s": [
+        -3.981924225593169,
+        0.34526549927917866,
+        17.245651578427537
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.0060260197559637765,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.0060260197559637765,
+      "encoder_left_rad_s": 3.6600000000000676,
+      "encoder_right_rad_s": 3.7300000000000466,
+      "encoder_speed_m_s": 0.12008750000000186,
+      "distance_cm": 199.63567653679414,
+      "estimator_heading_rad": -0.012051232726122118,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.024102465452244235,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.024102465452244235,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6441027614032033,
+      "requested_right_rad_s": 3.7405126232121804,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6441027614032033,
+      "applied_right_rad_s": 3.7405126232121804,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.00797132139901437,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.190062358145369,
+        0.029095665741191247,
+        0.0024169079872548875
+      ],
+      "true_yaw_rad": -0.00797132139901437,
+      "true_linear_speed_m_s": 0.1432535290462712,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.014730730205762226,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.014730730205762226,
+        "requested_left_rad_s": 3.6441027614032033,
+        "requested_right_rad_s": 3.7405126232121804,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6441027614032033,
+        "applied_right_rad_s": 3.7405126232121804,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.18327714162952,
+          0.029857286421994325,
+          0.00247775929202287
+        ],
+        "pre_physics_true_yaw_rad": -0.007593630323253241,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.75,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.16941935242686956,
+        0.7201311730658937,
+        0.009775366003517595
+      ],
+      "raw_imu_gyro_deg_s": [
+        -3.929022638658873,
+        0.10572785939673252,
+        -99.8352184890374
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.001845299257558608,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.001845299257558608,
+      "encoder_left_rad_s": 3.639999999999901,
+      "encoder_right_rad_s": 3.7299999999999756,
+      "encoder_speed_m_s": 0.119762499999998,
+      "distance_cm": 197.88050370147388,
+      "estimator_heading_rad": -0.011795126886493658,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.023590253772987315,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.02359025377298732,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6451271847617175,
+      "requested_right_rad_s": 3.7394881998536667,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6451271847617175,
+      "applied_right_rad_s": 3.7394881998536667,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.007325664950540345,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.1924868642313124,
+        0.021324621552774006,
+        0.00238471177598216
+      ],
+      "true_yaw_rad": -0.007325664950540345,
+      "true_linear_speed_m_s": 0.005683668456294939,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.0060260197559637765,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.0060260197559637765,
+        "requested_left_rad_s": 3.6451271847617175,
+        "requested_right_rad_s": 3.7394881998536667,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6451271847617175,
+        "applied_right_rad_s": 3.7394881998536667,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.190062358145369,
+          0.029095665741191247,
+          0.0024169079872548875
+        ],
+        "pre_physics_true_yaw_rad": -0.00797132139901437,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.8,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.11498331212857925,
+        1.319496442073155,
+        0.016543760474436623
+      ],
+      "raw_imu_gyro_deg_s": [
+        0.9777084719163736,
+        -0.6668827918341418,
+        69.18780650668607
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.011639300442397728,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.011639300442397728,
+      "encoder_left_rad_s": 3.270000000000053,
+      "encoder_right_rad_s": 4.209999999999994,
+      "encoder_speed_m_s": 0.12155000000000075,
+      "distance_cm": 198.48282857917124,
+      "estimator_heading_rad": -0.011716701668047417,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.023433403336094834,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.023433403336094834,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.645440885635502,
+      "requested_right_rad_s": 3.739174498979882,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.645440885635502,
+      "applied_right_rad_s": 3.739174498979882,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.007332442524486512,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.199306327856556,
+        0.02125388021557459,
+        0.002487998202621518
+      ],
+      "true_yaw_rad": -0.007332442524486512,
+      "true_linear_speed_m_s": 0.16657740857292436,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.001845299257558608,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.001845299257558608,
+        "requested_left_rad_s": 3.645440885635502,
+        "requested_right_rad_s": 3.739174498979882,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.645440885635502,
+        "applied_right_rad_s": 3.739174498979882,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.1924868642313124,
+          0.021324621552774006,
+          0.00238471177598216
+        ],
+        "pre_physics_true_yaw_rad": -0.007325664950540345,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.85,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.08446460689044125,
+        0.8291360989441166,
+        0.003721798983735026
+      ],
+      "raw_imu_gyro_deg_s": [
+        -27.343208011216788,
+        2.3085910263541596,
+        43.830098892651925
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.040292514491875264,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.040292514491875264,
+      "encoder_left_rad_s": 4.72999999999999,
+      "encoder_right_rad_s": 3.719999999999999,
+      "encoder_speed_m_s": 0.1373124999999998,
+      "distance_cm": 197.14306104284015,
+      "estimator_heading_rad": -0.01221137193684932,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.02442274387369864,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.02442274387369864,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.643462204560295,
+      "requested_right_rad_s": 3.7411531800550892,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.643462204560295,
+      "applied_right_rad_s": 3.7411531800550892,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.010168999268015958,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.205833779566961,
+        0.01710075496537494,
+        0.002002630487284943
+      ],
+      "true_yaw_rad": -0.010168999268015958,
+      "true_linear_speed_m_s": 0.15124089967299909,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.011639300442397728,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.011639300442397728,
+        "requested_left_rad_s": 3.643462204560295,
+        "requested_right_rad_s": 3.7411531800550892,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.643462204560295,
+        "applied_right_rad_s": 3.7411531800550892,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.199306327856556,
+          0.02125388021557459,
+          0.002487998202621518
+        ],
+        "pre_physics_true_yaw_rad": -0.007332442524486512,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.900000000000002,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.1450125848960048,
+        1.365588568874952,
+        0.06435631157784096
+      ],
+      "raw_imu_gyro_deg_s": [
+        2.7676207668645594,
+        0.8962932407260098,
+        -101.08116963439855
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.015643268114039002,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.015643268114039002,
+      "encoder_left_rad_s": 3.5700000000000642,
+      "encoder_right_rad_s": 3.7399999999999523,
+      "encoder_speed_m_s": 0.11878750000000027,
+      "distance_cm": 200.38320935214915,
+      "estimator_heading_rad": -0.010498940070944622,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.020997880141889243,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.020997880141889243,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6503119320239135,
+      "requested_right_rad_s": 3.7343034525914707,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6503119320239135,
+      "applied_right_rad_s": 3.7343034525914707,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.00811757987111096,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.20876019260965,
+        0.021859127753351727,
+        0.0020323740822077723
+      ],
+      "true_yaw_rad": -0.00811757987111096,
+      "true_linear_speed_m_s": 0.014566603236228767,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.040292514491875264,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.040292514491875264,
+        "requested_left_rad_s": 3.6503119320239135,
+        "requested_right_rad_s": 3.7343034525914707,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6503119320239135,
+        "applied_right_rad_s": 3.7343034525914707,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.205833779566961,
+          0.01710075496537494,
+          0.002002630487284943
+        ],
+        "pre_physics_true_yaw_rad": -0.010168999268015958,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 18.95,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.0680813866950165,
+        0.4494757202602897,
+        0.008060388254443197
+      ],
+      "raw_imu_gyro_deg_s": [
+        19.372790628882306,
+        -7.747590478470212,
+        62.104085115668006
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.13522096294546804,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.13522096294546804,
+      "encoder_left_rad_s": 3.6199999999999477,
+      "encoder_right_rad_s": 3.7000000000000455,
+      "encoder_speed_m_s": 0.11894999999999989,
+      "distance_cm": 201.35048313449585,
+      "estimator_heading_rad": -0.009834101176097964,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.019668202352195928,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.019668202352195928,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6529712876033003,
+      "requested_right_rad_s": 3.731644097012084,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6529712876033003,
+      "applied_right_rad_s": 3.731644097012084,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.0025697118093971245,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.2139435997209334,
+        0.013066264422732739,
+        0.002107277592083855
+      ],
+      "true_yaw_rad": -0.0025697118093971245,
+      "true_linear_speed_m_s": 0.13109344653188995,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.015643268114039002,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.015643268114039002,
+        "requested_left_rad_s": 3.6529712876033003,
+        "requested_right_rad_s": 3.731644097012084,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6529712876033003,
+        "applied_right_rad_s": 3.731644097012084,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.20876019260965,
+          0.021859127753351727,
+          0.0020323740822077723
+        ],
+        "pre_physics_true_yaw_rad": -0.00811757987111096,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 19.0,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.08624670619755617,
+        0.9621970345285623,
+        0.01800371438197033
+      ],
+      "raw_imu_gyro_deg_s": [
+        -6.649245087527613,
+        2.0651375972330985,
+        -304.3524467662728
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.036043450578442104,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.036043450578442104,
+      "encoder_left_rad_s": 3.5999999999999943,
+      "encoder_right_rad_s": 3.719999999999999,
+      "encoder_speed_m_s": 0.11894999999999989,
+      "distance_cm": 201.59610458663693,
+      "estimator_heading_rad": -0.015580992101280356,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03116198420256071,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03116198420256071,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6299837239025705,
+      "requested_right_rad_s": 3.7546316607128136,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6299837239025705,
+      "applied_right_rad_s": 3.7546316607128136,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 8.329429032595997e-05,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.2121894288422235,
+        0.0015457302476032837,
+        0.0021686155067865806
+      ],
+      "true_yaw_rad": 8.329429032595997e-05,
+      "true_linear_speed_m_s": 0.16631892396932735,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.13522096294546804,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.13522096294546804,
+        "requested_left_rad_s": 3.6299837239025705,
+        "requested_right_rad_s": 3.7546316607128136,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6299837239025705,
+        "applied_right_rad_s": 3.7546316607128136,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.2139435997209334,
+          0.013066264422732739,
+          0.002107277592083855
+        ],
+        "pre_physics_true_yaw_rad": -0.0025697118093971245,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 19.05,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.3062194103678598,
+        1.9566578611928611,
+        0.03085440717977954
+      ],
+      "raw_imu_gyro_deg_s": [
+        3.088591002318134,
+        -1.6115542726795464,
+        77.14607051758651
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.028126928132840585,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.028126928132840585,
+      "encoder_left_rad_s": 2.3100000000000165,
+      "encoder_right_rad_s": 2.090000000000032,
+      "encoder_speed_m_s": 0.07150000000000079,
+      "distance_cm": 199.99631842773294,
+      "estimator_heading_rad": -0.014049145451696566,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.028098290903393133,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.028098290903393133,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.636111110500906,
+      "requested_right_rad_s": 3.7485042741144783,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.636111110500906,
+      "applied_right_rad_s": 3.7485042741144783,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.0002462052470298682,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.2109425604368345,
+        0.014873233485990262,
+        0.0021535752712140213
+      ],
+      "true_yaw_rad": 0.0002462052470298682,
+      "true_linear_speed_m_s": 0.008239799135262769,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.036043450578442104,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.036043450578442104,
+        "requested_left_rad_s": 3.636111110500906,
+        "requested_right_rad_s": 3.7485042741144783,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.636111110500906,
+        "applied_right_rad_s": 3.7485042741144783,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.2121894288422235,
+          0.0015457302476032837,
+          0.0021686155067865806
+        ],
+        "pre_physics_true_yaw_rad": 8.329429032595997e-05,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 19.1,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.17228622542071462,
+        0.7450341219129272,
+        0.009013193043983491
+      ],
+      "raw_imu_gyro_deg_s": [
+        2.917770383721891,
+        0.4937807283546216,
+        40.265280386193126
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.00861809949268387,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.00861809949268387,
+      "encoder_left_rad_s": 3.6200000000000188,
+      "encoder_right_rad_s": 3.7399999999999523,
+      "encoder_speed_m_s": 0.11959999999999953,
+      "distance_cm": 198.00017481620858,
+      "estimator_heading_rad": -0.015244539897342292,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.030489079794684584,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.030489079794684584,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.631329532718323,
+      "requested_right_rad_s": 3.7532858518970613,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.631329532718323,
+      "applied_right_rad_s": 3.7532858518970613,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.0007487648777977003,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.2119097135712895,
+        0.02233302379705798,
+        0.0020968888126881775
+      ],
+      "true_yaw_rad": -0.0007487648777977003,
+      "true_linear_speed_m_s": 0.03676753454369897,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.028126928132840585,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.028126928132840585,
+        "requested_left_rad_s": 3.631329532718323,
+        "requested_right_rad_s": 3.7532858518970613,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.631329532718323,
+        "applied_right_rad_s": 3.7532858518970613,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.2109425604368345,
+          0.014873233485990262,
+          0.0021535752712140213
+        ],
+        "pre_physics_true_yaw_rad": 0.0002462052470298682,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 19.150000000000002,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.14868742814526578,
+        0.9018179598595081,
+        0.007987539668258234
+      ],
+      "raw_imu_gyro_deg_s": [
+        6.577039934104074,
+        -2.2724726355298106,
+        31.312842274987695
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.03966212965146827,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.03966212965146827,
+      "encoder_left_rad_s": 3.6199999999999477,
+      "encoder_right_rad_s": 3.7299999999999756,
+      "encoder_speed_m_s": 0.11943749999999875,
+      "distance_cm": 202.20451209566846,
+      "estimator_heading_rad": -0.014878270668903227,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.029756541337806454,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.029756541337806454,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.632794609632079,
+      "requested_right_rad_s": 3.751820774983305,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.632794609632079,
+      "applied_right_rad_s": 3.751820774983305,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.0009216026867163442,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.2147182873768063,
+        0.027606531732772346,
+        0.002036160238928793
+      ],
+      "true_yaw_rad": 0.0009216026867163442,
+      "true_linear_speed_m_s": 0.06978825912024916,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.00861809949268387,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.00861809949268387,
+        "requested_left_rad_s": 3.632794609632079,
+        "requested_right_rad_s": 3.751820774983305,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.632794609632079,
+        "applied_right_rad_s": 3.751820774983305,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.2119097135712895,
+          0.02233302379705798,
+          0.0020968888126881775
+        ],
+        "pre_physics_true_yaw_rad": -0.0007487648777977003,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 19.2,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.10637195966265298,
+        0.636281725391576,
+        0.07839490767907946
+      ],
+      "raw_imu_gyro_deg_s": [
+        159.74625535326393,
+        13.176117392932609,
+        47.566379864346835
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.22996663113596544,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.22996663113596544,
+      "encoder_left_rad_s": 3.5900000000000176,
+      "encoder_right_rad_s": 3.719999999999999,
+      "encoder_speed_m_s": 0.11878750000000027,
+      "distance_cm": 199.85214131440287,
+      "estimator_heading_rad": -0.01656391117909063,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03312782235818126,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03312782235818126,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6260520475913296,
+      "requested_right_rad_s": 3.7585633370240545,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6260520475913296,
+      "applied_right_rad_s": 3.7585633370240545,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": -0.008019778948154508,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.2195016904359917,
+        0.023406181747147044,
+        0.005921979348313483
+      ],
+      "true_yaw_rad": -0.008019778948154508,
+      "true_linear_speed_m_s": 0.18758689235077564,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.03966212965146827,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.03966212965146827,
+        "requested_left_rad_s": 3.6260520475913296,
+        "requested_right_rad_s": 3.7585633370240545,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6260520475913296,
+        "applied_right_rad_s": 3.7585633370240545,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.2147182873768063,
+          0.027606531732772346,
+          0.002036160238928793
+        ],
+        "pre_physics_true_yaw_rad": 0.0009216026867163442,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 19.25,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.115382410355795,
+        1.1730682911072878,
+        -0.26019235793514356
+      ],
+      "raw_imu_gyro_deg_s": [
+        -243.00612412480166,
+        -25.016784189414253,
+        9.512658703066194
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.43662525236613947,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.43662525236613947,
+      "encoder_left_rad_s": 2.2999999999999687,
+      "encoder_right_rad_s": 3.6599999999999966,
+      "encoder_speed_m_s": 0.09684999999999944,
+      "distance_cm": 199.27330589976035,
+      "estimator_heading_rad": -0.006790329355812096,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.013580658711624193,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.013580658711624193,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.665146374884444,
+      "requested_right_rad_s": 3.71946900973094,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.665146374884444,
+      "applied_right_rad_s": 3.71946900973094,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.013900184395963047,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.2204213570169236,
+        0.02242848623361866,
+        0.0011623429292140115
+      ],
+      "true_yaw_rad": 0.013900184395963047,
+      "true_linear_speed_m_s": 0.20181875920836587,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.22996663113596544,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.22996663113596544,
+        "requested_left_rad_s": 3.665146374884444,
+        "requested_right_rad_s": 3.71946900973094,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.665146374884444,
+        "applied_right_rad_s": 3.71946900973094,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.2195016904359917,
+          0.023406181747147044,
+          0.005921979348313483
+        ],
+        "pre_physics_true_yaw_rad": -0.008019778948154508,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 19.3,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.22087432872900975,
+        1.302422238179913,
+        0.2724826188310327
+      ],
+      "raw_imu_gyro_deg_s": [
+        41.41333057103395,
+        4.029074299228903,
+        -27.910439972364202
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.07032061232902757,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.07032061232902757,
+      "encoder_left_rad_s": 3.580000000000041,
+      "encoder_right_rad_s": 1.32000000000005,
+      "encoder_speed_m_s": 0.07962500000000149,
+      "distance_cm": 195.64401062871747,
+      "estimator_heading_rad": -0.025346902581373024,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.05069380516274605,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.05069380516274605,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.5909200819822,
+      "requested_right_rad_s": 3.7936953026331843,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.5909200819822,
+      "applied_right_rad_s": 3.7936953026331843,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.01192647852285847,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.2250485296849796,
+        0.02991476694796642,
+        0.001612130986609659
+      ],
+      "true_yaw_rad": 0.01192647852285847,
+      "true_linear_speed_m_s": 0.08502806233407056,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.43662525236613947,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.43662525236613947,
+        "requested_left_rad_s": 3.5909200819822,
+        "requested_right_rad_s": 3.7936953026331843,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.5909200819822,
+        "applied_right_rad_s": 3.7936953026331843,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.2204213570169236,
+          0.02242848623361866,
+          0.0011623429292140115
+        ],
+        "pre_physics_true_yaw_rad": 0.013900184395963047,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 19.35,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.07911992783670653,
+        0.8015234247924605,
+        0.04226737404340697
+      ],
+      "raw_imu_gyro_deg_s": [
+        15.467044955056586,
+        7.3194818898833205,
+        16.48250854086442
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.12774905851856097,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.12774905851856097,
+      "encoder_left_rad_s": 3.5999999999999943,
+      "encoder_right_rad_s": 3.7700000000000244,
+      "encoder_speed_m_s": 0.11976250000000031,
+      "distance_cm": 198.47985452107483,
+      "estimator_heading_rad": -0.022358276557389353,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.04471655311477871,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.04471655311477871,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6028745860781344,
+      "requested_right_rad_s": 3.7817407985372498,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6028745860781344,
+      "applied_right_rad_s": 3.7817407985372498,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.004987781745552539,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.2307944651771456,
+        0.032632211095206774,
+        0.002480227108374785
+      ],
+      "true_yaw_rad": 0.004987781745552539,
+      "true_linear_speed_m_s": 0.12448981186355289,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.07032061232902757,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.07032061232902757,
+        "requested_left_rad_s": 3.6028745860781344,
+        "requested_right_rad_s": 3.7817407985372498,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6028745860781344,
+        "applied_right_rad_s": 3.7817407985372498,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.2250485296849796,
+          0.02991476694796642,
+          0.001612130986609659
+        ],
+        "pre_physics_true_yaw_rad": 0.01192647852285847,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 19.400000000000002,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.03053007077768173,
+        0.9384504537299878,
+        -0.0025570677430291518
+      ],
+      "raw_imu_gyro_deg_s": [
+        15.310879985704084,
+        -3.49547660908904,
+        20.212190755784455
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.061007575755050496,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.061007575755050496,
+      "encoder_left_rad_s": 3.609999999999971,
+      "encoder_right_rad_s": 3.3099999999999596,
+      "encoder_speed_m_s": 0.11244999999999887,
+      "distance_cm": 202.2915052439873,
+      "estimator_heading_rad": -0.016928941570350513,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.033857883140701026,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.033857883140701026,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.62459192602629,
+      "requested_right_rad_s": 3.760023458589094,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.62459192602629,
+      "applied_right_rad_s": 3.760023458589094,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.007605502647516466,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.236733617500469,
+        0.03383757284345625,
+        0.0028701868774496757
+      ],
+      "true_yaw_rad": 0.007605502647516466,
+      "true_linear_speed_m_s": 0.12844548047300222,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.12774905851856097,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.12774905851856097,
+        "requested_left_rad_s": 3.62459192602629,
+        "requested_right_rad_s": 3.760023458589094,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.62459192602629,
+        "applied_right_rad_s": 3.760023458589094,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.2307944651771456,
+          0.032632211095206774,
+          0.002480227108374785
+        ],
+        "pre_physics_true_yaw_rad": 0.004987781745552539,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 19.45,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.11122506990046861,
+        0.6503133862471644,
+        -0.0059176818200595
+      ],
+      "raw_imu_gyro_deg_s": [
+        22.40858202656016,
+        -3.8552812782813333,
+        153.15386389717352
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.06728735189650502,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.06728735189650502,
+      "encoder_left_rad_s": 3.5600000000000875,
+      "encoder_right_rad_s": 3.719999999999999,
+      "encoder_speed_m_s": 0.1183000000000014,
+      "distance_cm": 201.3118270367513,
+      "estimator_heading_rad": -0.01952176353994016,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.03904352707988032,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.03904352707988032,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6142206381479314,
+      "requested_right_rad_s": 3.7703947464674528,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6142206381479314,
+      "applied_right_rad_s": 3.7703947464674528,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.009885796195928755,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.2471135185742224,
+        0.02584719116725076,
+        0.0030956326998232767
+      ],
+      "true_yaw_rad": 0.009885796195928755,
+      "true_linear_speed_m_s": 0.2746364429279315,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.061007575755050496,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.061007575755050496,
+        "requested_left_rad_s": 3.6142206381479314,
+        "requested_right_rad_s": 3.7703947464674528,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6142206381479314,
+        "applied_right_rad_s": 3.7703947464674528,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.236733617500469,
+          0.03383757284345625,
+          0.0028701868774496757
+        ],
+        "pre_physics_true_yaw_rad": 0.007605502647516466,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 19.5,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        0.34074582984706764,
+        1.3009177503784473,
+        -0.018360409013866222
+      ],
+      "raw_imu_gyro_deg_s": [
+        -23.0408561855831,
+        3.725433294816715,
+        -110.22763049803295
+      ],
+      "raw_imu_yaw_rate_rad_s": 0.06502107705797228,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": 0.06502107705797228,
+      "encoder_left_rad_s": 3.5999999999999943,
+      "encoder_right_rad_s": 3.780000000000001,
+      "encoder_speed_m_s": 0.11992499999999993,
+      "distance_cm": 200.98479825331975,
+      "estimator_heading_rad": -0.022381475995541623,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.044762951991083245,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.044762951991083245,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6027817883255255,
+      "requested_right_rad_s": 3.7818335962898586,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6027817883255255,
+      "applied_right_rad_s": 3.7818335962898586,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.0074401725773124375,
+      "success": false,
+      "done": false,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.24955873215749,
+        0.025427326038671625,
+        0.0023403291022355607
+      ],
+      "true_yaw_rad": 0.0074401725773124375,
+      "true_linear_speed_m_s": 0.02475832660871947,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": -0.06728735189650502,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": -0.06728735189650502,
+        "requested_left_rad_s": 3.6027817883255255,
+        "requested_right_rad_s": 3.7818335962898586,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6027817883255255,
+        "applied_right_rad_s": 3.7818335962898586,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.2471135185742224,
+          0.02584719116725076,
+          0.0030956326998232767
+        ],
+        "pre_physics_true_yaw_rad": 0.009885796195928755,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    },
+    {
+      "simulation_time": 19.55,
+      "episode": 6,
+      "seed": 1,
+      "condition": "D0_nominal",
+      "mismatch_type": "none",
+      "raw_imu_accel_g": [
+        -0.12336844344956915,
+        1.1772653003434583,
+        0.0434178947825289
+      ],
+      "raw_imu_gyro_deg_s": [
+        21.16383751958785,
+        -1.6218455650376,
+        46.58495031436516
+      ],
+      "raw_imu_yaw_rate_rad_s": -0.02830654506877395,
+      "mismatch_imu_bias_rad_s": 0.0,
+      "observed_imu_yaw_rate_rad_s": -0.02830654506877395,
+      "encoder_left_rad_s": 3.5999999999999943,
+      "encoder_right_rad_s": 3.75,
+      "encoder_speed_m_s": 0.1194374999999999,
+      "distance_cm": 203.4389182685513,
+      "estimator_heading_rad": -0.019618080220577802,
+      "estimator_parameters": {
+        "imu_bias_hat_rad_s": 0.0,
+        "fusion_weight": 0.85
+      },
+      "base_control_omega_rad_s": 0.039236160441155604,
+      "residual_control_omega_rad_s": 0.0,
+      "final_command_omega_rad_s": 0.039236160441155604,
+      "linear_velocity_cmd_m_s": 0.12,
+      "requested_left_rad_s": 3.6138353714253806,
+      "requested_right_rad_s": 3.770780013190003,
+      "motor_gain_left": 1.0,
+      "motor_gain_right": 1.0,
+      "applied_left_rad_s": 3.6138353714253806,
+      "applied_right_rad_s": 3.770780013190003,
+      "clipped_left": false,
+      "clipped_right": false,
+      "tracking_error_rad": 0.008479088809517317,
+      "success": false,
+      "done": true,
+      "privileged_eval_only": true,
+      "true_position_m": [
+        -3.2565954021030237,
+        0.029235467401238658,
+        0.002612582828870022
+      ],
+      "true_yaw_rad": 0.008479088809517317,
+      "true_linear_speed_m_s": 0.16177088536400355,
+      "intervention": {
+        "raw_imu_yaw_rate_rad_s": 0.06502107705797228,
+        "mismatch_imu_bias_rad_s": 0.0,
+        "observed_imu_yaw_rate_rad_s": 0.06502107705797228,
+        "requested_left_rad_s": 3.6138353714253806,
+        "requested_right_rad_s": 3.770780013190003,
+        "motor_gain_left": 1.0,
+        "motor_gain_right": 1.0,
+        "applied_left_rad_s": 3.6138353714253806,
+        "applied_right_rad_s": 3.770780013190003,
+        "clipped_left": false,
+        "clipped_right": false,
+        "pre_physics_true_position_m": [
+          -3.24955873215749,
+          0.025427326038671625,
+          0.0023403291022355607
+        ],
+        "pre_physics_true_yaw_rad": 0.0074401725773124375,
+        "estimator_params": {
+          "imu_bias_hat_rad_s": 0.0,
+          "fusion_weight": 0.85
+        },
+        "heading_kp": 2.0,
+        "residual_omega_rad_s": 0.0
+      }
+    }
+  ],
+  "clip_fraction": 0.0,
+  "final_true_yaw_rad": 0.008479088809517317,
+  "mean_abs_true_yaw_rad": 0.008468202168002242
+}
