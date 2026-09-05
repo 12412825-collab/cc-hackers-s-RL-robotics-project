@@ -24,10 +24,13 @@ class ControllerObservation:
     """
 
     sim_time_s: float
-    # Raw Webots sensors (historical channel semantics)
+    # Raw Webots sensors (historical channel semantics) — UNBIASED
     imu_accel_g: list[float]
-    imu_gyro_deg_s: list[float]  # DonkeyCar/WebotsAdapter convention
-    imu_gyro_yaw_rate_rad_s: float  # research convenience (observed, may be biased)
+    imu_gyro_deg_s: list[float]  # DonkeyCar/WebotsAdapter convention (raw)
+    raw_imu_yaw_rate_rad_s: float  # raw Webots gyro Y [rad/s], pre-mismatch
+    # Corrupted observation after M1 (may equal raw when bias=0)
+    observed_imu_yaw_rate_rad_s: float
+    mismatch_imu_bias_rad_s: float
     encoder_left_rad_s: float
     encoder_right_rad_s: float
     encoder_speed_m_s: float
@@ -52,12 +55,17 @@ class LiveObservation:
     linear_velocity_m_s: float
     cmd_left_rad_s: float
     cmd_right_rad_s: float
+    motor_gain_left: float
+    motor_gain_right: float
     applied_left_rad_s: float
     applied_right_rad_s: float
+    clipped_left: bool
+    clipped_right: bool
     tracking_error_rad: float
     episode: int
     seed: int
     condition: str
+    mismatch_type: str
     success: bool
     done: bool
 
@@ -67,9 +75,12 @@ class LiveObservation:
             "episode": self.episode,
             "seed": self.seed,
             "condition": self.condition,
+            "mismatch_type": self.mismatch_type,
             "raw_imu_accel_g": self.controller.imu_accel_g,
             "raw_imu_gyro_deg_s": self.controller.imu_gyro_deg_s,
-            "observed_imu_yaw_rate_rad_s": self.controller.imu_gyro_yaw_rate_rad_s,
+            "raw_imu_yaw_rate_rad_s": self.controller.raw_imu_yaw_rate_rad_s,
+            "mismatch_imu_bias_rad_s": self.controller.mismatch_imu_bias_rad_s,
+            "observed_imu_yaw_rate_rad_s": self.controller.observed_imu_yaw_rate_rad_s,
             "encoder_left_rad_s": self.controller.encoder_left_rad_s,
             "encoder_right_rad_s": self.controller.encoder_right_rad_s,
             "encoder_speed_m_s": self.controller.encoder_speed_m_s,
@@ -80,10 +91,14 @@ class LiveObservation:
             "residual_control_omega_rad_s": self.residual_omega_rad_s,
             "final_command_omega_rad_s": self.final_omega_rad_s,
             "linear_velocity_cmd_m_s": self.linear_velocity_m_s,
-            "cmd_left_rad_s": self.cmd_left_rad_s,
-            "cmd_right_rad_s": self.cmd_right_rad_s,
+            "requested_left_rad_s": self.cmd_left_rad_s,
+            "requested_right_rad_s": self.cmd_right_rad_s,
+            "motor_gain_left": self.motor_gain_left,
+            "motor_gain_right": self.motor_gain_right,
             "applied_left_rad_s": self.applied_left_rad_s,
             "applied_right_rad_s": self.applied_right_rad_s,
+            "clipped_left": self.clipped_left,
+            "clipped_right": self.clipped_right,
             "tracking_error_rad": self.tracking_error_rad,
             "success": self.success,
             "done": self.done,

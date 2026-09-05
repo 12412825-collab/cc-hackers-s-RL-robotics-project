@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-import math
 from typing import Any, Optional
 
 from .controller import HeadingPController, ResidualHook
 from .estimator import HeadingEstimator
+from .mismatch import MismatchConfig, make_mismatch
 from .mismatch_hooks import MismatchHooks
 from .plant_backend import LiveWebotsBackend
 from .types import ControllerObservation, LiveObservation, PrivilegedEvalState
@@ -28,6 +28,7 @@ class LiveWebotsEnv:
         corridor_half_width_m: float = 0.25,
         max_heading_error_rad: float = 0.785,
         backend: Optional[LiveWebotsBackend] = None,
+        mismatch: Optional[MismatchConfig] = None,
     ):
         self.backend = backend or LiveWebotsBackend()
         self.cruise_v = float(cruise_linear_velocity)
@@ -35,6 +36,8 @@ class LiveWebotsEnv:
         self.segment_length_m = float(segment_length_m)
         self.corridor_half_width_m = float(corridor_half_width_m)
         self.max_heading_error_rad = float(max_heading_error_rad)
+        self.heading_kp = float(heading_kp)
+        self.max_angular_velocity = float(max_angular_velocity)
 
         self.estimator = HeadingEstimator(
             fusion_weight=fusion_weight, dt=self.backend.dt
@@ -49,56 +52,69 @@ class LiveWebotsEnv:
             max_linear_velocity=max_linear_velocity,
         )
         self.mismatch = MismatchHooks()
+        self.set_mismatch(mismatch or make_mismatch("none"))
         self.seed = 0
         self.episode = 0
         self.condition = "nominal_A0_none"
         self._step_count = 0
         self._start_x = 0.0
         self._log: list[dict[str, Any]] = []
+        self._phi0: dict[str, float] = {}
+        self.open_loop_omega: Optional[float] = None  # if set, bypass heading-P
+
+    def set_mismatch(self, config: MismatchConfig) -> None:
+        self.mismatch.set_config(config)
+        self.mismatch.layer.assert_no_cross_contamination()
 
     def close(self) -> None:
         self.backend.apply_wheel_speeds(0.0, 0.0)
 
-    def reset(self, seed: int = 0, condition: str = "nominal_A0_none") -> ControllerObservation:
+    def reset(
+        self,
+        seed: int = 0,
+        condition: str = "nominal_A0_none",
+        mismatch: Optional[MismatchConfig] = None,
+    ) -> ControllerObservation:
         self.seed = int(seed)
         self.condition = str(condition)
         self.episode += 1
         self._step_count = 0
         self._log = []
+        if mismatch is not None:
+            self.set_mismatch(mismatch)
 
-        # Adaptation OFF; residual OFF; mismatch nominal
+        # Adaptation OFF; residual OFF
         self.estimator.enable_adaptation(False)
-        self.estimator.lock()  # prevent accidental φ writes during episode
         self.residual.enable_adaptation(False)
         self.residual.reset()
-        if not self.mismatch.is_nominal():
-            # Step 2 validation may temporarily set zeros explicitly
-            pass
+        assert abs(self.residual.residual_omega_rad_s) < 1e-15
+        assert self.estimator.adaptation_enabled is False
 
         self.backend.reset_physics_state()
         sens = self.backend.read_sensors()
-        # Estimator init: do NOT seed from Supervisor true yaw (firewall).
-        # Start at 0; closed-loop regulates estimated heading.
         self.estimator.unlock()
         self.estimator.reset(heading0=0.0)
+        # Freeze φ snapshot
+        self._phi0 = self.estimator.get_params()
         self.estimator.lock()
 
         self._start_x = sens.true_position_m[0]
         return self._controller_obs(sens)
 
     def _encoder_yaw_rate(self, left_rad_s: float, right_rad_s: float) -> float:
-        # ω ≈ (v_r - v_l) / B ; v = r * wheel_ω
-        r = 0.0325
-        b = 0.130
+        r = self.backend.kinematics.wheel_radius
+        b = self.backend.kinematics.wheel_separation
         return (r * (right_rad_s - left_rad_s)) / b
 
     def _controller_obs(self, sens) -> ControllerObservation:
-        imu_obs = self.mismatch.observe_imu_yaw_rate(sens.gyro_yaw_rate_rad_s)
+        imu = self.mismatch.layer.apply_imu_bias(sens.gyro_yaw_rate_rad_s)
         return ControllerObservation(
             sim_time_s=sens.sim_time_s,
             imu_accel_g=list(sens.accel_g),
             imu_gyro_deg_s=list(sens.gyro_deg_s),
-            imu_gyro_yaw_rate_rad_s=float(imu_obs),
+            raw_imu_yaw_rate_rad_s=float(imu.raw_imu_yaw_rate_rad_s),
+            observed_imu_yaw_rate_rad_s=float(imu.observed_imu_yaw_rate_rad_s),
+            mismatch_imu_bias_rad_s=float(imu.mismatch_bias_rad_s),
             encoder_left_rad_s=sens.left_rad_s,
             encoder_right_rad_s=sens.right_rad_s,
             encoder_speed_m_s=sens.speed_m_s,
@@ -108,26 +124,59 @@ class LiveWebotsEnv:
         )
 
     def step(self, control_action: float = 0.0) -> tuple[ControllerObservation, dict, bool]:
-        """One control cycle. control_action ignored while residual adaptation OFF."""
-        del control_action  # residual stays 0 in Step 2
+        """One control cycle. residual adaptation OFF → residual stays 0."""
+        del control_action
         if self.backend.terminated:
             raise RuntimeError("Webots simulation terminated")
+        if self.estimator.adaptation_enabled:
+            raise RuntimeError("estimator adaptation must stay OFF in Step 3")
+        if abs(self.residual.residual_omega_rad_s) > 1e-15:
+            raise RuntimeError("residual must stay 0 in Step 3")
 
         sens = self.backend.read_sensors()
-        imu_obs = self.mismatch.observe_imu_yaw_rate(sens.gyro_yaw_rate_rad_s)
+        imu = self.mismatch.layer.apply_imu_bias(sens.gyro_yaw_rate_rad_s)
         enc_yaw = self._encoder_yaw_rate(sens.left_rad_s, sens.right_rad_s)
 
-        # Estimator update (params frozen)
+        # Estimator update (params frozen — unlock only for state integrate)
         self.estimator.unlock()
-        heading_est = self.estimator.update(imu_obs, enc_yaw)
+        heading_est = self.estimator.update(
+            imu.observed_imu_yaw_rate_rad_s, enc_yaw
+        )
+        # Ensure φ unchanged
+        if self.estimator.get_params() != self._phi0:
+            raise RuntimeError("estimator φ mutated under adaptation OFF")
         self.estimator.lock()
 
-        base_omega = self.base_controller(heading_est)
+        if self.open_loop_omega is None:
+            base_omega = self.base_controller(heading_est)
+        else:
+            base_omega = float(self.open_loop_omega)
         v, omega_final, residual_omega = self.residual.combine(self.cruise_v, base_omega)
+        assert abs(residual_omega) < 1e-15
 
         cmd_l, cmd_r = self.backend.kinematics.run(v, omega_final)
-        app_l, app_r = self.mismatch.apply_motor_gains(cmd_l, cmd_r)
-        self.backend.apply_wheel_speeds(app_l, app_r)
+        motor = self.mismatch.layer.apply_motor_gains(cmd_l, cmd_r)
+        self.backend.apply_wheel_speeds(motor.applied_left_rad_s, motor.applied_right_rad_s)
+
+        # Snapshot at intervention (pre-physics) for causal audits
+        intervention = {
+            "raw_imu_yaw_rate_rad_s": imu.raw_imu_yaw_rate_rad_s,
+            "mismatch_imu_bias_rad_s": imu.mismatch_bias_rad_s,
+            "observed_imu_yaw_rate_rad_s": imu.observed_imu_yaw_rate_rad_s,
+            "requested_left_rad_s": motor.requested_left_rad_s,
+            "requested_right_rad_s": motor.requested_right_rad_s,
+            "motor_gain_left": motor.motor_gain_left,
+            "motor_gain_right": motor.motor_gain_right,
+            "applied_left_rad_s": motor.applied_left_rad_s,
+            "applied_right_rad_s": motor.applied_right_rad_s,
+            "clipped_left": motor.clipped_left,
+            "clipped_right": motor.clipped_right,
+            "pre_physics_true_position_m": list(sens.true_position_m),
+            "pre_physics_true_yaw_rad": float(sens.true_yaw_rad),
+            "estimator_params": dict(self._phi0),
+            "heading_kp": self.heading_kp,
+            "residual_omega_rad_s": residual_omega,
+        }
 
         if not self.backend.step_physics():
             raise RuntimeError("Webots simulation terminated during step")
@@ -136,7 +185,6 @@ class LiveWebotsEnv:
         self._step_count += 1
 
         ctrl = self._controller_obs(sens2)
-        # Recompute heading display after update already applied
         ctrl.heading_est_rad = float(self.estimator.heading_est_rad)
 
         priv = PrivilegedEvalState(
@@ -144,8 +192,7 @@ class LiveWebotsEnv:
             true_yaw_rad=float(sens2.true_yaw_rad),
             true_linear_speed_m_s=float(sens2.true_speed_m_s),
         )
-        # Tracking error for metrics uses privileged yaw (eval only)
-        track_err = float(sens2.true_yaw_rad)  # regulate to 0 heading
+        track_err = float(sens2.true_yaw_rad)
         progress = abs(sens2.true_position_m[0] - self._start_x)
         lateral = abs(sens2.true_position_m[2])
         done = self._step_count >= self.max_steps
@@ -164,16 +211,23 @@ class LiveWebotsEnv:
             linear_velocity_m_s=float(v),
             cmd_left_rad_s=float(cmd_l),
             cmd_right_rad_s=float(cmd_r),
-            applied_left_rad_s=float(app_l),
-            applied_right_rad_s=float(app_r),
+            motor_gain_left=float(motor.motor_gain_left),
+            motor_gain_right=float(motor.motor_gain_right),
+            applied_left_rad_s=float(motor.applied_left_rad_s),
+            applied_right_rad_s=float(motor.applied_right_rad_s),
+            clipped_left=bool(motor.clipped_left),
+            clipped_right=bool(motor.clipped_right),
             tracking_error_rad=track_err,
             episode=self.episode,
             seed=self.seed,
             condition=self.condition,
+            mismatch_type=self.mismatch.layer.config.type,
             success=bool(success and done),
             done=done,
         )
-        self._log.append(obs.to_log_row())
+        row = obs.to_log_row()
+        row["intervention"] = intervention
+        self._log.append(row)
         info = {
             "privileged_eval_only": True,
             "true_yaw_rad": priv.true_yaw_rad,
@@ -181,6 +235,9 @@ class LiveWebotsEnv:
             "progress_m": progress,
             "residual_omega_rad_s": residual_omega,
             "estimator_params": self.estimator.get_params(),
+            "intervention": intervention,
+            "mismatch": self.mismatch.layer.config.to_dict(),
+            "clip_fraction": self.mismatch.layer.clip_fraction,
             "plant": self.backend.provenance(),
         }
         return ctrl, info, done
@@ -197,6 +254,8 @@ class LiveWebotsEnv:
             "mean_residual_abs": float(sum(abs(r) for r in residuals) / len(residuals)),
             "final_position_m": self._log[-1]["true_position_m"],
             "estimator_params_final": self._log[-1]["estimator_parameters"],
+            "clip_fraction": self.mismatch.layer.clip_fraction,
+            "mismatch": self.mismatch.layer.config.to_dict(),
             "plant": self.backend.provenance(),
         }
 

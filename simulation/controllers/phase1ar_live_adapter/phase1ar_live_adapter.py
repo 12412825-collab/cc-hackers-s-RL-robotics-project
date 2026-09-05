@@ -215,8 +215,10 @@ def main() -> int:
     res_dist = math.dist(res_start, res_end)
     mean_hist_cmd = 0.5 * (hist["mean_cmd_left"] + hist["mean_cmd_right"])
     mean_res_cmd = 0.5 * (
-        sum(r["cmd_left_rad_s"] for r in research_log) / len(research_log)
-        + sum(r["cmd_right_rad_s"] for r in research_log) / len(research_log)
+        sum(r.get("requested_left_rad_s", r.get("cmd_left_rad_s", 0.0)) for r in research_log)
+        / len(research_log)
+        + sum(r.get("requested_right_rad_s", r.get("cmd_right_rad_s", 0.0)) for r in research_log)
+        / len(research_log)
     )
     # Equivalence: distances within factor 3 and same order; yaw small both
     equiv_pass = (
