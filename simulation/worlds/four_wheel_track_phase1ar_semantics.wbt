@@ -1,0 +1,33 @@
+#VRML_SIM R2025a utf8
+EXTERNPROTO "../protos/FourWheelRobot.proto"
+WorldInfo {
+  coordinateSystem "NUE"
+  basicTimeStep 50
+  gravity 9.81
+}
+Viewpoint {
+  orientation -0.529269 0.819642 0.219230 0.935852
+  position 4 3.25 4
+}
+Background { skyColor [ 0.75 0.82 0.92 ] }
+DirectionalLight {
+  ambientIntensity 0.7
+  direction -0.4 -1 -0.3
+  intensity 1
+}
+Solid {
+  translation 0 -0.026 0
+  name "floor"
+  children [
+    Shape {
+      appearance PBRAppearance { baseColor 0.70 0.70 0.70 roughness 1 metalness 0 }
+      geometry Box { size 100 0.05 100 }
+    }
+  ]
+  boundingObject Box { size 100 0.05 100 }
+  locked TRUE
+}
+FourWheelRobot {
+  translation -3.0 0.0325 0
+  controller "phase1ar_sensor_semantics"
+}

@@ -188,7 +188,7 @@ def main() -> int:
     # Force heading estimate ~0 and residual 0 → should behave like cruise
     env.estimator.unlock()
     env.estimator.reset(0.0)
-    env.estimator.set_params(0.0, 0.85)
+    env.estimator.set_params(heading_bias_hat_rad=0.0, fusion_weight=0.85)
     env.estimator.lock()
     research_trace = []
     for _ in range(80):

@@ -21,22 +21,27 @@ class ControllerObservation:
     """Signals allowed into the base controller / estimator.
 
     Must NOT contain Supervisor true yaw/position.
+    Heading fields are sensor-derived (Gyro integration), not Supervisor.
     """
 
     sim_time_s: float
-    # Raw Webots sensors (historical channel semantics) — UNBIASED
     imu_accel_g: list[float]
-    imu_gyro_deg_s: list[float]  # DonkeyCar/WebotsAdapter convention (raw)
-    raw_imu_yaw_rate_rad_s: float  # raw Webots gyro Y [rad/s], pre-mismatch
-    # Corrupted observation after M1 (may equal raw when bias=0)
+    imu_gyro_deg_s: list[float]
+    raw_imu_yaw_rate_rad_s: float
+    # Rate after optional gyro_rate_bias (secondary); equals raw when primary M1
     observed_imu_yaw_rate_rad_s: float
-    mismatch_imu_bias_rad_s: float
+    gyro_rate_bias_rad_s: float
+    # Heading pipeline (primary semantics)
+    raw_heading_rad: float
+    fixed_heading_bias_rad: float
+    observed_heading_rad: float
+    encoder_heading_rad: float
     encoder_left_rad_s: float
     encoder_right_rad_s: float
     encoder_speed_m_s: float
     distance_cm: Optional[float]
-    # Estimator-derived (not privileged GT)
     heading_est_rad: float
+    heading_source: str  # e.g. "gyro_integration"
     estimator_params: dict[str, float] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -70,17 +75,22 @@ class LiveObservation:
     done: bool
 
     def to_log_row(self) -> dict[str, Any]:
-        row = {
+        return {
             "simulation_time": self.controller.sim_time_s,
             "episode": self.episode,
             "seed": self.seed,
             "condition": self.condition,
             "mismatch_type": self.mismatch_type,
+            "heading_source": self.controller.heading_source,
             "raw_imu_accel_g": self.controller.imu_accel_g,
             "raw_imu_gyro_deg_s": self.controller.imu_gyro_deg_s,
             "raw_imu_yaw_rate_rad_s": self.controller.raw_imu_yaw_rate_rad_s,
-            "mismatch_imu_bias_rad_s": self.controller.mismatch_imu_bias_rad_s,
+            "gyro_rate_bias_rad_s": self.controller.gyro_rate_bias_rad_s,
             "observed_imu_yaw_rate_rad_s": self.controller.observed_imu_yaw_rate_rad_s,
+            "raw_heading_rad": self.controller.raw_heading_rad,
+            "fixed_heading_bias_rad": self.controller.fixed_heading_bias_rad,
+            "observed_heading_rad": self.controller.observed_heading_rad,
+            "encoder_heading_rad": self.controller.encoder_heading_rad,
             "encoder_left_rad_s": self.controller.encoder_left_rad_s,
             "encoder_right_rad_s": self.controller.encoder_right_rad_s,
             "encoder_speed_m_s": self.controller.encoder_speed_m_s,
@@ -102,10 +112,8 @@ class LiveObservation:
             "tracking_error_rad": self.tracking_error_rad,
             "success": self.success,
             "done": self.done,
-            # Privileged block — firewall tagged
             "privileged_eval_only": True,
             "true_position_m": self.privileged.true_position_m,
             "true_yaw_rad": self.privileged.true_yaw_rad,
             "true_linear_speed_m_s": self.privileged.true_linear_speed_m_s,
         }
-        return row

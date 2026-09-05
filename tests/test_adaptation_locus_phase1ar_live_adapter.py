@@ -44,13 +44,12 @@ def test_estimator_adaptation_disabled_params_fixed():
     est.enable_adaptation(False)
     est.lock()
     with pytest.raises(RuntimeError):
-        est.set_params(0.1, 0.5)
+        est.set_params(heading_bias_hat_rad=0.1, fusion_weight=0.5)
     est.unlock()
-    est.set_params(0.0, 0.85)
+    est.set_params(heading_bias_hat_rad=0.0, fusion_weight=0.85)
     before = est.get_params()
     est.lock()
-    h = est.update(0.1, 0.0)  # unlock path used by env; here locked update still works on state
-    # update doesn't require unlock in estimator itself — env locks around set_params
+    h = est.update(0.1, 0.0)
     est.unlock()
     after = est.get_params()
     assert before == after
@@ -71,13 +70,18 @@ def test_controller_observation_firewall_schema():
         imu_gyro_deg_s=[0, 0, 0],
         raw_imu_yaw_rate_rad_s=0.0,
         observed_imu_yaw_rate_rad_s=0.0,
-        mismatch_imu_bias_rad_s=0.0,
+        gyro_rate_bias_rad_s=0.0,
+        raw_heading_rad=0.0,
+        fixed_heading_bias_rad=0.0,
+        observed_heading_rad=0.0,
+        encoder_heading_rad=0.0,
         encoder_left_rad_s=0.0,
         encoder_right_rad_s=0.0,
         encoder_speed_m_s=0.0,
         distance_cm=100.0,
         heading_est_rad=0.0,
-        estimator_params={"imu_bias_hat_rad_s": 0.0, "fusion_weight": 0.85},
+        heading_source="gyro_integration",
+        estimator_params={"heading_bias_hat_rad": 0.0, "fusion_weight": 0.85},
     )
     data = ctrl.to_dict()
     assert "true_yaw_rad" not in data

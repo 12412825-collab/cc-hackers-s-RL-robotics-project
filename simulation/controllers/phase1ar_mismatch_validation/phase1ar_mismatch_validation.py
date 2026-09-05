@@ -211,9 +211,12 @@ def main() -> int:
 
     m2_checks = {
         # Within-step: M2 must not add IMU bias; raw vs observed identical in-step.
-        "within_step_no_imu_bias": abs(j1["mismatch_imu_bias_rad_s"]) < 1e-15
+        "within_step_no_imu_bias": abs(j1.get("gyro_rate_bias_rad_s", j1.get("mismatch_imu_bias_rad_s", 0.0))) < 1e-15
         and abs(j1["observed_imu_yaw_rate_rad_s"] - j1["raw_imu_yaw_rate_rad_s"]) < 1e-15,
-        "imu_bias_zero_under_motor": abs(j1["mismatch_imu_bias_rad_s"]) < 1e-15,
+        "imu_bias_zero_under_motor": abs(
+            j1.get("gyro_rate_bias_rad_s", j1.get("mismatch_imu_bias_rad_s", 0.0))
+        )
+        < 1e-15,
         "requested_identical_first_step": (
             abs(j1["requested_left_rad_s"] - j0["requested_left_rad_s"]) < 1e-9
             and abs(j1["requested_right_rad_s"] - j0["requested_right_rad_s"]) < 1e-9
