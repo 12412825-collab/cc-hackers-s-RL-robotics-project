@@ -3,6 +3,8 @@
 EXTERNPROTO "../protos/FourWheelRobot.proto"
 
 WorldInfo {
+  # P-1AR-01: historical assets are Y-up; R2025a default ENU (Z-up) caused freefall along -Z.
+  coordinateSystem "NUE"
   basicTimeStep 50
   gravity 9.81
 }
