@@ -26,3 +26,7 @@ Phase-0 uses δ ∈ {0.015, 0.03, 0.045} after plant closure. See preregistratio
 ## Amendment R-1 — Residual bound
 
 Phase-0 `max_residual_deg = 10.0` (historical training env used 3.0) so residual adaptation has non-negligible yaw authority under dynamics mismatch. Still hard-bounded.
+
+## Amendment A1-1 — Bias-only estimator updates
+
+Primary A1 adapts \(\hat{b}_{\mathrm{imu}}\) only; fusion weight stays at the frozen initial value. Online fusion-weight updates were unstable across seeds in debug and are reserved for diagnostics.

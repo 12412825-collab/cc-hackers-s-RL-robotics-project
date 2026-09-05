@@ -36,11 +36,9 @@ class EstimatorAdapter:
         # Bias residual: IMU should match encoder yaw proxy after bias removal
         innov = imu_rate - env.imu_bias_hat - enc_rate
         new_bias = env.imu_bias_hat + self.lr * innov
-
-        # Increase IMU weight when corrected IMU agrees with encoder
-        corrected = imu_rate - new_bias
-        agree = -abs(corrected - enc_rate)
-        new_w = float(np.clip(env.fusion_weight + self.fusion_lr * agree, 0.0, 1.0))
+        # Keep fusion weight fixed in Phase-0 primary A1 for stability
+        # (weight adaptation remains available via Oracle/diagnostic variants).
+        new_w = float(env.fusion_weight)
 
         env.set_estimator_params(imu_bias_hat=new_bias, fusion_weight=new_w)
         rec = {
@@ -55,7 +53,7 @@ class EstimatorAdapter:
         if not self.history:
             return 0.0
         last = self.history[-1]
-        return float(abs(last["imu_bias_hat"]) + abs(last["fusion_weight"] - 0.7))
+        return float(abs(last["imu_bias_hat"]))
 
 
 @dataclass

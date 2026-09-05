@@ -82,7 +82,7 @@ def test_estimator_adaptation_cannot_alter_controller_params():
             obs = env.reset()
     after = env.get_controller_params()
     assert before == after
-    assert abs(env.imu_bias_hat) > 0.0 or abs(env.fusion_weight - 0.7) > 0.0
+    assert abs(env.imu_bias_hat) > 0.0
 
 
 def test_residual_adaptation_cannot_alter_sensor_calibration():
