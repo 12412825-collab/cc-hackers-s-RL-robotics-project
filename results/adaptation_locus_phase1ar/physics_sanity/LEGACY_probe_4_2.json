@@ -1,0 +1,2221 @@
+{
+  "label": "LEGACY_probe_4_2",
+  "command_left_rad_s": 4.0,
+  "command_right_rad_s": 2.0,
+  "n_controller_steps_after_prime": 80,
+  "timestep_ms": 50,
+  "sim_time_start_s": 18.8,
+  "sim_time_end_s": 22.8,
+  "sim_duration_s": 4.0,
+  "initial_position_m": [
+    -3.0000399504035418,
+    0.03429571791948789,
+    -1.3479410598482724
+  ],
+  "final_position_m": [
+    -3.157315787766408,
+    0.2580919306127621,
+    -100.25633168371726
+  ],
+  "delta_position_m": [
+    -0.15727583736286643,
+    0.2237962126932742,
+    -98.908390623869
+  ],
+  "distance_m": 98.90876885411976,
+  "initial_yaw_rad": -1.0869718810248693e-05,
+  "final_yaw_rad": 1.126110745325077,
+  "delta_yaw_rad": 1.126121615043887,
+  "expected_no_slip_distance_m": 0.39,
+  "distance_over_expected": 253.6122278310763,
+  "mean_observed_wheel_rate_rad_s": {
+    "front left wheel sensor": 3.9868292682926825,
+    "front right wheel sensor": 1.9985365853658543,
+    "rear left wheel sensor": 3.9868292682926825,
+    "rear right wheel sensor": 1.9985365853658543
+  },
+  "trace": [
+    {
+      "sim_time_s": 18.8,
+      "position_m": [
+        -3.0000399504035418,
+        0.03429571791948789,
+        -1.3479410598482724
+      ],
+      "rotation_axis_angle": [
+        0.991448066037859,
+        -0.00032025163845689664,
+        -0.1305014551209193,
+        0.015671719529161573
+      ],
+      "yaw_rad": -1.0869718810248693e-05,
+      "encoder_rad": {
+        "front left wheel sensor": 6.272,
+        "front right wheel sensor": 2.125,
+        "rear left wheel sensor": 6.272,
+        "rear right wheel sensor": 2.125
+      },
+      "encoder_rate_rad_s": {}
+    },
+    {
+      "sim_time_s": 18.85,
+      "position_m": [
+        -3.0000785639349097,
+        0.03447566005304556,
+        -1.6176226930346664
+      ],
+      "rotation_axis_angle": [
+        0.9724688831956887,
+        0.0005491155142917949,
+        -0.23303212158044212,
+        0.017577049870614956
+      ],
+      "yaw_rad": -4.465769283864241e-05,
+      "encoder_rad": {
+        "front left wheel sensor": 6.471,
+        "front right wheel sensor": 2.225,
+        "rear left wheel sensor": 6.471,
+        "rear right wheel sensor": 2.225
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000018,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000018
+      }
+    },
+    {
+      "sim_time_s": 18.900000000000002,
+      "position_m": [
+        -3.0001171770883417,
+        0.0346557243360142,
+        -1.9118293353892848
+      ],
+      "rotation_axis_angle": [
+        0.9497395753953818,
+        0.001353550726042796,
+        -0.3130381874919286,
+        0.01963609017701828
+      ],
+      "yaw_rad": -8.389327391177638e-05,
+      "encoder_rad": {
+        "front left wheel sensor": 6.67,
+        "front right wheel sensor": 2.325,
+        "rear left wheel sensor": 6.67,
+        "rear right wheel sensor": 2.325
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000018,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000018
+      }
+    },
+    {
+      "sim_time_s": 18.95,
+      "position_m": [
+        -3.000155789694294,
+        0.0348359109105686,
+        -2.2305609692866986
+      ],
+      "rotation_axis_angle": [
+        0.9266334232914948,
+        0.002092132745140458,
+        -0.3759602662777837,
+        0.021804616232831784
+      ],
+      "yaw_rad": -0.00012843205829185536,
+      "encoder_rad": {
+        "front left wheel sensor": 6.87,
+        "front right wheel sensor": 2.4250000000000003,
+        "rear left wheel sensor": 6.87,
+        "rear right wheel sensor": 2.4250000000000003
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 4.0000000000000036,
+        "front right wheel sensor": 2.0000000000000018,
+        "rear left wheel sensor": 4.0000000000000036,
+        "rear right wheel sensor": 2.0000000000000018
+      }
+    },
+    {
+      "sim_time_s": 19.0,
+      "position_m": [
+        -3.0001944015783293,
+        0.035016219827199324,
+        -2.573817581858971
+      ],
+      "rotation_axis_angle": [
+        0.9046762471672531,
+        0.002765690283186323,
+        -0.42609064618767784,
+        0.02405236771397154
+      ],
+      "yaw_rad": -0.00017802049656095184,
+      "encoder_rad": {
+        "front left wheel sensor": 7.069,
+        "front right wheel sensor": 2.524,
+        "rear left wheel sensor": 7.069,
+        "rear right wheel sensor": 2.524
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.979999999999995,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.979999999999995
+      }
+    },
+    {
+      "sim_time_s": 19.05,
+      "position_m": [
+        -3.0002330125612886,
+        0.0351966511354671,
+        -2.9415991665235186
+      ],
+      "rotation_axis_angle": [
+        0.8844544333740904,
+        0.003375617987082062,
+        -0.4666143594962784,
+        0.026358614492398513
+      ],
+      "yaw_rad": -0.00023234242283770473,
+      "encoder_rad": {
+        "front left wheel sensor": 7.268,
+        "front right wheel sensor": 2.624,
+        "rear left wheel sensor": 7.268,
+        "rear right wheel sensor": 2.624
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000018,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000018
+      }
+    },
+    {
+      "sim_time_s": 19.1,
+      "position_m": [
+        -3.0010937862199265,
+        0.03608127927223162,
+        -3.332559081119681
+      ],
+      "rotation_axis_angle": [
+        -0.1438429596946798,
+        -0.671921232691959,
+        -0.7265198276743678,
+        0.019009107490496117
+      ],
+      "yaw_rad": 0.012792299980347888,
+      "encoder_rad": {
+        "front left wheel sensor": 7.468,
+        "front right wheel sensor": 2.724,
+        "rear left wheel sensor": 7.468,
+        "rear right wheel sensor": 2.724
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 4.0000000000000036,
+        "front right wheel sensor": 2.0000000000000018,
+        "rear left wheel sensor": 4.0000000000000036,
+        "rear right wheel sensor": 2.0000000000000018
+      }
+    },
+    {
+      "sim_time_s": 19.150000000000002,
+      "position_m": [
+        -3.0019662447742355,
+        0.036978279768092814,
+        -3.7480463507736235
+      ],
+      "rotation_axis_angle": [
+        -0.6905867896103631,
+        -0.6177406915441166,
+        -0.37614667887175196,
+        0.041542009613218134
+      ],
+      "yaw_rad": 0.025884819256644365,
+      "encoder_rad": {
+        "front left wheel sensor": 7.667,
+        "front right wheel sensor": 2.824,
+        "rear left wheel sensor": 7.667,
+        "rear right wheel sensor": 2.824
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 19.2,
+      "position_m": [
+        -3.002850312167001,
+        0.03788761863630723,
+        -4.188061471406053
+      ],
+      "rotation_axis_angle": [
+        -0.7891275972000734,
+        -0.5580322037297155,
+        -0.2566665052900283,
+        0.06912676662887077
+      ],
+      "yaw_rad": 0.039043327676203846,
+      "encoder_rad": {
+        "front left wheel sensor": 7.8660000000000005,
+        "front right wheel sensor": 2.924,
+        "rear left wheel sensor": 7.8660000000000005,
+        "rear right wheel sensor": 2.924
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9800000000000146,
+        "front right wheel sensor": 2.0000000000000018,
+        "rear left wheel sensor": 3.9800000000000146,
+        "rear right wheel sensor": 2.0000000000000018
+      }
+    },
+    {
+      "sim_time_s": 19.25,
+      "position_m": [
+        -3.0037459103670665,
+        0.03880925733623336,
+        -4.6526048199679275
+      ],
+      "rotation_axis_angle": [
+        -0.8236176972732152,
+        -0.5281405757340812,
+        -0.20669160844514103,
+        0.09752738851522927
+      ],
+      "yaw_rad": 0.05226783185072414,
+      "encoder_rad": {
+        "front left wheel sensor": 8.066,
+        "front right wheel sensor": 3.024,
+        "rear left wheel sensor": 8.066,
+        "rear right wheel sensor": 3.024
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 4.0000000000000036,
+        "front right wheel sensor": 2.0000000000000018,
+        "rear left wheel sensor": 4.0000000000000036,
+        "rear right wheel sensor": 2.0000000000000018
+      }
+    },
+    {
+      "sim_time_s": 19.3,
+      "position_m": [
+        -3.004652959092643,
+        0.03974315798238802,
+        -5.141676709437886
+      ],
+      "rotation_axis_angle": [
+        -0.8403120701577996,
+        -0.5108989923832232,
+        -0.18126732835489293,
+        0.12617275028979466
+      ],
+      "yaw_rad": 0.0655607512189459,
+      "encoder_rad": {
+        "front left wheel sensor": 8.265,
+        "front right wheel sensor": 3.124,
+        "rear left wheel sensor": 8.265,
+        "rear right wheel sensor": 3.124
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000018,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000018
+      }
+    },
+    {
+      "sim_time_s": 19.35,
+      "position_m": [
+        -3.005571377153951,
+        0.0406892863796406,
+        -5.655277443340417
+      ],
+      "rotation_axis_angle": [
+        -0.8498450104756324,
+        -0.4998558405904247,
+        -0.16705566975506192,
+        0.1549196212417251
+      ],
+      "yaw_rad": 0.07892715396808533,
+      "encoder_rad": {
+        "front left wheel sensor": 8.464,
+        "front right wheel sensor": 3.224,
+        "rear left wheel sensor": 8.464,
+        "rear right wheel sensor": 3.224
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000018,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000018
+      }
+    },
+    {
+      "sim_time_s": 19.400000000000002,
+      "position_m": [
+        -3.00650107915739,
+        0.0416476063229996,
+        -6.193407369545196
+      ],
+      "rotation_axis_angle": [
+        -0.8558225121084987,
+        -0.4922733297725538,
+        -0.15885463972745897,
+        0.18372110436133923
+      ],
+      "yaw_rad": 0.092374544701081,
+      "encoder_rad": {
+        "front left wheel sensor": 8.664,
+        "front right wheel sensor": 3.3240000000000003,
+        "rear left wheel sensor": 8.664,
+        "rear right wheel sensor": 3.3240000000000003
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 2.0000000000000018,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 2.0000000000000018
+      }
+    },
+    {
+      "sim_time_s": 19.45,
+      "position_m": [
+        -3.007441968385894,
+        0.042618066816014696,
+        -6.756066924979553
+      ],
+      "rotation_axis_angle": [
+        -0.8597740783778998,
+        -0.48682588861776055,
+        -0.15423711719609187,
+        0.21255870556221165
+      ],
+      "yaw_rad": 0.10591222965042751,
+      "encoder_rad": {
+        "front left wheel sensor": 8.863,
+        "front right wheel sensor": 3.424,
+        "rear left wheel sensor": 8.863,
+        "rear right wheel sensor": 3.424
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 19.5,
+      "position_m": [
+        -3.008393927436836,
+        0.043600585232943675,
+        -7.343256664002086
+      ],
+      "rotation_axis_angle": [
+        -0.8624485328704297,
+        -0.4828062835851631,
+        -0.1519230748778023,
+        0.2414215124601133
+      ],
+      "yaw_rad": 0.11955035083203727,
+      "encoder_rad": {
+        "front left wheel sensor": 9.062,
+        "front right wheel sensor": 3.524,
+        "rear left wheel sensor": 9.062,
+        "rear right wheel sensor": 3.524
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000018,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000018
+      }
+    },
+    {
+      "sim_time_s": 19.55,
+      "position_m": [
+        -3.0093568087067504,
+        0.04459503037841181,
+        -7.954977265529315
+      ],
+      "rotation_axis_angle": [
+        -0.8642511417291278,
+        -0.47980842878461955,
+        -0.1511748513712967,
+        0.2702982715395072
+      ],
+      "yaw_rad": 0.13329873709774812,
+      "encoder_rad": {
+        "front left wheel sensor": 9.262,
+        "front right wheel sensor": 3.624,
+        "rear left wheel sensor": 9.262,
+        "rear right wheel sensor": 3.624
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 4.000000000000021,
+        "front right wheel sensor": 2.0000000000000018,
+        "rear left wheel sensor": 4.000000000000021,
+        "rear right wheel sensor": 2.0000000000000018
+      }
+    },
+    {
+      "sim_time_s": 19.6,
+      "position_m": [
+        -3.010330426934236,
+        0.04560120962871975,
+        -8.591229517370362
+      ],
+      "rotation_axis_angle": [
+        -0.8654188875357345,
+        -0.47758394764985085,
+        -0.15153785680019438,
+        0.2991744413031368
+      ],
+      "yaw_rad": 0.14716575657947795,
+      "encoder_rad": {
+        "front left wheel sensor": 9.461,
+        "front right wheel sensor": 3.723,
+        "rear left wheel sensor": 9.461,
+        "rear right wheel sensor": 3.723
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.979999999999995,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.979999999999995
+      }
+    },
+    {
+      "sim_time_s": 19.650000000000002,
+      "position_m": [
+        -3.012512405994038,
+        0.04890776430046996,
+        -9.250878661207793
+      ],
+      "rotation_axis_angle": [
+        -0.854784207904388,
+        -0.5031600429121365,
+        -0.1271767633411265,
+        0.3140274274928109
+      ],
+      "yaw_rad": 0.1614655295701988,
+      "encoder_rad": {
+        "front left wheel sensor": 9.66,
+        "front right wheel sensor": 3.823,
+        "rear left wheel sensor": 9.66,
+        "rear right wheel sensor": 3.823
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000018,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000018
+      }
+    },
+    {
+      "sim_time_s": 19.7,
+      "position_m": [
+        -3.0146994404613494,
+        0.05221677986451553,
+        -9.935052901908291
+      ],
+      "rotation_axis_angle": [
+        -0.8440032376159751,
+        -0.5259163496678492,
+        -0.105216576858384,
+        0.3293017320880677
+      ],
+      "yaw_rad": 0.17575611788456502,
+      "encoder_rad": {
+        "front left wheel sensor": 9.86,
+        "front right wheel sensor": 3.923,
+        "rear left wheel sensor": 9.86,
+        "rear right wheel sensor": 3.923
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 2.0000000000000018,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 2.0000000000000018
+      }
+    },
+    {
+      "sim_time_s": 19.75,
+      "position_m": [
+        -3.0168914967719154,
+        0.055528048711698016,
+        -10.643752582877616
+      ],
+      "rotation_axis_angle": [
+        -0.8332507851843004,
+        -0.5462546318584828,
+        -0.08543422126349953,
+        0.34493247309561115
+      ],
+      "yaw_rad": 0.19004216230674664,
+      "encoder_rad": {
+        "front left wheel sensor": 10.059000000000001,
+        "front right wheel sensor": 4.023,
+        "rear left wheel sensor": 10.059000000000001,
+        "rear right wheel sensor": 4.023
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9800000000000324,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.9800000000000324,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 19.8,
+      "position_m": [
+        -3.019088525848256,
+        0.05884137857399335,
+        -11.376978063168613
+      ],
+      "rotation_axis_angle": [
+        -0.8226440989415253,
+        -0.564522021590702,
+        -0.06761341298760645,
+        0.36086133174419766
+      ],
+      "yaw_rad": 0.20432647001250318,
+      "encoder_rad": {
+        "front left wheel sensor": 10.258000000000001,
+        "front right wheel sensor": 4.123,
+        "rear left wheel sensor": 10.258000000000001,
+        "rear right wheel sensor": 4.123
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000107,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000107
+      }
+    },
+    {
+      "sim_time_s": 19.85,
+      "position_m": [
+        -3.021290459648084,
+        0.06215658020005152,
+        -12.134729688641514
+      ],
+      "rotation_axis_angle": [
+        -0.8122600740446289,
+        -0.5810129398272554,
+        -0.0515512935463703,
+        0.3770369688157746
+      ],
+      "yaw_rad": 0.21860993227941725,
+      "encoder_rad": {
+        "front left wheel sensor": 10.458,
+        "front right wheel sensor": 4.223,
+        "rear left wheel sensor": 10.458,
+        "rear right wheel sensor": 4.223
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 19.900000000000002,
+      "position_m": [
+        -3.023497219749396,
+        0.06547347761124124,
+        -12.917007757676481
+      ],
+      "rotation_axis_angle": [
+        -0.8021482221159478,
+        -0.5959737029423054,
+        -0.03706177488276721,
+        0.3934153567941257
+      ],
+      "yaw_rad": 0.2328917827665333,
+      "encoder_rad": {
+        "front left wheel sensor": 10.657,
+        "front right wheel sensor": 4.323,
+        "rear left wheel sensor": 10.657,
+        "rear right wheel sensor": 4.323
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000107,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000107
+      }
+    },
+    {
+      "sim_time_s": 19.95,
+      "position_m": [
+        -3.025708727655302,
+        0.06879191779483113,
+        -13.72381249597825
+      ],
+      "rotation_axis_angle": [
+        -0.7923400769165858,
+        -0.6096083173426023,
+        -0.023977112806593072,
+        0.40996003484396165
+      ],
+      "yaw_rad": 0.24717009238146517,
+      "encoder_rad": {
+        "front left wheel sensor": 10.856,
+        "front right wheel sensor": 4.423,
+        "rear left wheel sensor": 10.856,
+        "rear right wheel sensor": 4.423
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 20.0,
+      "position_m": [
+        -3.0279249149739504,
+        0.07211177798102941,
+        -14.555144043546962
+      ],
+      "rotation_axis_angle": [
+        -0.7828555946035775,
+        -0.622084832858147,
+        -0.012148198456172531,
+        0.4266421184509057
+      ],
+      "yaw_rad": 0.26144241712434996,
+      "encoder_rad": {
+        "front left wheel sensor": 11.056000000000001,
+        "front right wheel sensor": 4.523,
+        "rear left wheel sensor": 11.056000000000001,
+        "rear right wheel sensor": 4.523
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 4.000000000000021,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 4.000000000000021,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 20.05,
+      "position_m": [
+        -3.030145731635553,
+        0.07543296911633972,
+        -15.411002454944011
+      ],
+      "rotation_axis_angle": [
+        -0.7737071415618335,
+        -0.6335417699160143,
+        -0.0014439071648840586,
+        0.44343995584882573
+      ],
+      "yaw_rad": 0.2757064996712556,
+      "encoder_rad": {
+        "front left wheel sensor": 11.255,
+        "front right wheel sensor": 4.623,
+        "rear left wheel sensor": 11.255,
+        "rear right wheel sensor": 4.623
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000107,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000107
+      }
+    },
+    {
+      "sim_time_s": 20.1,
+      "position_m": [
+        -3.0323711506123554,
+        0.07875543478911605,
+        -16.29138771207339
+      ],
+      "rotation_axis_angle": [
+        -0.7649016566011558,
+        -0.6440942394675606,
+        0.008250237179157599,
+        0.4603383905495564
+      ],
+      "yaw_rad": 0.28996092407261065,
+      "encoder_rad": {
+        "front left wheel sensor": 11.454,
+        "front right wheel sensor": 4.723,
+        "rear left wheel sensor": 11.454,
+        "rear right wheel sensor": 4.723
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 20.150000000000002,
+      "position_m": [
+        -3.0346011681560294,
+        0.08207914558610349,
+        -17.196299747047686
+      ],
+      "rotation_axis_angle": [
+        -0.7564415429049263,
+        -0.6538394601421016,
+        0.01703386417404264,
+        0.4773276540335098
+      ],
+      "yaw_rad": 0.304205633525192,
+      "encoder_rad": {
+        "front left wheel sensor": 11.653,
+        "front right wheel sensor": 4.822,
+        "rear left wheel sensor": 11.653,
+        "rear right wheel sensor": 4.822
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.980000000000004,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.980000000000004
+      }
+    },
+    {
+      "sim_time_s": 20.2,
+      "position_m": [
+        -3.0368357992905373,
+        0.08540408957517993,
+        -18.125738471439128
+      ],
+      "rotation_axis_angle": [
+        -0.7483247965515109,
+        -0.6628614542607363,
+        0.024993825667183917,
+        0.49440196990322854
+      ],
+      "yaw_rad": 0.31844224136873595,
+      "encoder_rad": {
+        "front left wheel sensor": 11.853,
+        "front right wheel sensor": 4.922,
+        "rear left wheel sensor": 11.853,
+        "rear right wheel sensor": 4.922
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 20.25,
+      "position_m": [
+        -3.0390750691096433,
+        0.08873026024259285,
+        -19.079703807414752
+      ],
+      "rotation_axis_angle": [
+        -0.7405448148008186,
+        -0.6712347792007136,
+        0.032206341968477874,
+        0.5115579975148544
+      ],
+      "yaw_rad": 0.3326740934694526,
+      "encoder_rad": {
+        "front left wheel sensor": 12.052,
+        "front right wheel sensor": 5.022,
+        "rear left wheel sensor": 12.052,
+        "rear right wheel sensor": 5.022
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000107,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000107
+      }
+    },
+    {
+      "sim_time_s": 20.3,
+      "position_m": [
+        -3.04131900121468,
+        0.09205764368388097,
+        -20.058195716008644
+      ],
+      "rotation_axis_angle": [
+        -0.73309024658029,
+        -0.6790272280850252,
+        0.03873904862043725,
+        0.528793275740263
+      ],
+      "yaw_rad": 0.34690607425648173,
+      "encoder_rad": {
+        "front left wheel sensor": 12.251,
+        "front right wheel sensor": 5.122,
+        "rear left wheel sensor": 12.251,
+        "rear right wheel sensor": 5.122
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 20.35,
+      "position_m": [
+        -3.043567605251494,
+        0.0953862070722055,
+        -21.061214218184407
+      ],
+      "rotation_axis_angle": [
+        -0.7259451471643523,
+        -0.6863015166406761,
+        0.04465278899726867,
+        0.5461048408739002
+      ],
+      "yaw_rad": 0.36114418605396703,
+      "encoder_rad": {
+        "front left wheel sensor": 12.451,
+        "front right wheel sensor": 5.222,
+        "rear left wheel sensor": 12.451,
+        "rear right wheel sensor": 5.222
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 4.000000000000021,
+        "front right wheel sensor": 2.0000000000000107,
+        "rear left wheel sensor": 4.000000000000021,
+        "rear right wheel sensor": 2.0000000000000107
+      }
+    },
+    {
+      "sim_time_s": 20.400000000000002,
+      "position_m": [
+        -3.045820865819794,
+        0.09871589033128968,
+        -22.08875940542997
+      ],
+      "rotation_axis_angle": [
+        -0.719089580673305,
+        -0.6931160591528411,
+        0.050003035023142815,
+        0.5634881810842077
+      ],
+      "yaw_rad": 0.3753949671937617,
+      "encoder_rad": {
+        "front left wheel sensor": 12.65,
+        "front right wheel sensor": 5.322,
+        "rear left wheel sensor": 12.65,
+        "rear right wheel sensor": 5.322
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 20.45,
+      "position_m": [
+        -3.048078734920974,
+        0.10204660248908172,
+        -23.140831438323396
+      ],
+      "rotation_axis_angle": [
+        -0.7125006873398665,
+        -0.6995250170177586,
+        0.05484087076736071,
+        0.5809366501271644
+      ],
+      "yaw_rad": 0.3896648421422571,
+      "encoder_rad": {
+        "front left wheel sensor": 12.849,
+        "front right wheel sensor": 5.422,
+        "rear left wheel sensor": 12.849,
+        "rear right wheel sensor": 5.422
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 20.5,
+      "position_m": [
+        -3.050341129551797,
+        0.10537822342383336,
+        -24.21743053356126
+      ],
+      "rotation_axis_angle": [
+        -0.7061541148479288,
+        -0.7055778647220676,
+        0.05921353643877385,
+        0.5984413982110142
+      ],
+      "yaw_rad": 0.4039595098834593,
+      "encoder_rad": {
+        "front left wheel sensor": 13.049,
+        "front right wheel sensor": 5.522,
+        "rear left wheel sensor": 13.049,
+        "rear right wheel sensor": 5.522
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 2.0000000000000107,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 2.0000000000000107
+      }
+    },
+    {
+      "sim_time_s": 20.55,
+      "position_m": [
+        -3.052607935124999,
+        0.10871061076556626,
+        -25.3185569419537
+      ],
+      "rotation_axis_angle": [
+        -0.7000256248302431,
+        -0.7113187462398313,
+        0.0631645931580531,
+        0.615991798356588
+      ],
+      "yaw_rad": 0.418283470849763,
+      "encoder_rad": {
+        "front left wheel sensor": 13.248000000000001,
+        "front right wheel sensor": 5.622,
+        "rear left wheel sensor": 13.248000000000001,
+        "rear right wheel sensor": 5.622
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9800000000000324,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.9800000000000324,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 20.6,
+      "position_m": [
+        -3.054879014292506,
+        0.11204361077678904,
+        -26.444210921427405
+      ],
+      "rotation_axis_angle": [
+        -0.6940926428475439,
+        -0.7167858818789677,
+        0.06673381964118363,
+        0.6335762683667481
+      ],
+      "yaw_rad": 0.43263976806405957,
+      "encoder_rad": {
+        "front left wheel sensor": 13.447000000000001,
+        "front right wheel sensor": 5.722,
+        "rear left wheel sensor": 13.447000000000001,
+        "rear right wheel sensor": 5.722
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000107,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000107
+      }
+    },
+    {
+      "sim_time_s": 20.650000000000002,
+      "position_m": [
+        -3.0571542197030968,
+        0.11537707131030724,
+        -27.594392709809142
+      ],
+      "rotation_axis_angle": [
+        -0.6883355281515506,
+        -0.7220112336653389,
+        0.06995698067656252,
+        0.6511833283325568
+      ],
+      "yaw_rad": 0.44702998002176575,
+      "encoder_rad": {
+        "front left wheel sensor": 13.647,
+        "front right wheel sensor": 5.822,
+        "rear left wheel sensor": 13.647,
+        "rear right wheel sensor": 5.822
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 20.7,
+      "position_m": [
+        -3.0594334084626658,
+        0.11871085457856706,
+        -28.769102501972245
+      ],
+      "rotation_axis_angle": [
+        -0.6827383909393434,
+        -0.727020558475883,
+        0.07286560979619615,
+        0.6688027033226154
+      ],
+      "yaw_rad": 0.46145445959460235,
+      "encoder_rad": {
+        "front left wheel sensor": 13.846,
+        "front right wheel sensor": 5.921,
+        "rear left wheel sensor": 13.846,
+        "rear right wheel sensor": 5.921
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.980000000000004,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.980000000000004
+      }
+    },
+    {
+      "sim_time_s": 20.75,
+      "position_m": [
+        -3.06171645571847,
+        0.1220448475225967,
+        -29.968340434935023
+      ],
+      "rotation_axis_angle": [
+        -0.6772893631867237,
+        -0.7318338898590717,
+        0.07548692713220098,
+        0.6864262840974132
+      ],
+      "yaw_rad": 0.4759127736265156,
+      "encoder_rad": {
+        "front left wheel sensor": 14.045,
+        "front right wheel sensor": 6.021,
+        "rear left wheel sensor": 14.045,
+        "rear right wheel sensor": 6.021
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 20.8,
+      "position_m": [
+        -3.064003264893017,
+        0.12537896799707854,
+        -31.19210658298542
+      ],
+      "rotation_axis_angle": [
+        -0.6719803155068531,
+        -0.7364664086763748,
+        0.07784397512096404,
+        0.7040487908978484
+      ],
+      "yaw_rad": 0.490404268420199,
+      "encoder_rad": {
+        "front left wheel sensor": 14.245000000000001,
+        "front right wheel sensor": 6.121,
+        "rear left wheel sensor": 14.245000000000001,
+        "rear right wheel sensor": 6.121
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 4.000000000000021,
+        "front right wheel sensor": 2.0000000000000107,
+        "rear left wheel sensor": 4.000000000000021,
+        "rear right wheel sensor": 2.0000000000000107
+      }
+    },
+    {
+      "sim_time_s": 20.85,
+      "position_m": [
+        -3.066293772599316,
+        0.1287131656850089,
+        -32.44040096319958
+      ],
+      "rotation_axis_angle": [
+        -0.6668060912952973,
+        -0.7409296008325142,
+        0.07995600803978999,
+        0.7216680373156623
+      ],
+      "yaw_rad": 0.5049286700964244,
+      "encoder_rad": {
+        "front left wheel sensor": 14.444,
+        "front right wheel sensor": 6.221,
+        "rear left wheel sensor": 14.444,
+        "rear right wheel sensor": 6.221
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 20.900000000000002,
+      "position_m": [
+        -3.068587947082456,
+        0.13204741749341745,
+        -33.71322355010385
+      ],
+      "rotation_axis_angle": [
+        -0.6617633914119206,
+        -0.7452325620892098,
+        0.08183912382806377,
+        0.7392847529471948
+      ],
+      "yaw_rad": 0.5194866260628732,
+      "encoder_rad": {
+        "front left wheel sensor": 14.643,
+        "front right wheel sensor": 6.321,
+        "rear left wheel sensor": 14.643,
+        "rear right wheel sensor": 6.321
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 20.95,
+      "position_m": [
+        -3.070885780042616,
+        0.135381718042959,
+        -35.01057429689322
+      ],
+      "rotation_axis_angle": [
+        -0.6568494839192972,
+        -0.7493832947516893,
+        0.0835070836639367,
+        0.7569019868566421
+      ],
+      "yaw_rad": 0.5340801032493973,
+      "encoder_rad": {
+        "front left wheel sensor": 14.842,
+        "front right wheel sensor": 6.421,
+        "rear left wheel sensor": 14.842,
+        "rear right wheel sensor": 6.421
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000107,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000107
+      }
+    },
+    {
+      "sim_time_s": 21.0,
+      "position_m": [
+        -3.0731872727837857,
+        0.13871606664814803,
+        -36.33245315968451
+      ],
+      "rotation_axis_angle": [
+        -0.6520609326096043,
+        -0.7533898461319435,
+        0.08497223022599594,
+        0.7745241729976529
+      ],
+      "yaw_rad": 0.5487125787426554,
+      "encoder_rad": {
+        "front left wheel sensor": 15.042,
+        "front right wheel sensor": 6.521,
+        "rear left wheel sensor": 15.042,
+        "rear right wheel sensor": 6.521
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 21.05,
+      "position_m": [
+        -3.0754924186637234,
+        0.1420504527985991,
+        -37.678860120836504
+      ],
+      "rotation_axis_angle": [
+        -0.6473925339535312,
+        -0.7572611614718464,
+        0.08624639301174214,
+        0.7921559887078841
+      ],
+      "yaw_rad": 0.5633889873820593,
+      "encoder_rad": {
+        "front left wheel sensor": 15.241,
+        "front right wheel sensor": 6.621,
+        "rear left wheel sensor": 15.241,
+        "rear right wheel sensor": 6.621
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000107,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000107
+      }
+    },
+    {
+      "sim_time_s": 21.1,
+      "position_m": [
+        -3.077801184629047,
+        0.1453848425003532,
+        -39.04979520748466
+      ],
+      "rotation_axis_angle": [
+        -0.6428366231013886,
+        -0.7610075623980107,
+        0.08734166229607108,
+        0.8098011724950186
+      ],
+      "yaw_rad": 0.5781154265156843,
+      "encoder_rad": {
+        "front left wheel sensor": 15.44,
+        "front right wheel sensor": 6.721,
+        "rear left wheel sensor": 15.44,
+        "rear right wheel sensor": 6.721
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 21.150000000000002,
+      "position_m": [
+        -3.0801134950244675,
+        0.14871916783133843,
+        -40.44525850215777
+      ],
+      "rotation_axis_angle": [
+        -0.638382855629528,
+        -0.7646408132825021,
+        0.08827092556987863,
+        0.8274614808204878
+      ],
+      "yaw_rad": 0.5928986565552983,
+      "encoder_rad": {
+        "front left wheel sensor": 15.64,
+        "front right wheel sensor": 6.821,
+        "rear left wheel sensor": 15.64,
+        "rear right wheel sensor": 6.821
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 4.000000000000021,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 4.000000000000021,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 21.2,
+      "position_m": [
+        -3.08242922071765,
+        0.1520533216520884,
+        -41.8652501436272
+      ],
+      "rotation_axis_angle": [
+        -0.6340184973793781,
+        -0.7681737968799207,
+        0.0890480924438111,
+        0.845135949452173
+      ],
+      "yaw_rad": 0.6077454711998318,
+      "encoder_rad": {
+        "front left wheel sensor": 15.839,
+        "front right wheel sensor": 6.921,
+        "rear left wheel sensor": 15.839,
+        "rear right wheel sensor": 6.921
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 2.0000000000000107,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 2.0000000000000107
+      }
+    },
+    {
+      "sim_time_s": 21.25,
+      "position_m": [
+        -3.084748175828281,
+        0.15538715861227548,
+        -43.30977031781375
+      ],
+      "rotation_axis_angle": [
+        -0.6297291709357472,
+        -0.7716198786191485,
+        0.08968798242990603,
+        0.862820581240768
+      ],
+      "yaw_rad": 0.6226620359433135,
+      "encoder_rad": {
+        "front left wheel sensor": 16.038,
+        "front right wheel sensor": 7.021,
+        "rear left wheel sensor": 16.038,
+        "rear right wheel sensor": 7.021
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.979999999999997,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.979999999999997,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 21.3,
+      "position_m": [
+        -3.0870701230876656,
+        0.1587205025260107,
+        -44.77881924033654
+      ],
+      "rotation_axis_angle": [
+        -0.6254999302499894,
+        -0.7749920849714966,
+        0.09020590606379861,
+        0.8805085139282122
+      ],
+      "yaw_rad": 0.6376533013828485,
+      "encoder_rad": {
+        "front left wheel sensor": 16.238,
+        "front right wheel sensor": 7.12,
+        "rear left wheel sensor": 16.238,
+        "rear right wheel sensor": 7.12
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 1.980000000000004,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 1.980000000000004
+      }
+    },
+    {
+      "sim_time_s": 21.35,
+      "position_m": [
+        -3.0893947873296304,
+        0.1620531590635363,
+        -46.272397133754495
+      ],
+      "rotation_axis_angle": [
+        -0.6213164815832124,
+        -0.7783022453519705,
+        0.09061702154197562,
+        0.8981906413545873
+      ],
+      "yaw_rad": 0.6527225860163304,
+      "encoder_rad": {
+        "front left wheel sensor": 16.437,
+        "front right wheel sensor": 7.22,
+        "rear left wheel sensor": 16.437,
+        "rear right wheel sensor": 7.22
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9800000000000324,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.9800000000000324,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 21.400000000000002,
+      "position_m": [
+        -3.0917218751567637,
+        0.16538493176720503,
+        -47.790504203397646
+      ],
+      "rotation_axis_angle": [
+        -0.6171663510148646,
+        -0.7815602437286528,
+        0.09093558488185959,
+        0.9158565861720588
+      ],
+      "yaw_rad": 0.667871393844028,
+      "encoder_rad": {
+        "front left wheel sensor": 16.636,
+        "front right wheel sensor": 7.32,
+        "rear left wheel sensor": 16.636,
+        "rear right wheel sensor": 7.32
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9799999999999613,
+        "front right wheel sensor": 2.0000000000000107,
+        "rear left wheel sensor": 3.9799999999999613,
+        "rear right wheel sensor": 2.0000000000000107
+      }
+    },
+    {
+      "sim_time_s": 21.45,
+      "position_m": [
+        -3.0940510977505142,
+        0.16871563884563576,
+        -49.33314061574732
+      ],
+      "rotation_axis_angle": [
+        -0.6130398183320359,
+        -0.7847734972242295,
+        0.0911742243941598,
+        0.9334958678397542
+      ],
+      "yaw_rad": 0.6830994919229584,
+      "encoder_rad": {
+        "front left wheel sensor": 16.836000000000002,
+        "front right wheel sensor": 7.42,
+        "rear left wheel sensor": 16.836000000000002,
+        "rear right wheel sensor": 7.42
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 4.000000000000057,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 4.000000000000057,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 21.5,
+      "position_m": [
+        -3.0963821932954287,
+        0.17204512812622674,
+        -50.9003064826496
+      ],
+      "rotation_axis_angle": [
+        -0.6089304864159446,
+        -0.7879467326050109,
+        0.09134335931160399,
+        0.9510990859212999
+      ],
+      "yaw_rad": 0.6984052310232148,
+      "encoder_rad": {
+        "front left wheel sensor": 17.035,
+        "front right wheel sensor": 7.5200000000000005,
+        "rear left wheel sensor": 17.035,
+        "rear right wheel sensor": 7.5200000000000005
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9799999999999613,
+        "front right wheel sensor": 2.0000000000000107,
+        "rear left wheel sensor": 3.9799999999999613,
+        "rear right wheel sensor": 2.0000000000000107
+      }
+    },
+    {
+      "sim_time_s": 21.55,
+      "position_m": [
+        -3.0987149456046543,
+        0.1753732879239822,
+        -52.492001853459975
+      ],
+      "rotation_axis_angle": [
+        -0.6048354204202505,
+        -0.7910820789977628,
+        0.0914508528863243,
+        0.968658946544743
+      ],
+      "yaw_rad": 0.7137860567842482,
+      "encoder_rad": {
+        "front left wheel sensor": 17.234,
+        "front right wheel sensor": 7.62,
+        "rear left wheel sensor": 17.234,
+        "rear right wheel sensor": 7.62
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9800000000000324,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.9800000000000324,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 21.6,
+      "position_m": [
+        -3.1010491961705826,
+        0.17870005229233432,
+        -54.1082267158186
+      ],
+      "rotation_axis_angle": [
+        -0.6007548577107608,
+        -0.7941794469979111,
+        0.09150195026892007,
+        0.986170993035283
+      ],
+      "yaw_rad": 0.7292391342789527,
+      "encoder_rad": {
+        "front left wheel sensor": 17.434,
+        "front right wheel sensor": 7.72,
+        "rear left wheel sensor": 17.434,
+        "rear right wheel sensor": 7.72
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 21.650000000000002,
+      "position_m": [
+        -3.103384847859488,
+        0.18202540000158496,
+        -55.74898100441922
+      ],
+      "rotation_axis_angle": [
+        -0.5966915472008258,
+        -0.7972371274446463,
+        0.09149950886695299,
+        1.0036339504624674
+      ],
+      "yaw_rad": 0.7447619971476228,
+      "encoder_rad": {
+        "front left wheel sensor": 17.633,
+        "front right wheel sensor": 7.82,
+        "rear left wheel sensor": 17.633,
+        "rear right wheel sensor": 7.82
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9799999999999613,
+        "front right wheel sensor": 2.0000000000000107,
+        "rear left wheel sensor": 3.9799999999999613,
+        "rear right wheel sensor": 2.0000000000000107
+      }
+    },
+    {
+      "sim_time_s": 21.7,
+      "position_m": [
+        -3.105721859659026,
+        0.1853493474993148,
+        -57.41426461604328
+      ],
+      "rotation_axis_angle": [
+        -0.5926498202149065,
+        -0.8002525201412697,
+        0.09144448920949681,
+        1.0210496489218341
+      ],
+      "yaw_rad": 0.7603531324892132,
+      "encoder_rad": {
+        "front left wheel sensor": 17.832,
+        "front right wheel sensor": 7.92,
+        "rear left wheel sensor": 17.832,
+        "rear right wheel sensor": 7.92
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9800000000000324,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.9800000000000324,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 21.75,
+      "position_m": [
+        -3.1080602331384917,
+        0.18867193693852244,
+        -59.104077428373614
+      ],
+      "rotation_axis_angle": [
+        -0.5886345232236578,
+        -0.8032228931821938,
+        0.09133664071599613,
+        1.038422545234512
+      ],
+      "yaw_rad": 0.7760124227025782,
+      "encoder_rad": {
+        "front left wheel sensor": 18.032,
+        "front right wheel sensor": 8.02,
+        "rear left wheel sensor": 18.032,
+        "rear right wheel sensor": 8.02
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 21.8,
+      "position_m": [
+        -3.1103999924802554,
+        0.19199322103866645,
+        -60.81841931970905
+      ],
+      "rotation_axis_angle": [
+        -0.5846499560290274,
+        -0.8061460756110811,
+        0.09117529101741262,
+        1.055758913356241
+      ],
+      "yaw_rad": 0.7917413840090498,
+      "encoder_rad": {
+        "front left wheel sensor": 18.231,
+        "front right wheel sensor": 8.120000000000001,
+        "rear left wheel sensor": 18.231,
+        "rear right wheel sensor": 8.120000000000001
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9800000000000324,
+        "front right wheel sensor": 2.0000000000000284,
+        "rear left wheel sensor": 3.9800000000000324,
+        "rear right wheel sensor": 2.0000000000000284
+      }
+    },
+    {
+      "sim_time_s": 21.85,
+      "position_m": [
+        -3.112741160963279,
+        0.1953132470086538,
+        -62.55729018668099
+      ],
+      "rotation_axis_angle": [
+        -0.580698956887988,
+        -0.8090209984431849,
+        0.09096013163576014,
+        1.0730658169213234
+      ],
+      "yaw_rad": 0.8075431674671508,
+      "encoder_rad": {
+        "front left wheel sensor": 18.43,
+        "front right wheel sensor": 8.219,
+        "rear left wheel sensor": 18.43,
+        "rear right wheel sensor": 8.219
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9799999999999613,
+        "front right wheel sensor": 1.9799999999999685,
+        "rear left wheel sensor": 3.9799999999999613,
+        "rear right wheel sensor": 1.9799999999999685
+      }
+    },
+    {
+      "sim_time_s": 21.900000000000002,
+      "position_m": [
+        -3.115083737472125,
+        0.19863204194284337,
+        -64.32068995743386
+      ],
+      "rotation_axis_angle": [
+        -0.5767822572595691,
+        -0.8118480207796309,
+        0.09069188975179661,
+        1.0903500088322304
+      ],
+      "yaw_rad": 0.8234223205110209,
+      "encoder_rad": {
+        "front left wheel sensor": 18.628,
+        "front right wheel sensor": 8.32,
+        "rear left wheel sensor": 18.628,
+        "rear right wheel sensor": 8.32
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.960000000000008,
+        "front right wheel sensor": 2.0200000000000173,
+        "rear left wheel sensor": 3.960000000000008,
+        "rear right wheel sensor": 2.0200000000000173
+      }
+    },
+    {
+      "sim_time_s": 21.95,
+      "position_m": [
+        -3.117427676797406,
+        0.20194960193937034,
+        -66.10861859846257
+      ],
+      "rotation_axis_angle": [
+        -0.5728981924089728,
+        -0.8146290077385587,
+        0.09037278841234883,
+        1.1076169170401335
+      ],
+      "yaw_rad": 0.8393843424194412,
+      "encoder_rad": {
+        "front left wheel sensor": 18.829,
+        "front right wheel sensor": 8.419,
+        "rear left wheel sensor": 18.829,
+        "rear right wheel sensor": 8.419
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 4.02000000000001,
+        "front right wheel sensor": 1.980000000000004,
+        "rear left wheel sensor": 4.02000000000001,
+        "rear right wheel sensor": 1.980000000000004
+      }
+    },
+    {
+      "sim_time_s": 22.0,
+      "position_m": [
+        -3.119772877055472,
+        0.2052658866563727,
+        -67.92107611433782
+      ],
+      "rotation_axis_angle": [
+        -0.5690428019861634,
+        -0.8173671626673261,
+        0.09000672697582582,
+        1.1248698670945065
+      ],
+      "yaw_rad": 0.855435100476495,
+      "encoder_rad": {
+        "front left wheel sensor": 19.029,
+        "front right wheel sensor": 8.519,
+        "rear left wheel sensor": 19.029,
+        "rear right wheel sensor": 8.519
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 22.05,
+      "position_m": [
+        -3.122119176470114,
+        0.20858082015845558,
+        -69.75806254075059
+      ],
+      "rotation_axis_angle": [
+        -0.5652102936230783,
+        -0.8200666527850473,
+        0.08959915720832562,
+        1.1421096580887347
+      ],
+      "yaw_rad": 0.8715801982277129,
+      "encoder_rad": {
+        "front left wheel sensor": 19.228,
+        "front right wheel sensor": 8.619,
+        "rear left wheel sensor": 19.228,
+        "rear right wheel sensor": 8.619
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9800000000000324,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.9800000000000324,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 22.1,
+      "position_m": [
+        -3.124466360177528,
+        0.21189429784577657,
+        -71.61957793244684
+      ],
+      "rotation_axis_angle": [
+        -0.561393783665561,
+        -0.8227320984907313,
+        0.08915668104355905,
+        1.1593345524621594
+      ],
+      "yaw_rad": 0.8878243969411465,
+      "encoder_rad": {
+        "front left wheel sensor": 19.427,
+        "front right wheel sensor": 8.719,
+        "rear left wheel sensor": 19.427,
+        "rear right wheel sensor": 8.719
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9799999999999613,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.9799999999999613,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 22.150000000000002,
+      "position_m": [
+        -3.1268141759443537,
+        0.2152061982070817,
+        -73.50562234846122
+      ],
+      "rotation_axis_angle": [
+        -0.5575861849613167,
+        -0.8253680155651637,
+        0.0886864432836714,
+        1.1765406714353301
+      ],
+      "yaw_rad": 0.9041711828492263,
+      "encoder_rad": {
+        "front left wheel sensor": 19.627,
+        "front right wheel sensor": 8.819,
+        "rear left wheel sensor": 19.627,
+        "rear right wheel sensor": 8.819
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 2.0000000000000284,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 2.0000000000000284
+      }
+    },
+    {
+      "sim_time_s": 22.2,
+      "position_m": [
+        -3.129162356107403,
+        0.21851639731856665,
+        -75.41619583740565
+      ],
+      "rotation_axis_angle": [
+        -0.5537810919088524,
+        -0.8279783022821304,
+        0.08819542615260806,
+        1.1937227206822623
+      ],
+      "yaw_rad": 0.9206225472278757,
+      "encoder_rad": {
+        "front left wheel sensor": 19.826,
+        "front right wheel sensor": 8.919,
+        "rear left wheel sensor": 19.826,
+        "rear right wheel sensor": 8.919
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9800000000000324,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.9800000000000324,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 22.25,
+      "position_m": [
+        -3.1315106419850345,
+        0.2218247835916187,
+        -77.35129842536678
+      ],
+      "rotation_axis_angle": [
+        -0.5499735210980288,
+        -0.8305658499218624,
+        0.08768976584875936,
+        1.21087491910668
+      ],
+      "yaw_rad": 0.9371790094787495,
+      "encoder_rad": {
+        "front left wheel sensor": 20.025000000000002,
+        "front right wheel sensor": 9.019,
+        "rear left wheel sensor": 20.025000000000002,
+        "rear right wheel sensor": 9.019
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9800000000000324,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.9800000000000324,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 22.3,
+      "position_m": [
+        -3.1338588066577735,
+        0.22513127031827618,
+        -79.3109301082929
+      ],
+      "rotation_axis_angle": [
+        -0.5461603979595295,
+        -0.8331323292605041,
+        0.08717420284496631,
+        1.2279919766220733
+      ],
+      "yaw_rad": 0.9538398731089046,
+      "encoder_rad": {
+        "front left wheel sensor": 20.225,
+        "front right wheel sensor": 9.119,
+        "rear left wheel sensor": 20.225,
+        "rear right wheel sensor": 9.119
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 22.35,
+      "position_m": [
+        -3.1362066723716637,
+        0.22843580402469682,
+        -81.29509084979895
+      ],
+      "rotation_axis_angle": [
+        -0.5423407268960848,
+        -0.8356781736404657,
+        0.08665175157353583,
+        1.245069967052873
+      ],
+      "yaw_rad": 0.970603668495151,
+      "encoder_rad": {
+        "front left wheel sensor": 20.424,
+        "front right wheel sensor": 9.219,
+        "rear left wheel sensor": 20.424,
+        "rear right wheel sensor": 9.219
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9799999999999613,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.9799999999999613,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 22.400000000000002,
+      "position_m": [
+        -3.13855411974267,
+        0.23173836739246706,
+        -83.30378058430355
+      ],
+      "rotation_axis_angle": [
+        -0.5385154340222996,
+        -0.8382027477161665,
+        0.08612363810733152,
+        1.2621069658811195
+      ],
+      "yaw_rad": 0.987468709826415,
+      "encoder_rad": {
+        "front left wheel sensor": 20.623,
+        "front right wheel sensor": 9.319,
+        "rear left wheel sensor": 20.623,
+        "rear right wheel sensor": 9.319
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9800000000000324,
+        "front right wheel sensor": 2.0000000000000284,
+        "rear left wheel sensor": 3.9800000000000324,
+        "rear right wheel sensor": 2.0000000000000284
+      }
+    },
+    {
+      "sim_time_s": 22.45,
+      "position_m": [
+        -3.140901087232016,
+        0.23503897639179333,
+        -85.33699922452487
+      ],
+      "rotation_axis_angle": [
+        -0.5346869194153544,
+        -0.8407046647850612,
+        0.08558951346254902,
+        1.2791033623932342
+      ],
+      "yaw_rad": 1.0044336789244472,
+      "encoder_rad": {
+        "front left wheel sensor": 20.823,
+        "front right wheel sensor": 9.419,
+        "rear left wheel sensor": 20.823,
+        "rear right wheel sensor": 9.419
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 22.5,
+      "position_m": [
+        -3.1432475608238346,
+        0.23833767215301474,
+        -87.39474667172253
+      ],
+      "rotation_axis_angle": [
+        -0.5308583944840743,
+        -0.8431821973388823,
+        0.0850479105949405,
+        1.2960618043964984
+      ],
+      "yaw_rad": 1.0214981458688577,
+      "encoder_rad": {
+        "front left wheel sensor": 21.022000000000002,
+        "front right wheel sensor": 9.519,
+        "rear left wheel sensor": 21.022000000000002,
+        "rear right wheel sensor": 9.519
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9800000000000324,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.9800000000000324,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 22.55,
+      "position_m": [
+        -3.1455935553028027,
+        0.24163450888019183,
+        -89.47702282673463
+      ],
+      "rotation_axis_angle": [
+        -0.5270331072116435,
+        -0.8456337158579974,
+        0.08449687868220859,
+        1.3129867851272805
+      ],
+      "yaw_rad": 1.038662944738069,
+      "encoder_rad": {
+        "front left wheel sensor": 21.221,
+        "front right wheel sensor": 9.618,
+        "rear left wheel sensor": 21.221,
+        "rear right wheel sensor": 9.618
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9799999999999613,
+        "front right wheel sensor": 1.980000000000004,
+        "rear left wheel sensor": 3.9799999999999613,
+        "rear right wheel sensor": 1.980000000000004
+      }
+    },
+    {
+      "sim_time_s": 22.6,
+      "position_m": [
+        -3.147939089851565,
+        0.24492953970494216,
+        -91.58382759983368
+      ],
+      "rotation_axis_angle": [
+        -0.5232135722639628,
+        -0.8480580897830908,
+        0.08393470171650178,
+        1.3298839317245201
+      ],
+      "yaw_rad": 1.0559303415309549,
+      "encoder_rad": {
+        "front left wheel sensor": 21.421,
+        "front right wheel sensor": 9.718,
+        "rear left wheel sensor": 21.421,
+        "rear right wheel sensor": 9.718
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.999999999999986,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.999999999999986,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 22.650000000000002,
+      "position_m": [
+        -3.1502841617032966,
+        0.2482228027221638,
+        -93.7151609177012
+      ],
+      "rotation_axis_angle": [
+        -0.5194009228249584,
+        -0.8504549917128172,
+        0.0833605928441822,
+        1.3467590982899302
+      ],
+      "yaw_rad": 1.073303959506876,
+      "encoder_rad": {
+        "front left wheel sensor": 21.62,
+        "front right wheel sensor": 9.818,
+        "rear left wheel sensor": 21.62,
+        "rear right wheel sensor": 9.818
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9800000000000324,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.9800000000000324,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 22.7,
+      "position_m": [
+        -3.1526287221090157,
+        0.2515143094784038,
+        -95.87102272636231
+      ],
+      "rotation_axis_angle": [
+        -0.5155944849830424,
+        -0.8528250607559945,
+        0.08277525476617832,
+        1.3636173986524889
+      ],
+      "yaw_rad": 1.0907884627271391,
+      "encoder_rad": {
+        "front left wheel sensor": 21.819,
+        "front right wheel sensor": 9.918000000000001,
+        "rear left wheel sensor": 21.819,
+        "rear right wheel sensor": 9.918000000000001
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9799999999999613,
+        "front right wheel sensor": 2.0000000000000284,
+        "rear left wheel sensor": 3.9799999999999613,
+        "rear right wheel sensor": 2.0000000000000284
+      }
+    },
+    {
+      "sim_time_s": 22.75,
+      "position_m": [
+        -3.154972658740705,
+        0.254804037855251,
+        -98.05141298966483
+      ],
+      "rotation_axis_angle": [
+        -0.5117916432828774,
+        -0.8551699025091056,
+        0.08218121262416772,
+        1.3804623281269695
+      ],
+      "yaw_rad": 1.1083890373126886,
+      "encoder_rad": {
+        "front left wheel sensor": 22.019000000000002,
+        "front right wheel sensor": 10.018,
+        "rear left wheel sensor": 22.019000000000002,
+        "rear right wheel sensor": 10.018
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 4.000000000000057,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 4.000000000000057,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    },
+    {
+      "sim_time_s": 22.8,
+      "position_m": [
+        -3.157315787766408,
+        0.2580919306127621,
+        -100.25633168371726
+      ],
+      "rotation_axis_angle": [
+        -0.5079880205398251,
+        -0.8574919288635923,
+        0.08158285924032231,
+        1.3972951143703698
+      ],
+      "yaw_rad": 1.126110745325077,
+      "encoder_rad": {
+        "front left wheel sensor": 22.218,
+        "front right wheel sensor": 10.118,
+        "rear left wheel sensor": 22.218,
+        "rear right wheel sensor": 10.118
+      },
+      "encoder_rate_rad_s": {
+        "front left wheel sensor": 3.9799999999999613,
+        "front right wheel sensor": 1.999999999999993,
+        "rear left wheel sensor": 3.9799999999999613,
+        "rear right wheel sensor": 1.999999999999993
+      }
+    }
+  ]
+}

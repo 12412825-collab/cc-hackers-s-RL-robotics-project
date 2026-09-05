@@ -1,0 +1,236 @@
+{
+  "probe": "phase1ar_physics_sanity",
+  "timestamp_utc": "2026-09-05T16:04:29.589898+00:00",
+  "suite": "all",
+  "coordinate_note": "Webots default Y-up: vertical=Y; floor plane=X-Z; gravity acts along -Y.",
+  "wheel_radius_m": 0.0325,
+  "basic_time_step_ms": 50,
+  "python_pose_integration": false,
+  "pose_source": "Supervisor.getSelf().getPosition() + rotation field",
+  "robot_name": "four_wheel_robot",
+  "segments": [
+    {
+      "label": "A_zero_command",
+      "command_left_rad_s": 0.0,
+      "command_right_rad_s": 0.0,
+      "n_controller_steps_after_prime": 80,
+      "timestep_ms": 50,
+      "sim_time_start_s": 0.6,
+      "sim_time_end_s": 4.6000000000000005,
+      "sim_duration_s": 4.000000000000001,
+      "initial_position_m": [
+        -3.0,
+        0.0325,
+        -1.348875
+      ],
+      "final_position_m": [
+        -3.0,
+        0.0325,
+        -100.42987500000002
+      ],
+      "delta_position_m": [
+        0.0,
+        0.0,
+        -99.08100000000002
+      ],
+      "distance_m": 99.08100000000002,
+      "initial_yaw_rad": -9.842388856064662e-33,
+      "final_yaw_rad": -8.505074150634556e-30,
+      "delta_yaw_rad": -8.495231761778491e-30,
+      "expected_no_slip_distance_m": 0.0,
+      "distance_over_expected": null,
+      "mean_observed_wheel_rate_rad_s": {
+        "front left wheel sensor": 0.0,
+        "front right wheel sensor": 0.0,
+        "rear left wheel sensor": 0.0,
+        "rear right wheel sensor": 0.0
+      }
+    },
+    {
+      "label": "B_symmetric_slow",
+      "command_left_rad_s": 1.0,
+      "command_right_rad_s": 1.0,
+      "n_controller_steps_after_prime": 80,
+      "timestep_ms": 50,
+      "sim_time_start_s": 5.15,
+      "sim_time_end_s": 9.15,
+      "sim_duration_s": 4.0,
+      "initial_position_m": [
+        -3.000012821833964,
+        0.03250000584528485,
+        -1.3488750000000096
+      ],
+      "final_position_m": [
+        -3.0351433345277763,
+        0.08305348852147892,
+        -100.39160572936623
+      ],
+      "delta_position_m": [
+        -0.0351305126938124,
+        0.05055348267619408,
+        -99.04273072936623
+      ],
+      "distance_m": 99.04274986154857,
+      "initial_yaw_rad": 1.1113590140621098e-09,
+      "final_yaw_rad": 0.28133907627520727,
+      "delta_yaw_rad": 0.28133907516384826,
+      "expected_no_slip_distance_m": 0.13,
+      "distance_over_expected": 761.8673066272967,
+      "mean_observed_wheel_rate_rad_s": {
+        "front left wheel sensor": 0.9995121951219514,
+        "front right wheel sensor": 0.9995121951219514,
+        "rear left wheel sensor": 0.9995121951219514,
+        "rear right wheel sensor": 0.9995121951219514
+      }
+    },
+    {
+      "label": "C_differential",
+      "command_left_rad_s": 1.5,
+      "command_right_rad_s": 0.5,
+      "n_controller_steps_after_prime": 80,
+      "timestep_ms": 50,
+      "sim_time_start_s": 9.700000000000001,
+      "sim_time_end_s": 13.700000000000001,
+      "sim_duration_s": 4.0,
+      "initial_position_m": [
+        -3.000469277685678,
+        0.0330816380928466,
+        -1.348223007688633
+      ],
+      "final_position_m": [
+        -3.038823471345232,
+        0.07321357249006098,
+        -100.38460572486083
+      ],
+      "delta_position_m": [
+        -0.03835419365955417,
+        0.04013193439721438,
+        -99.0363827171722
+      ],
+      "distance_m": 99.0363982751722,
+      "initial_yaw_rad": 0.0019402459066673807,
+      "final_yaw_rad": 0.16315431267113756,
+      "delta_yaw_rad": 0.16121406676447017,
+      "expected_no_slip_distance_m": 0.13,
+      "distance_over_expected": 761.8184482705553,
+      "mean_observed_wheel_rate_rad_s": {
+        "front left wheel sensor": 1.4990243902439027,
+        "front right wheel sensor": 0.4999999999999997,
+        "rear left wheel sensor": 1.4990243902439027,
+        "rear right wheel sensor": 0.4999999999999997
+      }
+    },
+    {
+      "label": "D_reverse",
+      "command_left_rad_s": -1.0,
+      "command_right_rad_s": -1.0,
+      "n_controller_steps_after_prime": 80,
+      "timestep_ms": 50,
+      "sim_time_start_s": 14.25,
+      "sim_time_end_s": 18.25,
+      "sim_duration_s": 4.0,
+      "initial_position_m": [
+        -2.999987178166036,
+        0.03250000584528485,
+        -1.3488750000229761
+      ],
+      "final_position_m": [
+        -2.980226556403598,
+        0.0669088624609231,
+        -100.41397852973076
+      ],
+      "delta_position_m": [
+        0.019760621762438202,
+        0.03440885661563826,
+        -99.06510352970778
+      ],
+      "distance_m": 99.06511147625741,
+      "initial_yaw_rad": -1.1812334507064855e-10,
+      "final_yaw_rad": -0.001469293041600417,
+      "delta_yaw_rad": -0.0014692929234770718,
+      "expected_no_slip_distance_m": 0.13,
+      "distance_over_expected": 762.039319048134,
+      "mean_observed_wheel_rate_rad_s": {
+        "front left wheel sensor": -1.0000000000000004,
+        "front right wheel sensor": -0.9995121951219511,
+        "rear left wheel sensor": -1.0000000000000004,
+        "rear right wheel sensor": -0.9995121951219511
+      }
+    },
+    {
+      "label": "LEGACY_probe_4_2",
+      "command_left_rad_s": 4.0,
+      "command_right_rad_s": 2.0,
+      "n_controller_steps_after_prime": 80,
+      "timestep_ms": 50,
+      "sim_time_start_s": 18.8,
+      "sim_time_end_s": 22.8,
+      "sim_duration_s": 4.0,
+      "initial_position_m": [
+        -3.0000399504035418,
+        0.03429571791948789,
+        -1.3479410598482724
+      ],
+      "final_position_m": [
+        -3.157315787766408,
+        0.2580919306127621,
+        -100.25633168371726
+      ],
+      "delta_position_m": [
+        -0.15727583736286643,
+        0.2237962126932742,
+        -98.908390623869
+      ],
+      "distance_m": 98.90876885411976,
+      "initial_yaw_rad": -1.0869718810248693e-05,
+      "final_yaw_rad": 1.126110745325077,
+      "delta_yaw_rad": 1.126121615043887,
+      "expected_no_slip_distance_m": 0.39,
+      "distance_over_expected": 253.6122278310763,
+      "mean_observed_wheel_rate_rad_s": {
+        "front left wheel sensor": 3.9868292682926825,
+        "front right wheel sensor": 1.9985365853658543,
+        "rear left wheel sensor": 3.9868292682926825,
+        "rear right wheel sensor": 1.9985365853658543
+      }
+    }
+  ],
+  "gates": {
+    "A_zero": {
+      "pass": false,
+      "distance_m": 99.08100000000002,
+      "delta_y_m": 0.0
+    },
+    "B_symmetric_scale": {
+      "pass": false,
+      "ratio": 761.8673066272967,
+      "distance_m": 99.04274986154857
+    },
+    "C_differential": {
+      "pass": false,
+      "delta_yaw_rad": 0.16121406676447017,
+      "distance_m": 99.0363982751722
+    },
+    "D_no_explosion": {
+      "pass": false,
+      "issues": [
+        "B_symmetric_slow: distance ratio 761.9x",
+        "C_differential: distance ratio 761.8x",
+        "D_reverse: distance ratio 762.0x",
+        "LEGACY_probe_4_2: vertical jump 0.224m",
+        "LEGACY_probe_4_2: distance ratio 253.6x"
+      ]
+    },
+    "E_sim_clock": {
+      "pass": true,
+      "per_segment_sim_duration_s": [
+        4.000000000000001,
+        4.0,
+        4.0,
+        4.0,
+        4.0
+      ],
+      "expected_per_segment_s": 4.0
+    }
+  }
+}

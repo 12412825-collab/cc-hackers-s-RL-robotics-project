@@ -11,6 +11,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 DEFAULT_WORLD = REPO / "simulation" / "worlds" / "four_wheel_track_phase1ar_probe.wbt"
+SANITY_WORLD = REPO / "simulation" / "worlds" / "four_wheel_track_phase1ar_sanity.wbt"
 HISTORICAL_WORLD = REPO / "simulation" / "worlds" / "four_wheel_track.wbt"
 WEBOTS_CANDIDATES = [
     Path(os.environ.get("WEBOTS_HOME", r"C:\Program Files\Webots"))
