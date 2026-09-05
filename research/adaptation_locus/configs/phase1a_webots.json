@@ -1,0 +1,19 @@
+{
+  "online_steps": 2000,
+  "smoke_online_steps": 400,
+  "eval_interval": 200,
+  "eval_episodes": 4,
+  "recovery_threshold": 0.8,
+  "plant": "webots_faithful",
+  "amendment": "W-1",
+  "residual_angular_scale": 0.75,
+  "severities": {
+    "imu_bias_rad_s": {"0": 0.0, "small": 0.05, "medium": 0.15, "large": 0.30},
+    "motor_delta": {"0": 0.0, "small": 0.02, "medium": 0.04, "large": 0.06}
+  },
+  "seeds": {
+    "smoke": [0],
+    "debug": [0, 1, 2],
+    "decision": [0, 1, 2, 3, 4]
+  }
+}
