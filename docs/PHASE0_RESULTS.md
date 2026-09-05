@@ -2,6 +2,7 @@
 
 **Decision stage completed:** 2026-09-05  
 **Branch:** `research/adaptation-locus-phase0`  
+**Frozen results commit:** `273a4c4`  
 **Preregistration commit:** `974bba0`  
 **Implementation commit (pre-decision):** `7d40c61`  
 **Protocol amendments:** `docs/PHASE0_PROTOCOL_AMENDMENT.md` (A2-1, M-1, R-1)  
