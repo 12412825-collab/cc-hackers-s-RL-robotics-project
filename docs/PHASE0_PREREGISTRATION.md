@@ -110,9 +110,13 @@ g_L = 1 + \delta,\qquad g_R = 1 - \delta
 | Label | \(\delta\) |
 |-------|------------|
 | 0 | 0.0 |
-| small | 0.05 |
-| medium | 0.15 |
-| large | 0.30 |
+| small | 0.015 |
+| medium | 0.03 |
+| large | 0.045 |
+
+> **Amendment M-1 (2026-09-05):** After Phase-0 plant closure (differential-drive yaw integration), example δ ∈ {0.05, 0.15, 0.30} and even intermediate values exceed recoverable disturbance relative to frozen base clip (±30° ⇒ ~3 deg/s yaw authority). Severities set to the table above.
+
+> **Amendment R-1 (2026-09-05):** Phase-0 `max_residual_deg` set to **10.0** (historical hard-code was 3.0). With ±3°, residual yaw authority is only ~0.3 deg/s and cannot test policy-level recovery under dynamics mismatch. Bound remains hard-clipped; hypotheses unchanged.
 
 ### 4.3 Explicitly excluded in Phase-0
 

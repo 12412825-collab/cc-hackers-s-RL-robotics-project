@@ -17,9 +17,9 @@
 | Label | `imu_bias` (deg/s) | `motor_asymmetry` δ |
 |-------|--------------------:|--------------------:|
 | 0 | 0.0 | 0.0 |
-| small | 0.5 | 0.05 |
-| medium | 1.5 | 0.15 |
-| large | 3.0 | 0.30 |
+| small | 0.5 | 0.015 |
+| medium | 1.5 | 0.03 |
+| large | 3.0 | 0.045 |
 
 When `mismatch_family=imu_bias`, motor δ=0.  
 When `mismatch_family=motor_asymmetry`, IMU bias=0.

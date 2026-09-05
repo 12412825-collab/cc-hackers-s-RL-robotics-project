@@ -1,0 +1,18 @@
+{
+  "online_steps": 2000,
+  "smoke_online_steps": 600,
+  "eval_interval": 200,
+  "eval_episodes": 4,
+  "recovery_threshold": 0.8,
+  "severities": {
+    "imu_bias_deg_s": {"0": 0.0, "small": 0.5, "medium": 1.5, "large": 3.0},
+    "motor_delta": {"0": 0.0, "small": 0.015, "medium": 0.03, "large": 0.045}
+  },
+  "seeds": {
+    "smoke": [0],
+    "debug": [0, 1, 2],
+    "decision": [0, 1, 2, 3, 4]
+  },
+  "adaptations": ["A0", "A1", "A2"],
+  "families": ["imu_bias", "motor_asymmetry"]
+}
