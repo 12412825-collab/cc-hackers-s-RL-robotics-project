@@ -2,6 +2,7 @@
 
 **Decision completed:** 2026-09-05  
 **Branch:** `research/adaptation-locus-phase1a-webots`  
+**Frozen results commit:** `349e269`  
 **Preregistration commit:** `8c11a37`  
 **Implementation commit:** `6ac8d7b`  
 **Parent Phase-0 frozen results:** `273a4c4`  
